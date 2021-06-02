@@ -1,0 +1,10 @@
+.pre-header .facebook,
+.pre-header .twitter {
+	display: none;
+}
+
+.header-tagline {
+font-family: 'TradeGothicW01-BoldExte', sans-serif;
+font-weight: normal;
+font-size: 18px;
+}

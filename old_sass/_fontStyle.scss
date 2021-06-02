@@ -1,0 +1,325 @@
+.primary, a.primary {
+	@include fontTradeGothicBold;
+	
+	&.uppercase {
+		@include uppercase;
+	}
+	
+	color: $colorHighlight;
+}
+
+a.primary:hover {
+	color: $colorHighlightHover;
+}
+
+.secondary, a.secondary {
+	@include fontTradeGothicExtended;
+	
+	&.uppercase {
+		@include uppercase;
+	}
+	
+	color: $colorHighlight;
+}
+
+a.primary:hover, a.secondary:hover {
+	color: $colorHighlightHover;
+}
+
+.secondary-small {
+	@include fontTradeGothicExtended;
+	@include uppercase;
+
+	font-size: 14px;
+	line-height: 130%;
+	color: $colorHighlight;
+}
+
+
+input[type='text'] {
+	color: $colorMain;
+	font-size: 14px;
+}
+
+input[type='submit'], input[type='button'] {
+	@include fontTradeGothicExtended;
+	@include uppercase;
+	color: $colorBackground1;
+	font-size: 14px;
+	
+}
+
+
+.main-menu {
+	@include fontTradeGothicExtended;
+	@include uppercase;
+	font-size: 16px;
+	
+	a {
+		color: $colorMain;
+		
+		&:hover {
+			color: $colorMainLinkHover;
+		}
+	}
+}
+
+.header-tagline {
+	@include fontUnivers55;
+	font-size: 14px;
+	color: $colorHighlight;
+}
+
+.secondary-menu {
+	a {
+		font-size: 14px;
+	}
+}
+
+.child-menu {
+	a {
+		@include fontTradeGothicExtended;
+		font-size: 16px;
+		color: $colorBackground1;
+		
+		&:hover {
+			color: $colorMainLinkHover;
+		}
+	}
+}
+
+.touch-device .child-menu a:hover {
+	color: $colorBackground1;
+}
+
+.current-menu-item, .current-menu-ancestor {
+	a {
+			color: $colorMainLinkHover;
+	}
+}
+
+.footer {
+	font-size: 12px;
+	color: $colorHighlightHover;
+}
+
+a.go-to-project {
+	color: $colorBackground1;
+	line-height: 120%;
+
+	.project-title {
+		@include fontUnivers55;
+		color: $colorBackground2;
+	}
+	
+	&:hover {
+		color: $colorBackground2;
+	}
+	
+	@media only screen 
+		and (min-width : 768px) 
+		and (max-width : 1024px)
+		and (max-height : 700px) {
+		font-size: 14px;
+	} 
+}
+
+.tagline-wrap {
+	.tagline {
+		@include fontTradeGothicExtended;
+	
+		text-transform: uppercase;
+		font-size: 48px;
+		line-height: 130%;
+		color: $colorBackground1;
+		
+		@include landscape {
+			font-size: 32px;
+		}
+		
+		@include portrait {
+			font-size: 26px;
+		}
+		
+		@include mobile {
+			font-size: 16px;
+		}
+		
+		b,strong {
+			@include fontTradeGothicBold;
+		}
+		
+		.call-to-action {
+			@include fontTradeGothicExtended;
+			@include uppercase;
+			
+			font-size: 18px;
+				
+			@include mobile {
+				font-size: 14px;
+			}
+			
+			line-height: 130%;
+			color: $colorBackground1;
+			
+			&:hover {
+				//color: $colorMain;
+			}
+		}
+	}
+}
+
+.tagline {
+	@include fontTradeGothicExtended;
+	font-size: 20px;
+	color: $colorHighlight;
+	line-height: 130%;
+}
+
+.quotes {
+	@include fontTradeGothicExtended;
+	color: $colorHighlight;
+	
+	.quote-author {
+		text-align: right;
+	}
+}
+
+.service {
+	font-size: 14px;
+	line-height: 130%;
+}
+
+.news-filters {
+	a {
+		@include fontTradeGothicExtended;
+		@include uppercase;
+		font-size: 14px;
+		
+		@include notFullSize {
+			font-size: 12px;
+		}
+		
+		&.selected {
+			color: $colorBackground1;
+		}
+	}
+}
+
+.news-item {
+	.news-link {
+		@include fontUnivers55;
+		font-size: 18px;
+		line-height: 130%;
+	}
+	
+	.news-tax {
+		@include uppercase;
+	
+		font-size: 14px;
+		lineheight: 130%;
+		color: $colorBackground3;
+		
+		a {
+			color: $colorBackground3;
+			
+			&:hover {
+				color: $colorHighlight;
+			}
+		}
+	}
+
+	a.selected {
+		color: $colorHighlight;
+	}
+}
+
+.project-filters {
+	a {
+		line-height: 150%;
+	}
+	
+	.selected {
+		color: $colorHighlight;
+	}
+}
+
+.overlay {
+	@include fontTradeGothicExtended;
+	@include uppercase;
+	
+	font-size: 14px;
+	color: $colorBackground1;
+}
+
+.excerpt, .excerpt a {
+	font-size: 14px;
+	line-height: 130%;
+}
+
+.title, .title a {
+	@include fontTradeGothicExtended;
+	font-size: 14px;
+	line-height: 130%;
+	color: $colorHighlight;
+}
+
+.title a:hover {
+	color: $colorHighlightHover;
+}
+
+#project-list {
+	th a {
+		@include fontTradeGothicExtended;
+		@include uppercase;
+		font-size: 14px;
+		
+		&.selected {
+			color: $colorHighlight;
+		}
+	}
+}
+
+.project-detail-right {
+	h1 {
+		font-size: 20px;
+		line-height: 130%;
+	}
+	
+	h2 {
+		font-size: 14px;
+		line-height: 130%;
+	}
+}
+
+#main_content
+{
+	.gform_wrapper 
+	{
+		h3.gform_title {
+			@extend .secondary;
+			@include uppercase;
+		}
+		
+		.gfield_label {
+			font-weight: normal;
+		}
+		
+		.validation_error {
+			color: $colorHighlight;
+		}
+						
+		.gfield_error .gfield_label {
+			color: $colorHighlight;
+		}
+		
+	}
+}
+
+.list-view-icon.selected {
+	color: $colorHighlight;
+}
+
+.mobile-filters {
+	@extend .primary;
+}

@@ -1,0 +1,58 @@
+/**
+ * CSS Developed for Natoli
+ *
+ * Developed by Adam Fitzgarrald
+ *
+ * Designed by Wyman Projects / www.wymanprojects.com
+ *
+ */
+//
+// Reset
+//
+@import "reset";
+
+//
+// Site colors
+//
+@import "colors";
+
+// 
+// Pull in fonts
+//
+@import "fonts";
+ 
+//
+// Useful mixins
+//
+@mixin print {
+	@media print { @content; }
+}
+
+@mixin plainList {
+	
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		margin: 0;
+		padding: 0;
+	}
+}
+@mixin print-hide {
+	@include print {
+		display: none !important;
+	}
+}
+@mixin print-show {
+	@include print {
+		display: block !important;
+	}
+}
+
+//
+// Layout
+//
+#tinymce {
+	padding: 10px;
+}

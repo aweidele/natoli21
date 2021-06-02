@@ -1,0 +1,1329 @@
+/*!
+ * CSS Developed for Natoli
+ *
+ * Developed by Adam Fitzgarrald
+ *
+ * Designed by Wyman Projects / www.wymanprojects.com
+ *
+ */
+//
+// Bring in compass helpers
+//
+// @import "compass/css3";
+
+//
+// Reset
+//
+@import "reset";
+
+//
+// Site colors
+//
+@import "colors";
+//
+// Pull in sizing
+//
+@import "sizes";
+//
+// Pull in fonts
+//
+@import "fonts";
+@import "fontStyle";
+
+//
+// Generic mixins
+//
+@import "mixins";
+
+//
+// Menu styles
+//
+@import "slicknav";
+
+//
+// Sprite offsets
+//
+@mixin spriteFor($i, $hover: false) {
+	background: url(../images/sprite.png) no-repeat $i;
+
+	@if $hover != false {
+		&:hover, &.selected {
+			background: url(../images/sprite.png) no-repeat $hover;
+		}
+	}
+}
+$iconFacebook: 0 0;
+$iconFacebookHover: -16px 0;
+$iconTwitter: 0 -16px;
+$iconTwitterHover: -16px -16px;
+$iconNext: 0 -32px;
+$iconNextHover: -17px -32px;
+$iconGrid: 0 -46px;
+$iconGridHover: -17px -46px;
+$iconList: 0 -63px;
+$iconListHover: -17px -63px;
+$iconProject: 0 -80px;
+$iconArrow: -17px -80px;
+$iconPrev: 0 -97px;
+$iconPrevHover: -17px -97px;
+
+//
+// Layout
+//
+html {
+}
+
+body {
+	background-color: $colorBackground1;
+}
+
+input[type='text'] {
+	box-sizing: border-box;
+	@include fontUnivers;
+	height: 30px;
+	background-color: $colorBackground2;
+	padding: 8px 5px;
+	border: 0;
+}
+
+#searchform input[type='text'] {
+	background-color: $colorInput;
+}
+
+input[type='submit'], input[type='button'] {
+	box-sizing: border-box;
+
+	display: inline-block;
+	border: 0;
+	height: 40px;
+	width: 110px;
+	background-color: $colorHighlightHover;
+
+	&:hover {
+		background-color: $colorHighlight;
+	}
+}
+
+.wrapper {
+	max-width: $contentWidth;
+	margin: 0 $contentMargin;
+	position: relative;
+}
+
+.wrapper-full {
+	box-sizing: border-box;
+
+	width: 100%;
+	@include notMobile {
+		padding-left: $contentMargin;
+	}
+	position: relative;
+}
+
+.background-1 {
+	background-color: $colorBackground1;
+}
+
+.background-2 {
+	background-color: $colorBackground2;
+}
+
+.align-right {
+	float: right;
+}
+
+.fixed-header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 1001;
+}
+
+@include notMobile {
+	.admin-bar .fixed-header {
+		top: 32px;
+	}
+}
+
+.pre-header {
+	height: $preheaderSize;
+	background-color: $colorBackground2;
+
+	.wrapper > * {
+		float: right;
+	}
+
+	.header-tagline {
+		float: left;
+		margin-left: 260px;
+		line-height: $preheaderSize;
+		margin-top: 2px;
+
+		@media only screen
+			and (max-width : 1120px)
+		{
+			margin-left: 120px;
+			font-size: 14px;
+		}
+	}
+
+	.facebook {
+		margin: ($preheaderSize - 16px)/2 9px 0 0;
+		height: 16px;
+		width: 16px;
+		display: inline-block;
+
+		@include spriteFor($iconFacebook, $iconFacebookHover);
+	}
+
+	.twitter {
+		@extend .facebook;
+
+		@include spriteFor($iconTwitter, $iconTwitterHover);
+	}
+
+	input {
+		width: 160px;
+	}
+}
+
+.header {
+	@extend .background-1;
+
+	@include mobile {
+		padding-top: 20px;
+		height: 48px;
+	}
+
+	.wrapper {
+		height: $headerSize;
+
+		@include mobile {
+			height: 48px;
+		}
+	}
+
+	#logo {
+		position: absolute;
+		top: -16px;
+		left: 13px;
+
+		@include mobile {
+			left: -10px;
+
+			img {
+				width: 150px;
+			}
+		}
+	}
+
+	nav {
+		position: absolute;
+		bottom: 17px;
+	}
+
+	.main-menu {
+		left: 260px;
+
+		@include fullSize {
+			width: 100%;
+		}
+		li {
+			float: left;
+
+			@include fullSize {
+				margin-right: 45px;
+			}
+
+			@include landscape {
+				margin-right: 30px;
+			}
+
+			@include portrait {
+				margin-right: 30px;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		@media only screen
+			and (max-width : 1120px)
+		{
+			bottom: 45px;
+			right: 0;
+			left: auto;
+		}
+	}
+
+	.secondary-menu {
+		right: 0;
+
+		li {
+			float: left;
+			margin-left: 20px;
+		}
+	}
+}
+
+.subheader {
+	@include attribute_rgba(background-color, $colorBackground3, 0.9);
+
+	max-height: $subMenuSize;
+
+	.child-menu {
+		margin-left: 260px;
+
+		@media only screen
+			and (max-width : 900px)
+		{
+			margin-left: 100px;
+		}
+
+		ul {
+			max-height: $subMenuSize;
+
+			li {
+				float: left;
+				margin-top: 5px;
+				margin-bottom: 5px;
+
+				@include fullSize {
+					margin-right: 35px;
+				}
+
+				@include landscape {
+					margin-right: 25px;
+				}
+
+				@include portrait {
+					margin-right: 25px;
+				}
+
+			}
+		}
+	}
+}
+
+.slide-wrap, .tagline-wrap {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+
+	img {
+		position: relative;
+
+		&.portrait {
+			@include mobileInPortrait {
+				display: none;
+			}
+		}
+
+		&.landscape {
+			display: none;
+			@include mobileInPortrait {
+				display: block;
+			}
+		}
+	}
+	.go-to-project {
+		display: block;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		padding: 45px;
+
+		@include mobileInPortrait {
+			padding: 20px;
+		}
+
+		@include mobileInLandscape {
+			display: none;
+		}
+
+		@media only screen
+			and (min-width : 768px)
+			and (max-width : 1024px)
+			and (max-height : 700px) {
+			padding: 20px;
+		}
+
+	}
+
+	.tagline {
+		box-sizing: border-box;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		text-align: center;
+
+		.inner {
+			position: relative;
+			top: 30%;
+			padding: 0% 10%;
+
+			@media only screen
+				and (max-height: 500px)
+			{
+				top: 10%;
+			}
+
+		}
+
+		@include mobileInLandscape {
+			display: none;
+		}
+		.call-to-action {
+			box-sizing: border-box;
+
+			display: inline-block;
+			margin-top: 40px;
+
+			border: 1px solid $colorBackground1;
+			padding: 20px;
+
+			@include mobile {
+				margin-top: 10px;
+				padding: 5px;
+			}
+
+
+			&:hover {
+				//background: $colorBackground1;
+				background: $colorHighlight;
+				border: 1px solid $colorHighlight;
+			}
+		}
+	}
+}
+
+.slide-wrap {
+	@include mobileInPortrait {
+		height: 100% !important;
+	}
+}
+
+.mobile-link {
+	@extend .mobile-show;
+
+	position: absolute;
+
+		bottom: 0;
+	@include mobileInLandscape {
+	}
+	background: $colorBackground1;
+	z-index: 1000;
+	width: 100%;
+	height: 30px;
+
+	@include mobileInPortrait {
+		position: relative;
+		height: 30px;
+	}
+
+	ul {
+	    padding: 0 10px;
+	    position: relative;
+
+		li {
+			padding: 5px 10px;
+			box-sizing: border-box;
+		}
+
+		li:nth-child(1)
+		{
+			position: absolute;
+			left:0;
+		}
+
+		li:nth-child(2)
+		{
+			text-align: center;
+		}
+
+		li:nth-child(3)
+		{
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+	}
+	ul:after {
+		content: "";
+		width: 100%;
+		display: inline-block;
+		*display: inline;
+	}
+}
+
+.news-filters
+{
+	position: fixed;
+	z-index: 10;
+
+	padding-top: 50px;
+
+	top: $preheaderSize + $headerSize;
+
+	@include mobile {
+		left: 0;
+		top: 20px;
+	}
+
+	box-sizing: border-box;
+
+	@include gridColumnLandscape(5, 4);
+	@include gridColumnPortrait(6, 5);
+
+	@include landscape {
+		padding-right: 30px;
+		top: $preheaderSize + $headerSize - 30;
+	}
+	@include portrait {
+		padding-right: 30px;
+		top: $preheaderSize + $headerSize - 30;
+		left: 30px;
+	}
+
+	@include mobile {
+		width: 100%;
+	}
+
+	background: $colorBackground1;
+
+	ul {
+		height: 40px;
+
+		li {
+			margin-right: 10px;
+
+			&:last-child, &.last-child {
+				margin-right: 0;
+			}
+
+			float: left;
+
+			@include notFullSize {
+				width: 50%;
+				margin-right: 0;
+				box-sizing: border-box;
+				border-bottom: 2px solid $colorBackground1;
+			}
+
+			&:nth-child(odd) {
+				@include notFullSize {
+					border-right: 2px solid $colorBackground1;
+				}
+			}
+
+			a {
+				box-sizing: border-box;
+				display: inline-block;
+				background: $colorBackground2;
+				cursor: pointer;
+				height: 40px;
+				@include notMobile {
+					padding: 10px 20px 0 20px;
+				}
+
+				@include notFullSize {
+					padding-top: 10px;
+					width: 100%;
+					text-align: center;
+				}
+
+				&.selected {
+					background-color: $colorHighlight;
+				}
+			}
+		}
+	}
+}
+
+.page-content
+{
+	@include mobile {
+		padding-bottom: 10px;
+	}
+}
+
+.admin-bar .news-filters {
+	top: $preheaderSize + $headerSize + 32px;
+
+	@include notFullSize {
+		top: $preheaderSize + $headerSize;
+	}
+	@include mobile {
+		top: 20px;
+	}
+}
+
+@include mobile {
+    #wpadminbar {
+    	position: absolute;
+    }
+}
+
+.news-list
+{
+	margin-top: 60px;
+	padding-top: 20px;
+	border-top: 1px solid $colorBackground3;
+
+	@include mobile {
+		margin-top: 70px;
+		width: auto !important;
+	}
+}
+
+#news_target
+{
+	margin-top: 79px;
+
+	@include mobile {
+		margin-top: 90px;
+		width: auto !important;
+	}
+}
+
+.admin-bar .news-list {
+	@include mobile {
+		margin-top: 90px;
+	}
+}
+
+.mobile-news-target {
+	margin-top: 20px;
+
+	&.original {
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid $colorBackground3;
+	}
+}
+
+.news-item {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid $colorBackground3;
+	position: relative;
+}
+
+.news-image {
+	margin-bottom: 10px;
+
+	img {
+		width: 100%;
+	}
+}
+
+.date-pub {
+	padding-top: 4px;
+	padding-bottom: 16px;
+}
+
+.footer {
+	box-sizing: border-box;
+
+	height: 30px;
+
+	@include mobile {
+		height: auto;
+	}
+
+	padding-top: 5px;
+	background-color: $colorBackground2;
+
+	text-align: center;
+
+	.wrapper {
+		max-width: 100%;
+	}
+}
+
+.home .footer {
+	@extend .mobile-hide;
+	position: fixed;
+	bottom: 0;
+	z-index: 500;
+	width: 100%;
+}
+
+.main-content {
+	margin-top: $preheaderSize + $headerSize;
+
+	@include mobile {
+		margin-top: 68px
+	}
+}
+
+@include mobile {
+	.admin-bar .main-content {
+		margin-top: 22px;
+	}
+}
+
+#leftSlideShow {
+	box-sizing: border-box;
+
+	width: 50%;
+
+	@include mobileInPortrait {
+		width: 100%;
+		height: 50%;
+	}
+	float: left;
+}
+
+#rightSlideShow {
+	@extend #leftSlideShow;
+	float: right;
+	position: relative;
+}
+
+#outerSlideShow {
+	@include mobileInLandscape {
+		height: auto !important;
+	}
+	@include notMobile {
+		height: auto !important;
+	}
+}
+#taglineSlideShow {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+
+.flexible {
+	margin-bottom: 14px;
+	.flexible-content {
+		margin-bottom: 36px;
+
+		@include mobile {
+			margin-bottom: 3px;
+		}
+	}
+}
+
+.banner {
+	overflow: hidden;
+	margin-bottom: 50px;
+
+	@include mobile {
+		margin-bottom: 18px;
+		&.mobile-sticky {
+			height: 400px !important;
+		}
+	}
+
+
+	img {
+		width: 100%;
+	}
+}
+
+.no-banner {
+	@include notMobile {
+		padding-top: 50px;
+	}
+}
+
+.back-to-top {
+	position: absolute;
+}
+.quote {
+	width: 100%;
+}
+
+.gallery {
+	position: relative;
+	width: 360% / 330 * 100;
+	left: (30% / 360) * -100;
+
+	.image {
+		float: left;
+		width: (150% / 360) * 100;
+		margin-left: (30% / 360) * 100;
+		margin-bottom: (30% / 360) * 100;
+
+		img {
+			width: 100%
+		}
+	}
+}
+
+.image img {
+	display: block;
+	width: auto;
+	max-width: 100%;
+	margin: auto;
+}
+
+.biography-wrapper .bordered{
+	padding-bottom: 14px;
+	margin-bottom: 50px;
+	border-bottom: 1px solid $colorMain;
+	@include columnScaledFull(4/9, margin-left);
+
+	@include portrait {
+		margin-left: 0;
+	}
+
+	@include mobile {
+		margin-bottom: 18px;
+	}
+}
+
+.side-fixed {
+	@include notMobile {
+		position: fixed;
+		overflow-y: auto;
+	}
+	@include mobile {
+		height: auto !important;
+	}
+}
+
+.landscape-side-fixed {
+	@include landscapeFull {
+		position: fixed;
+		overflow-y: auto;
+	}
+	@include mobilePortrait {
+		height: auto !important;
+	}
+}
+
+.left-half.side-fixed {
+	@include gridColumn(5, 2);
+}
+
+.split-left-half.landscape-side-fixed {
+	@include gridColumnLandscape(5, 2);
+}
+
+.ajax-content {
+	display: none;
+}
+
+.list-view-icon {
+	position: relative;
+	line-height: 17px;
+	display: inline-block;
+
+	margin-left: 13px;
+
+	span {
+		margin-right: 5px;
+		height: 17px;
+		width: 17px;
+		float: left;
+
+		background: url(../images/sprite.png) no-repeat $iconList;
+	}
+
+	&:hover span, &.selected span {
+		background: url(../images/sprite.png) no-repeat $iconListHover;
+	}
+}
+
+.grid-view-icon {
+	@extend .list-view-icon;
+
+	margin-left: 20px;
+
+	span {
+		background: url(../images/sprite.png) no-repeat $iconGrid;
+	}
+
+	&:hover span, &.selected span {
+		background: url(../images/sprite.png) no-repeat $iconGridHover;
+	}
+}
+
+.mobile-filters {
+	position: fixed;
+  	z-index: 1002;
+  	width: 100%;
+  	padding: 10px 0px 10px 85px;
+	cursor: pointer;
+
+	&.lower-me {
+		z-index: 100;
+	}
+}
+
+
+.mobile-filters-background {
+	position: fixed;
+	width: 100%;
+	background: #ffffff;
+	height: 40px;
+	z-index: 99;
+}
+
+@include mobile {
+	#project_index {
+		padding-top: 40px;
+	}
+}
+
+.project-filters
+{
+	ul {
+		@include plainList;
+		margin-bottom: 30px;
+	}
+
+	.selected {
+		position: relative;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			height: 7px;
+			width: 7px;
+			@include spriteFor($iconArrow);
+			left: -10px;
+			top: 7px;
+		}
+	}
+
+	@include mobile {
+		.inner-filters {
+			display: none;
+		}
+
+		margin-left: 30px;
+	}
+}
+.grid-project {
+	margin-bottom: 10px;
+	background: $colorBackground2;
+
+	width: 100%;
+	@include notMobile {
+		margin-right: 10px;
+		float: left;
+
+		//width: $columnFull * (3+1/9) + $gutterFull * 3;
+		width: 340px;
+		height: 330px;
+	}
+
+	@include mobile {
+		position: relative;
+	}
+
+	@include ipadPortrait {
+		width: 180px;
+		height: 314px;
+	}
+
+	@include ipadLandscape {
+		width: 248px;
+		height: 292px;
+	}
+
+	.project-link {
+		position: relative;
+		display: block;
+		@include notMobile {
+			display: inline-block;
+		}
+
+		@include fullSize {
+			height: 250px;
+		}
+
+		@include ipadPortrait {
+			height: (180 / 340) * 250px;
+		}
+
+		@include ipadLandscape {
+			height: (248 / 340) * 250px;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.overlay {
+		position: absolute;
+		@include attribute_rgba(background-color, $colorHighlight, 0.8);
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		@include opacity(0);
+
+		display: table;
+
+		.cell {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			padding: 10px;
+		}
+	}
+
+	.excerpt {
+		padding: 8px 20px;
+
+		@include mobile {
+			padding-bottom: 18px;
+		}
+	}
+}
+
+.signature-marker {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: url(../images/corner.png) no-repeat top left;
+	z-index: 5;
+}
+
+.signature-marker-small {
+	@extend .signature-marker;
+	background: url(../images/corner-small.png) no-repeat top left;
+	width: 20px;
+	height: 20px;
+}
+
+.signature-marker-right {
+	position: absolute;
+	top: -20px;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	background: url(../images/corner-small-right.png) no-repeat top right;
+	z-index: 5;
+}
+
+.view-toggle {
+	padding-bottom: 10px;
+}
+
+.project-list {
+	table {
+		border-spacing: 0px;
+
+		th {
+			@include gutterScaled(1/2, padding-right);
+
+			a {
+				display: inline-block;
+				box-sizing: border-box;
+
+				width: 100%;
+				background: $colorBackground2;
+				padding: 10px 20px;
+				text-align: left;
+
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+
+		.list-name {
+			@include gridColumn(3 + 5/9, 3);
+		}
+		.list-location, .list-type, .list-scope {
+			@include gridColumn(2, 3/2);
+		}
+
+		td {
+			padding: 10px 20px;
+			border-bottom: 1px solid $colorText;
+		}
+
+		tr:last-child td {
+			border-bottom: 0;
+		}
+
+	}
+}
+
+#mobile_images {
+	@extend .mobile-show;
+
+	img {
+		display: block;
+		width: 100%;
+		margin-bottom : 10px;
+	}
+}
+
+.project-detail-left {
+	@include notMobile {
+		float: left;
+		min-height: 1px;
+	}
+	margin-bottom: 15px;
+	box-sizing: border-box;
+	@include gridColumnLandscapeFull(1, 1, margin-left);
+	@include gridColumnLandscapeFull(6, 5);
+	@include gridColumnPortrait(7, 6);
+	@include gutterScaled(1, margin-right);
+
+	#slide_show {
+		overflow: hidden;
+		position: relative;
+
+		div.cycle-prev, div.cycle-next {
+			position: absolute;
+			height: 100%;
+			width: 50px;
+			top: 0;
+			z-index: 500;
+			cursor: pointer;
+
+			.wrap {
+				position: relative;
+				top: 50%;
+				margin-top: -25px;
+				width: 50px;
+				height: 50px;
+
+				.icon {
+					display: none;
+					height: 14px;
+					width: 17px;
+					margin: auto;
+					position: relative;
+					top: 18px;
+				}
+			}
+
+			&:hover {
+				.wrap {
+					@include attribute_rgba(background-color, $colorBackground1, 0.5);
+
+					.icon {
+						display: block;
+					}
+				}
+			}
+		}
+
+		div.cycle-prev {
+			left: 0;
+
+			.icon {
+				@include spriteFor( $iconPrev );
+			}
+		}
+
+		div.cycle-next {
+			right: 0;
+
+			.icon {
+				@include spriteFor( $iconNext );
+			}
+		}
+	}
+
+	img {
+		width: 100%;
+	}
+
+	.project-gallery img {
+		display: block;
+		margin-bottom: 10px;
+	}
+
+	#pager {
+		margin-bottom: 10px;
+
+		img {
+			cursor: pointer;
+			float: left;
+
+			margin-top: 10px;
+			margin-right: (12.5% / 6);
+			width: 12.5%;
+		}
+
+		img:nth-child(7n + 0), img.n7
+		{
+			margin-right: 0;
+		}
+
+		img:nth-child(7n + 1), img.n7p1
+		{
+			clear: left;
+		}
+	}
+}
+
+.project-navigation {
+	margin-top: 20px;
+	padding-bottom: 20px;
+	height: 20px;
+	clear: both;
+
+	.icon {
+		height: 14px;
+		width: 17px;
+		margin-top: 3px;
+	}
+
+	.project {
+		float: left;
+
+		.icon {
+			@include spriteFor($iconPrev);
+			float: left;
+			margin-right: 5px;
+		}
+
+		&:hover .icon {
+			@include spriteFor($iconPrevHover);
+		}
+	}
+
+	.next {
+		float: right;
+
+		.icon {
+			@include spriteFor($iconNext);
+
+			float: right;
+			margin-left: 5px;
+		}
+
+		&:hover .icon {
+			@include spriteFor($iconNextHover);
+		}
+	}
+}
+
+.project-detail-right {
+	box-sizing: border-box;
+	@include gridColumn(5, 3);
+	@include gutterScaled(1, margin-right);
+
+	@include mobile {
+		height: auto !important;
+	}
+	overflow-x: visible;
+	.section-wrap {
+		margin-top: 20px;
+		margin-right: 20px;
+	}
+
+}
+
+.project-detail-right.side-fixed {
+	@include gridColumn(7, 7, left);
+
+	@include fullSize {
+		margin-left: $contentMargin;
+	}
+
+}
+
+#main_content
+{
+	margin-bottom: 100px;
+
+	.gform_wrapper
+	{
+		margin: 0;
+		max-width: auto;
+
+		.gform_fields {
+			list-style: none;
+			margin: 8px 0 0 0;
+		}
+
+		.gfield {
+			float: left;
+
+			@include notFullSize {
+				width: 100%;
+
+				input {
+					width: 100%;
+				}
+			}
+
+			.large {
+				@include fullSize {
+					width: 5 * $columnFull + 4 * $gutterFull;
+				}
+			}
+			.medium {
+				@include fullSize {
+					width: 3 * $columnFull + 2 * $gutterFull;
+					margin-right: $gutterFull;
+				}
+			}
+			.small {
+				@include fullSize {
+					width: 2 * $columnFull + 1 * $gutterFull;
+				}
+			}
+		}
+
+		.gfield_label {
+			display: inline-block;
+			margin: 12px 0 1px 0;
+		}
+
+		.gfield_required, .validation_message {
+			display: none;
+		}
+
+		.gform_button {
+			float: right;
+			margin-top: 50px;
+		}
+	}
+}
+
+.home #main_content {
+	margin-bottom: 0;
+}
+
+body.home {
+	overflow: hidden;
+}
+
+.search-result {
+	margin-bottom: 20px;
+
+	.thumbnail {
+		float: left;
+		height: 150px;
+		width: 150px;
+		margin-right: 20px;
+
+		img {
+			width: 100%;
+		}
+	}
+}
+
+// Google maps fixes
+#banner_map {
+	img {
+		min-height: 0;
+	}
+}

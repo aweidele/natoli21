@@ -1,0 +1,344 @@
+$contentWidth: 1300px;
+$contentMargin: 30px;
+
+$preheaderSize: 30px;
+$headerSize: 78px;
+$subMenuSize: 30px;
+
+$columnFull: 90px;
+$gutterFull: 20px;
+
+$columnLandscape: ($columnFull/$contentWidth) * 100%;
+$gutterLandscape: ($gutterFull/$contentWidth) * 100%;
+
+$columnPortrait: ($columnFull/$contentWidth) * 100%;
+$gutterPortrait: ($gutterFull/$contentWidth) * 100%;
+
+@mixin ipadLandscape {
+	@media only screen
+	and (min-width : 768px)
+	and (max-width : 1024px)
+	and (orientation : landscape) {
+		@content;
+	}
+}
+
+@mixin ipadPortrait {
+	@media only screen
+	and (min-width : 768px)
+	and (max-width : 1024px)
+	and (orientation : portrait) {
+		@content;
+	}
+}
+
+@mixin landscape {
+	@media only screen
+	and (min-width : 768px)
+	and (max-width : 1359px)
+	and (orientation : landscape) {
+		@content;
+	}
+}
+
+@mixin portrait {
+	@media only screen
+	and (min-width : 768px)
+	and (max-width : 1359px)
+	and (orientation : portrait) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media only screen
+	and (max-width : 767px)
+	{
+		@content;
+	}
+}
+@mixin mobileInLandscape {
+	@media only screen
+	and (max-width : 767px)
+	and (orientation : landscape)
+	{
+		@content;
+	}
+}
+
+@mixin mobileInPortrait {
+	@media only screen
+	and (max-width : 767px)
+	and (orientation : portrait)
+	{
+		@content;
+	}
+}
+@mixin notMobile {
+	@media only screen
+	and (min-width : 768px)
+	{
+		@content;
+	}
+}
+
+@mixin fullSize {
+	@media only screen
+	and (min-width : 1360px) {
+		@content;
+	}
+}
+
+@mixin mobilePortrait {
+	@include portrait {
+		@content;
+	}
+	@include mobile {
+		@content;
+	}
+}
+
+@mixin landscapeFull {
+	@include landscape {
+		@content;
+	}
+	@include fullSize {
+		@content;
+	}
+}
+
+.mobile-hide {
+	@include mobile {
+		display: none !important;
+	}
+}
+
+.mobile-show {
+	@include notMobile {
+		display: none !important;
+	}
+}
+
+@mixin notFullSize {
+	@media only screen
+	and (max-width : 1359px) {
+		@content;
+	}
+}
+
+@mixin gridColumnLandscape($columns, $gutters, $attribute: width) {
+	@include landscape {
+		#{$attribute}: $columns * $columnLandscape + $gutters * $gutterLandscape;
+	}
+}
+@mixin gridColumnPortrait($columns, $gutters, $attribute: width) {
+	@include portrait {
+		#{$attribute}: $columns * $columnPortrait + $gutters * $gutterPortrait;
+	}
+}
+@mixin gridColumnFull($columns, $gutters, $attribute: width) {
+	@include fullSize {
+		#{$attribute}: $columns * $columnFull + $gutters * $gutterFull;
+	}
+}
+@mixin gridColumn($columns, $gutters, $attribute: width) {
+	@include gridColumnLandscape($columns, $gutters, $attribute);
+	@include gridColumnPortrait($columns, $gutters, $attribute);
+	@include gridColumnFull($columns, $gutters, $attribute);
+}
+@mixin gridColumnPortraitLandscape($columns, $gutters, $attribute: width) {
+	@include gridColumnLandscape($columns, $gutters, $attribute);
+	@include gridColumnPortrait($columns, $gutters, $attribute);
+}
+@mixin gridColumnLandscapeFull($columns, $gutters, $attribute: width) {
+	@include gridColumnLandscape($columns, $gutters, $attribute);
+	@include gridColumnFull($columns, $gutters, $attribute);
+}
+
+@mixin columnScaledLandscape($percentage, $attribute: width) {
+	@include landscape {
+		#{$attribute}: $columnLandscape * $percentage;
+	}
+}
+@mixin columnScaledPortrait($percentage, $attribute: width) {
+	@include portrait {
+		#{$attribute}: $columnPortrait * $percentage;
+	}
+}
+@mixin columnScaledFull($percentage, $attribute: width) {
+	@include fullSize {
+		#{$attribute}: $columnFull * $percentage;
+	}
+}
+@mixin columnScaled($percentage, $attribute: width) {
+	@include columnScaledLandscape ($percentage, $attribute);
+	@include columnScaledPortrait ($percentage, $attribute);
+	@include columnScaledFull ($percentage, $attribute);
+}
+@mixin columnScaledPortraitLandscape($percentage, $attribute: width) {
+	@include columnScaledLandscape ($percentage, $attribute);
+	@include columnScaledPortrait ($percentage, $attribute);
+}
+@mixin columnScaledLandscapeFull($percentage, $attribute: width) {
+	@include columnScaledLandscape ($percentage, $attribute);
+	@include columnScaledFull ($percentage, $attribute);
+}
+
+@mixin gutterScaledLandscape($percentage, $attribute: width) {
+	@include landscape {
+		#{$attribute}: $gutterLandscape * $percentage;
+	}
+}
+@mixin gutterScaledPortrait($percentage, $attribute: width) {
+	@include portrait {
+		#{$attribute}: $gutterPortrait * $percentage;
+	}
+}
+@mixin gutterScaledFull($percentage, $attribute: width) {
+	@include fullSize {
+		#{$attribute}: $gutterFull * $percentage;
+	}
+}
+@mixin gutterScaled($percentage, $attribute: width) {
+	@include gutterScaledLandscape ($percentage, $attribute);
+	@include gutterScaledPortrait ($percentage, $attribute);
+	@include gutterScaledFull ($percentage, $attribute);
+}
+@mixin gutterScaledPortraitLandscape($percentage, $attribute: width) {
+	@include gutterScaledLandscape ($percentage, $attribute);
+	@include gutterScaledPortrait ($percentage, $attribute);
+}
+@mixin gutterScaledLandscapeFull($percentage, $attribute: width) {
+	@include gutterScaledLandscape ($percentage, $attribute);
+	@include gutterScaledFull ($percentage, $attribute);
+}
+
+.left-third {
+	@include fullSize {
+		float: left;
+	}
+	box-sizing: border-box;
+	@include gridColumnFull(2, 2);
+	@include columnScaledFull(2/3, padding-left);
+
+	@include gridColumnPortraitLandscape(9, 6);
+}
+
+.middle-third {
+	@include notMobile {
+		float: left;
+	}
+	box-sizing: border-box;
+	@include gridColumnFull(6, 6);
+	@include gridColumnPortraitLandscape(9, 6);
+	@include columnScaledFull(4/9, padding-left);
+	@include gutterScaled(1, padding-right);
+}
+
+.right-third {
+	float: left;
+	box-sizing: border-box;
+	@include gridColumnFull(3,3);
+	@include gridColumnPortraitLandscape(3,5);
+}
+
+.middle-right-thirds {
+	float: left;
+	box-sizing: border-box;
+	@include gridColumnFull(9,9);
+
+	.middle-third {
+		//@include gridColumnLandscape(6/9 * 12, 6/9 * 11);
+		//@include columnScaledLandscape((4/9) / 9 * 12, padding-left);
+
+		@include gridColumnPortraitLandscape(9, 6);
+
+		//@include gutterScaledLandscape(1/9 * 11, padding-right);
+		@include gutterScaledPortraitLandscape(1, padding-right);
+	}
+
+	.right-third {
+		//@include gridColumnLandscape(3 / 9 * 12,3 / 9 * 11);
+		@include gridColumnPortraitLandscape(3, 5);
+	}
+}
+
+.left-third-plus {
+	@extend .left-third;
+	@include gridColumn(2 + 4/9, 2);
+	@include gutterScaled( 1, padding-right );
+}
+
+.left-half {
+	@include notMobile {
+		float: left;
+	}
+	@include mobile {
+		padding-top: 30px;
+	}
+	box-sizing: border-box;
+	@include gridColumnLandscapeFull(1, 1, margin-left);
+	@include gridColumnLandscapeFull(5, 4);
+	@include gridColumnPortrait(6,5);
+	@include gutterScaled(1, margin-right);
+}
+.left-half-fixed {
+	@include gridColumn(6, 6, margin-left);
+}
+.admin-bar .left-half {
+	@include mobile {
+		padding-top: 6px;
+	}
+}
+.split-left-half {
+	@include landscapeFull{
+		float: left;
+	}
+	@include mobile {
+		padding-top: 30px;
+	}
+	box-sizing: border-box;
+	@include gridColumnLandscapeFull(1, 1, margin-left);
+	@include gridColumnLandscapeFull(5, 4);
+	@include gutterScaledLandscapeFull(1, margin-right);
+}
+.split-left-half-fixed {
+	@include gridColumnLandscapeFull(6, 6, margin-left);
+}
+
+.right-half {
+	float: left;
+	box-sizing: border-box;
+	@include gridColumnLandscapeFull(1, 1, margin-right);
+	@include gridColumnLandscapeFull(5, 4);
+	@include gridColumnPortrait(6, 5);
+}
+
+.right-half.side-fixed {
+	@include gridColumn(6, 6, left);
+
+	@include fullSize {
+		margin-left: $contentMargin;
+	}
+}
+
+.split-right-half {
+	float: left;
+	box-sizing: border-box;
+	@include gridColumnLandscapeFull(1, 1, margin-right);
+	@include gridColumnLandscapeFull(5, 4);
+}
+
+.middle-content-full {
+	@include gridColumn(2 + 4/9, 2, margin-left);
+}
+
+.middle-content {
+	@extend .middle-content-full;
+	box-sizing: border-box;
+	@include gridColumn(9 + 5/9,9);
+
+	@include mobile {
+		margin-top: 50px;
+	}
+}

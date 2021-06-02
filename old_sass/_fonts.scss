@@ -1,0 +1,138 @@
+@import url(http://fast.fonts.net/cssapi/b2b43cae-aa11-422c-a406-e9d744716213.css);
+
+//
+// Font definitions, requires colors to be predefined
+//
+@mixin fontTradeGothicExtended {
+	font-family:'TradeGothicW01-Extended', sans-serif;
+	font-weight: normal;
+}
+
+@mixin fontTradeGothicBold { 
+	font-family:'TradeGothicW01-BoldExte', sans-serif;
+	font-weight: normal;
+}
+
+@mixin fontUnivers55 {
+	font-family:'Univers LT W02 55 Roman', sans-serif;
+	font-weight: normal;
+}
+
+@mixin fontUnivers65 {
+	font-family:'Univers LT W02 65 Bold', sans-serif;
+	font-weight: normal;
+}
+
+@mixin fontUnivers {
+	font-family:'Univers LT W02 45 Light', sans-serif;
+	font-weight: normal;
+}
+
+@mixin fontUniversBlack {
+	font-family:'Univers LT W02 75 Black', sans-serif;
+	font-weight: normal;
+}
+
+@mixin uppercase {
+	text-transform: uppercase; 
+	letter-spacing: 1px;
+}
+
+body {
+	@include fontUnivers;
+	color: $colorMain;
+	font-size: 16px;
+	line-height: 130%;
+}
+
+body.univers-55 {
+	@include fontUnivers55;
+}
+
+a, a:visited, a:hover {
+	text-decoration: none;
+	color: $colorMain;
+}
+
+a:hover {
+	color: $colorMainLinkHover;
+}
+
+strong, b {
+	@include fontUniversBlack;
+	font-weight: normal;
+}
+
+th {
+	@include fontUniversBlack;
+	font-weight: normal;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal;
+}
+
+
+.mce-content-body, .wysiwyg-content {
+	h1 {
+		@include fontTradeGothicBold;
+		letter-spacing: 1px;
+		color: $colorHighlight;
+	}
+	
+	h2 {
+		@include fontTradeGothicExtended;
+		@include uppercase;
+		color: $colorHighlight;
+	}
+	
+	h3 {
+		font-size: 18px;
+		line-height: 130%;
+	}
+	
+	h4 {
+		@include fontTradeGothicExtended;
+		@include uppercase;
+		font-size: 12px;
+		line-height: 130%;
+	}
+	
+	h5 {
+		@include fontUniversBlack;
+		@include uppercase;
+	
+		font-size: 14px;
+		lineheight: 130%;
+		color: $colorBackground3;
+		
+		a {
+			color: $colorBackground3;
+			
+			&:hover {
+				color: $colorHighlight;
+			}
+		}
+	}
+	
+	h6 {
+		@include fontTradeGothicExtended;
+		@include uppercase;
+		font-size: 14px;
+		line-height: 130%;
+		color: $colorHighlight;
+	}
+}
+
+a.read-more {
+	@include fontTradeGothicExtended;
+	@include uppercase;
+	font-size: 12px;
+	line-height: 130%;
+	
+	color: $colorHighlight;
+	
+	&:hover {
+		color: $colorHighlightHover;
+	}	
+}
