@@ -5,6 +5,13 @@
   }
 }
 
+@mixin hover {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
 @mixin srOnly {
   position: absolute;
   width: 1px;
