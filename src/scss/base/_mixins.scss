@@ -1,0 +1,26 @@
+// Breakpoint Mixins
+@mixin tablet {
+  @media screen and (min-width: $mediaTablet) {
+    @content;
+  }
+}
+
+@mixin srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+@mixin contsW {
+  max-width: $maxW;
+  padding: 0 $gutterSm;
+
+  @include tablet {
+    padding: 0 0 0 $gutter;
+  }
+}

@@ -45,11 +45,23 @@
 <?php wp_head(); ?>
 </head>
 <body>
-  <header>
-    <?= $tagline ?>
-    <h1>
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-    </h1>
-    <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu mobile-hide', 'depth' => 1 ) ); ?>
-		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu mobile-hide' ) ); ?>
+  <header class="main-header">
+    <div>
+      <h1>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+          <?php
+						$logo = wp_get_attachment_image_src($logoImageId, "full");
+					?>
+					<img src="<?=$logo[0]?>" alt="<?= $alt ?>" />
+          <span class="sr-only"><?php bloginfo( 'name' ); ?></span>
+        </a>
+      </h1>
+      <div class="main-header__content">
+        <div class="main-header__top-bar">
+          <div class="main-header__tagline"><?= $tagline ?></div>
+        </div>
+        <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu mobile-hide', 'depth' => 1 ) ); ?>
+    		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu mobile-hide' ) ); ?>
+      </div>
+    </div>
   </header>

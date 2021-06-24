@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+ul,ol {
+  list-style: none;
+}
+
+.sr-only {
+  @include srOnly;
+}

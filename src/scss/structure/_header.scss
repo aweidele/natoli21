@@ -1,0 +1,51 @@
+.main-header {
+  > div {
+    @include contsW;
+    display: flex;
+  }
+
+  h1 {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__content {
+    // display: flex;
+    // justify-content: space-between;
+    // flex-wrap: wrap;
+    flex: 1 0 auto;
+  }
+
+  &__top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: $gray-1;
+    position: relative;
+    z-index: 0;
+
+    &:after,
+    &:before {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: $gray-1;
+      content: "";
+    }
+
+    &:before {
+      right: 100%;
+    }
+
+    &:after {
+      left: 100%;
+    }
+  }
+
+  &__tagline {
+    position: relative;
+    z-index: 1;
+    color: $primary;
+  }
+}
