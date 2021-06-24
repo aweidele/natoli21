@@ -3,6 +3,11 @@
  * @package WordPress
  * @subpackage natoli
  */
+
+  $facebookUrl = get_field("facebookUrl", "options");
+	$twitterUrl = get_field("twitterUrl", "options");
+	$tagline = get_field("tagline", "options");
+	$logoImageId = get_field("logo", "options");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -40,4 +45,11 @@
 <?php wp_head(); ?>
 </head>
 <body>
-Hello.
+  <header>
+    <?= $tagline ?>
+    <h1>
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+    </h1>
+    <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu mobile-hide', 'depth' => 1 ) ); ?>
+		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu mobile-hide' ) ); ?>
+  </header>

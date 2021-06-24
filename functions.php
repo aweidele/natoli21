@@ -13,3 +13,10 @@
   );
   }
   add_action( 'wp_enqueue_scripts', 'add_scripts_and_styles' );
+
+
+  register_nav_menus( array( 'mainMenu' => __( 'Main menu', 'Natoli' )
+		 , 'subMenu' => __( 'Sub menu', 'Natoli' )
+		 , 'mobileFooter' => __( 'Mobile footer menu', 'Natoli' )
+  		 )
+  );
