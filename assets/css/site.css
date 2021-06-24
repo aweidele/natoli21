@@ -1,3 +1,45 @@
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=b2b43cae-aa11-422c-a406-e9d744716213");
+
+@font-face {
+  font-family: "Trade Gothic";
+  src: url("../fonts/d2e623ca-efc6-4557-ae55-ebb786065dcf.woff2") format("woff2"),url("../fonts/f51d24dd-8256-43c6-ba1a-6aeae9d3f262.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Trade Gothic Extended";
+  src: url("../fonts/1c50e546-f8f6-40c2-8230-2d8f284effee.woff2") format("woff2"),url("../fonts/1b99d71c-c066-4ce3-b4af-38dfd9fe3d85.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Trade Gothic Extended";
+  src: url("../fonts/8308f746-cb57-4066-a22a-ce1538f045d4.woff2") format("woff2"),url("../fonts/996dd89e-14cc-474b-ab23-4c08626c90af.woff") format("woff");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Univers";
+  src: url("../fonts/9cb3cad6-404f-44d4-9e85-945513337c77.woff2") format("woff2"),url("../fonts/47a5b741-405e-4d03-ba4a-e50cc7716ddf.woff") format("woff");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Univers";
+  src: url("../fonts/4c3360e9-d022-446a-8571-1decf6bc06c3.woff2") format("woff2"),url("../fonts/4d1e8df3-6c45-428d-a522-84c8a6a4e533.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Univers";
+  src: url("../fonts/bc6e04aa-2676-4236-aa9d-692797253214.woff2") format("woff2"),url("../fonts/3145f7f3-577b-4fc5-b041-fd8a5b0b2d40.woff") format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Univers";
+  src: url("../fonts/ff0707c3-6eda-4dfd-a393-8c95f8052022.woff2") format("woff2"),url("../fonts/aac69054-38b7-453e-85a4-ead9410de45b.woff") format("woff");
+  font-weight: 800;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -77,6 +119,7 @@ ol {
   position: relative;
   z-index: 1;
   color: #db0000;
+  font-family: "Trade Gothic Extended",sans-serif;
 }
 
 @media screen and (min-width: 768px) {
