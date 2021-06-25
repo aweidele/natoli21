@@ -91,6 +91,16 @@ ol {
 
 .main-header__logo h1 {
   width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .main-header__logo img {
@@ -310,6 +320,15 @@ main {
     right: -1.25rem;
     min-height: calc(100vh - 68px);
     background-color: #000;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: all .25s;
+    transition: all .25s;
+  }
+
+  .open .main-header__menu-bar {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 
   .main-header__top-bar {

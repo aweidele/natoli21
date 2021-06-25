@@ -1,0 +1,1 @@
+!function(n){n(".main-header__toggle").on("click",function(e){e.preventDefault(),n(this).parent().toggleClass("open")})}(jQuery);
