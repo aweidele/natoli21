@@ -6,14 +6,22 @@
   }
 
   &__logo {
-    flex: 0 0 206px;
+    width: 97px;
+    flex: 0 0 97px;
     position: relative;
+
+    @include tablet {
+      width: 206px;
+      flex: 0 0 206px;
+    }
 
     h1 {
       width: 100%;
-      position: absolute;
-      top: 15px;
-      z-index: 2;
+      @include tablet {
+        position: absolute;
+        top: 15px;
+        z-index: 2;
+      }
     }
 
     img {
@@ -24,20 +32,36 @@
   }
 
   &__content {
-    height: $headerH;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: $headerHMin;
+    position: relative;
     flex: 1 0 auto;
-    padding-left: 45px;
+
+    @include tablet {
+      position: static;
+      height: $headerH;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-left: 45px;
+    }
   }
 
   &__menu-bar {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-end;
-    padding-bottom: 20px;
+    @include tabletMax {
+      position: absolute;
+      top: $headerHMin;
+      right: -$gutterSm;
+      min-height: calc(100vh - #{$headerHMin});
+      background-color: $black;
+    }
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      padding-bottom: 20px;
+    }
 
     @include desktop {
       flex-direction: row;
@@ -71,6 +95,10 @@
     &:after {
       left: 100%;
     }
+
+    @include tabletMax {
+      @include srOnly;
+    }
   }
 
   &__tagline {
@@ -82,25 +110,67 @@
     line-height: 1em;
     padding: 6px 0;
   }
+
+  &__toggle {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: $black;
+    color: $white;
+    @include tablet {
+      display: none;
+    }
+  }
 }
 
-
-.main-menu {
-  li {
-    font-size: 16px;
-    font-family: $titleFF;
-    text-transform: uppercase;
-  }
-
+.main-menu,
+.secondary-menu {
   a {
     color: $black;
     text-decoration: none;
+    transition: all .25s;
 
     @include hover {
       color: $primary;
     }
   }
+
+  @include tabletMax {
+    li {
+      font-family: $titleFF;
+      text-transform: uppercase;
+      font-size: 20px;
+      border-bottom: 1px solid $white;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+      padding: 13px 16px;
+      display: block;
+
+      @include hover {
+        background: $gray-1;
+        color: $black;
+      }
+    }
+  }
+}
+
+.main-menu {
+  li {
+
+  }
   @include tablet {
+    li {
+      font-size: 16px;
+      font-family: $titleFF;
+      text-transform: uppercase;
+    }
+
     margin-bottom: .4em;
 
     > ul {
@@ -123,34 +193,23 @@
 
 
 .secondary-menu {
-  display: none;
   @include tablet {
-    display: block;
-  }
-  > ul {
-    display: flex;
-  }
-
-  li {
-    font-family: $copyFF;
-    font-size: 14px;
-
-    ~ li {
-      margin-left: 20px;
+    > ul {
+      display: flex;
     }
-  }
 
-  a {
-    color: $black;
-    text-decoration: none;
+    li {
+      font-family: $copyFF;
+      font-size: 14px;
 
-    @include hover {
-      color: $primary;
+      ~ li {
+        margin-left: 20px;
+      }
     }
   }
 }
 
 main {
   height: 100vh;
-  background: $black;
+  background: $gray-1;
 }
