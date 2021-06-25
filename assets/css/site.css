@@ -161,13 +161,52 @@ ol {
 
 .main-header__toggle {
   width: 3.125rem;
-  height: 3.125rem;
+  height: 2.5rem;
   position: absolute;
   right: 0;
   bottom: 0;
   display: block;
   background: #000;
   color: #fff;
+  cursor: pointer;
+}
+
+.main-header__toggle span,
+.main-header__toggle:before,
+.main-header__toggle:after {
+  width: 1.875rem;
+  height: 0.25rem;
+  position: absolute;
+  left: 0.625rem;
+  top: 1.125rem;
+  background: #fff;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+  content: "";
+}
+
+.main-header__toggle:before {
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+.main-header__toggle:after {
+  -webkit-transform: translateY(8px);
+          transform: translateY(8px);
+}
+
+.open .main-header__toggle span {
+  opacity: 0;
+}
+
+.open .main-header__toggle:before {
+  -webkit-transform: translateY(0) rotate(45deg);
+          transform: translateY(0) rotate(45deg);
+}
+
+.open .main-header__toggle:after {
+  -webkit-transform: translateY(0) rotate(-45deg);
+          transform: translateY(0) rotate(-45deg);
 }
 
 .main-menu a,

@@ -62,7 +62,9 @@
         <div class="main-header__top-bar">
           <div class="main-header__tagline"><?= $tagline ?></div>
         </div>
-        <button data-action="main-menu-bar" class="main-header__toggle">Menu</button>
+        <button data-action="main-menu-bar" class="main-header__toggle" aria-label="Menu">
+          <span></span>
+        </button>
         <div id="main-menu-bar" class="main-header__menu-bar">
           <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu', 'depth' => 1 ) ); ?>
       		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu' ) ); ?>
