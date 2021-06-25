@@ -23,5 +23,5 @@
 
 
   function icon($name) {
-    get_template_part('assets/icons/icon', $name.'.svg');
+    get_template_part('includes/icons/icon', $name.'.svg');
   }
