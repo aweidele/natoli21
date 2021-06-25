@@ -24,7 +24,7 @@
   }
 
   &__content {
-    height: 108px;
+    height: $headerH;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -34,9 +34,15 @@
 
   &__menu-bar {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
     padding-bottom: 20px;
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__top-bar {
@@ -95,6 +101,8 @@
     }
   }
   @include tablet {
+    margin-bottom: .4em;
+
     > ul {
       display: flex;
     }
@@ -106,6 +114,10 @@
         margin-right: 0;
       }
     }
+  }
+
+  @include desktop {
+    margin-bottom: 0;
   }
 }
 

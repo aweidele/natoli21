@@ -63,7 +63,7 @@
           <div class="main-header__tagline"><?= $tagline ?></div>
         </div>
         <div class="main-header__menu-bar">
-          <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu mobile-hide', 'depth' => 1 ) ); ?>
+          <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu', 'depth' => 1 ) ); ?>
       		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu mobile-hide' ) ); ?>
         </div>
       </div>

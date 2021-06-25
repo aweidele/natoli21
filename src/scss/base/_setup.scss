@@ -6,10 +6,20 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 ul,ol {
   list-style: none;
 }
 
 .sr-only {
   @include srOnly;
+}
+
+.mobile-hide {
+  @include tabletMax {
+    @include srOnly;
+  }
 }

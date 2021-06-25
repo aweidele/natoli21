@@ -5,6 +5,36 @@
   }
 }
 
+@mixin desktop {
+  @media screen and (min-width: $mediaDesktop) {
+    @content;
+  }
+}
+
+@mixin desktopXL {
+  @media screen and (min-width: $maxW) {
+    @content;
+  }
+}
+
+@mixin tabletMax {
+  @media screen and (max-width: $mediaTablet - .1) {
+    @content;
+  }
+}
+
+@mixin desktopMax {
+  @media screen and (max-width: $mediaDesktop - .1) {
+    @content;
+  }
+}
+
+@mixin desktopXLMax {
+  @media screen and (max-width: $maxW - .1) {
+    @content;
+  }
+}
+
 @mixin hover {
   &:hover,
   &:focus {
@@ -27,7 +57,7 @@
   max-width: $maxW;
   padding: 0 $gutterSm;
 
-  @include tablet {
+  @include desktopXL {
     padding: 0 0 0 $gutter;
   }
 }
