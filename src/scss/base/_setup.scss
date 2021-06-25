@@ -20,6 +20,12 @@ ul,ol {
 
 .mobile-hide {
   @include tabletMax {
-    @include srOnly;
+    display: none;
+  }
+}
+
+.mobile-show {
+  @include tablet {
+    display: none;
   }
 }

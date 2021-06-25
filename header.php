@@ -61,6 +61,14 @@
       <div class="main-header__content">
         <div class="main-header__top-bar">
           <div class="main-header__tagline"><?= $tagline ?></div>
+          <form method="get" id="searchform" class="main-header__search" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+						<?php
+						$search = esc_attr( get_search_query() );
+						?>
+						<input type="text" name="s" value="<?= $search ?>" id="s" placeholder="Search"/>
+					</form>
+					<a href="<?= $facebookUrl ?>" class="facebook">Facebook</a>
+          <a href="<?= $twitterUrl ?>" class="twitter">Twitter</a>
         </div>
         <button data-action="main-menu-bar" class="main-header__toggle" aria-label="Menu">
           <span></span>
