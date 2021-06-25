@@ -67,8 +67,8 @@
 						?>
 						<input type="text" name="s" value="<?= $search ?>" id="s" placeholder="Search"/>
 					</form>
-					<a href="<?= $facebookUrl ?>" class="facebook">Facebook</a>
-          <a href="<?= $twitterUrl ?>" class="twitter">Twitter</a>
+          <?php if($facebookUrl) { ?><a href="<?= $facebookUrl ?>" class="facebook"><?php icon('facebook'); ?><span class="sr-only">Facebook</span></a><?php } ?>
+          <?php if($twitterUrl) { ?><a href="<?= $twitterUrl ?>" class="twitter"><?php icon('twitter'); ?><span class="sr-only">Twitter</span></a><?php } ?>
         </div>
         <button data-action="main-menu-bar" class="main-header__toggle" aria-label="Menu">
           <span></span>

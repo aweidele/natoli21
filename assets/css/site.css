@@ -58,6 +58,15 @@ ol {
   list-style: none;
 }
 
+a {
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+a svg {
+  fill: currentColor;
+}
+
 .sr-only {
   position: absolute;
   width: 0.0625rem;
@@ -156,8 +165,23 @@ ol {
   -webkit-box-ordinal-group: 51;
       -ms-flex-order: 50;
           order: 50;
-  width: 1.875rem;
+  width: 1.5rem;
   height: 1.875rem;
+  padding: 0.4375rem 0.25rem;
+  color: #666;
+}
+
+.main-header__top-bar .facebook>svg,
+.main-header__top-bar .twitter>svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.main-header__top-bar .facebook:hover,
+.main-header__top-bar .facebook:focus,
+.main-header__top-bar .twitter:hover,
+.main-header__top-bar .twitter:focus {
+  color: #DB0000;
 }
 
 .main-header__tagline {
