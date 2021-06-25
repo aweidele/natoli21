@@ -1,0 +1,299 @@
+.main-header {
+  background: $white;
+  position: sticky;
+  top: 0;
+  > div {
+    @include contsW;
+    display: flex;
+  }
+
+  &__logo {
+    width: 97px;
+    flex: 0 0 97px;
+    position: relative;
+
+    @include tablet {
+      width: 206px;
+      flex: 0 0 206px;
+    }
+
+    h1 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include tablet {
+        position: absolute;
+        top: 15px;
+        z-index: 2;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__content {
+    height: $headerHMin;
+    position: relative;
+    flex: 1 0 auto;
+
+    @include tablet {
+      position: static;
+      height: $headerH;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-left: 45px;
+    }
+  }
+
+  &__menu-bar {
+    @include tabletMax {
+      position: absolute;
+      top: $headerHMin;
+      right: -$gutterSm;
+      min-height: calc(100vh - #{$headerHMin});
+      background-color: $black;
+      transform: translateX(100%);
+      transition: all .25s;
+
+      .open & {
+        transform: translateX(0);
+      }
+    }
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      padding-bottom: 20px;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__top-bar {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    background: $gray-10;
+    position: relative;
+    z-index: 0;
+
+    &:after,
+    &:before {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: $gray-10;
+      content: "";
+    }
+
+    &:before {
+      right: 100%;
+    }
+
+    &:after {
+      left: 100%;
+    }
+
+    @include tabletMax {
+      @include srOnly;
+    }
+
+    .facebook,
+    .twitter {
+      order: 50;
+      width: 24px;
+      height: 30px;
+      padding: 7px 4px;
+      color: $gray-50;
+
+      > svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      @include hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &__tagline {
+    position: relative;
+    z-index: 1;
+    color: $primary;
+    font-family: $titleFF;
+    font-size: 18px;
+    line-height: 1em;
+    padding: 6px 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  &__search {
+    height: 100%;
+    order: 100;
+
+    input[type="text"] {
+      height: 100%;
+      background: $gray-20;
+      font-family: $copyFF;
+      padding: 0 10px;
+      width: 160px;
+      font-size: 14px;
+    }
+  }
+
+  &__toggle {
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: $black;
+    color: $white;
+    cursor: pointer;
+
+    span,
+    &:before,
+    &:after {
+      width: 30px;
+      height: 4px;
+      position: absolute;
+      left: 10px;
+      top: 18px;
+      background: $white;
+      transition: all .25s;
+      content: "";
+    }
+
+    &:before {
+      transform: translateY(-8px);
+    }
+
+    &:after {
+      transform: translateY(8px);
+    }
+
+    .open & {
+      span {
+        opacity: 0;
+      }
+
+      &:before {
+        transform: translateY(0) rotate(45deg);
+      }
+
+      &:after {
+        transform: translateY(0) rotate(-45deg);
+      }
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.main-menu,
+.secondary-menu {
+  a {
+    color: $black;
+    text-decoration: none;
+    transition: all .25s;
+
+    @include hover {
+      color: $primary;
+    }
+  }
+
+  @include tabletMax {
+    li {
+      font-family: $titleFF;
+      text-transform: uppercase;
+      font-size: 20px;
+      border-bottom: 1px solid $white;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+      padding: 13px 16px;
+      display: block;
+
+      @include hover {
+        background: $gray-10;
+        color: $black;
+      }
+    }
+  }
+}
+
+.main-menu {
+  li {
+
+  }
+  @include tablet {
+    li {
+      font-size: 16px;
+      font-family: $titleFF;
+      text-transform: uppercase;
+    }
+
+    margin-bottom: .4em;
+
+    > ul {
+      display: flex;
+    }
+
+    li {
+      margin-right: 45px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+
+.secondary-menu {
+  @include tablet {
+    > ul {
+      display: flex;
+    }
+
+    li {
+      font-family: $copyFF;
+      font-size: 14px;
+
+      ~ li {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+main {
+  height: 100vh;
+  background: $gray-10;
+}

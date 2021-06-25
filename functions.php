@@ -20,3 +20,8 @@
 		 , 'mobileFooter' => __( 'Mobile footer menu', 'Natoli' )
   		 )
   );
+
+
+  function icon($name) {
+    get_template_part('includes/icons/icon', $name.'.svg');
+  }

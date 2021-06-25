@@ -45,11 +45,38 @@
 <?php wp_head(); ?>
 </head>
 <body>
-  <header>
-    <?= $tagline ?>
-    <h1>
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-    </h1>
-    <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu mobile-hide', 'depth' => 1 ) ); ?>
-		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu mobile-hide' ) ); ?>
+  <header class="main-header">
+    <div>
+      <div class="main-header__logo">
+        <h1>
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <?php
+  						$logo = wp_get_attachment_image_src($logoImageId, "full");
+  					?>
+  					<img src="<?=$logo[0]?>" alt="<?= $alt ?>" />
+            <span class="sr-only"><?php bloginfo( 'name' ); ?></span>
+          </a>
+        </h1>
+      </div>
+      <div class="main-header__content">
+        <div class="main-header__top-bar">
+          <div class="main-header__tagline"><?= $tagline ?></div>
+          <form method="get" id="searchform" class="main-header__search" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+						<?php
+						$search = esc_attr( get_search_query() );
+						?>
+						<input type="text" name="s" value="<?= $search ?>" id="s" placeholder="Search"/>
+					</form>
+          <?php if($facebookUrl) { ?><a href="<?= $facebookUrl ?>" class="facebook"><?php icon('facebook'); ?><span class="sr-only">Facebook</span></a><?php } ?>
+          <?php if($twitterUrl) { ?><a href="<?= $twitterUrl ?>" class="twitter"><?php icon('twitter'); ?><span class="sr-only">Twitter</span></a><?php } ?>
+        </div>
+        <button data-action="main-menu-bar" class="main-header__toggle" aria-label="Menu">
+          <span></span>
+        </button>
+        <div id="main-menu-bar" class="main-header__menu-bar">
+          <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu', 'depth' => 1 ) ); ?>
+      		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu' ) ); ?>
+        </div>
+      </div>
+    </div>
   </header>
