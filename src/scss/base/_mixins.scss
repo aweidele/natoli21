@@ -54,6 +54,7 @@
 }
 
 @mixin contsW {
+  width: 100%;
   max-width: $maxW;
   padding: 0 $gutterSm;
 
