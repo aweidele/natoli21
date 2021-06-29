@@ -283,11 +283,6 @@ a svg {
   color: #DB0000;
 }
 
-main {
-  height: 100vh;
-  background: #F0F0F0;
-}
-
 @media screen and (min-width: 768px) {
   .mobile-show {
     display: none;
