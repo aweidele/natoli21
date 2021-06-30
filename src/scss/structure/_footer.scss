@@ -1,0 +1,16 @@
+.main-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $gray-10;
+  font-size: 12px;
+  font-family: $copyFF;
+  text-align: center;
+  padding: 8px 0;
+
+  > div {
+    @include contsW;
+    margin: auto;
+  }
+}

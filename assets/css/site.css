@@ -85,6 +85,7 @@ a svg {
 }
 
 .main-header>div {
+  width: 100%;
   max-width: 1300px;
   padding: 0 1.25rem;
   display: -webkit-box;
@@ -283,9 +284,23 @@ a svg {
   color: #DB0000;
 }
 
-main {
-  height: 100vh;
-  background: #F0F0F0;
+.main-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #F0F0F0;
+  font-size: 0.75rem;
+  font-family: "Univers",sans-serif;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.main-footer>div {
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 1.25rem;
+  margin: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -400,6 +415,10 @@ main {
 
 @media screen and (min-width: 1300px) {
   .main-header>div {
+    padding: 0 0 0 1.875rem;
+  }
+
+  .main-footer>div {
     padding: 0 0 0 1.875rem;
   }
 }
