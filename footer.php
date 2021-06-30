@@ -5,6 +5,7 @@
  */
  	$copyright = get_field("copyright", "options");
 ?>
+</main>
   <footer class="main-footer">
     <div>
       <?= do_shortcode($copyright); ?>
