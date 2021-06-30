@@ -22,7 +22,12 @@ if( $type == "slideshow" )
 	$slides = get_field("slides", $page->ID);
 ?>
   <header>
-    This is the banner
+    <ul>
+      <li><?php echo $bannerSize; ?></li>
+      <li><?php echo $timeout; ?></li>
+      <li><?php echo $speed; ?></li>
+      <li><?php echo $slides; ?></li>
+    </ul>
   </header>
 <?php
 }
