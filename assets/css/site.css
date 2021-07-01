@@ -575,7 +575,13 @@ p {
   overflow: hidden;
 }
 
-.banner button {
+.banner .natoli-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tns-outer button {
   position: absolute;
   width: 0.0625rem;
   height: 0.0625rem;
@@ -586,10 +592,26 @@ p {
   clip: rect(0, 0, 0, 0);
 }
 
-.banner .natoli-slider img {
-  width: 100%;
-  height: auto;
-  display: block;
+.quotes__quote blockquote {
+  color: #DB0000;
+}
+
+.quotes__quote blockquote p {
+  margin: 0;
+}
+
+.quotes__author {
+  text-align: right;
+}
+
+.quotes .natoli-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.quotes .natoli-slider>div {
+  height: 100%;
 }
 
 @media screen and (min-width: 768px) {

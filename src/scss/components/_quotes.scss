@@ -1,0 +1,23 @@
+.quotes {
+  &__quote {
+    blockquote {
+      color: $primary;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  &__author {
+    text-align: right;
+  }
+
+  .natoli-slider {
+    display: flex;
+
+    > div {
+      height: 100%;
+    }
+  }
+}
