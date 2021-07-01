@@ -614,6 +614,17 @@ p {
   height: 100%;
 }
 
+.page__wrapper .image {
+  max-width: 360px;
+  margin: auto;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media screen and (min-width: 768px) {
   .mobile-show {
     display: none;

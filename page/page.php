@@ -15,7 +15,7 @@ include( TEMPLATEPATH."/page/components/banner.php" );
     <div class="page__middle col">
       <?php include( TEMPLATEPATH."/page/components/copy.php" ); ?>
     </div>
-    <div class="page__right col">
+    <div class="page__right col mobile-hide">
       <?php include( TEMPLATEPATH."/page/components/flexible.php" ); ?>
     </div>
   </div>

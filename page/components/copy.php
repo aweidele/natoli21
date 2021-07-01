@@ -7,4 +7,4 @@
  */
 $content = get_field("content", $page->ID);
 ?>
-<div class="page__copy"><?= do_shortcode($content) ?></div>
+<div class="copy"><?= do_shortcode($content) ?></div>
