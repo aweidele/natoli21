@@ -5,5 +5,6 @@
  * @package WordPress
  * @subpackage Natoli
  */
-include( TEMPLATEPATH."/page/banner.php" );
+include( TEMPLATEPATH."/page/components/banner.php" );
 ?>
+Bios

@@ -14,4 +14,7 @@ include( TEMPLATEPATH."/page/components/banner.php" );
   <div class="page__middle">
     <?php include( TEMPLATEPATH."/page/components/copy.php" ); ?>
   </div>
+  <div class="page__right">
+    <?php include( TEMPLATEPATH."/page/components/flexible.php" ); ?>
+  </div>
 </div>
