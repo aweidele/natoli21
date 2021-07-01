@@ -20,14 +20,26 @@ if( $type == "slideshow" )
 	$timeout = get_field("slide_delay", $page->ID);
 	$speed = get_field("transition_speed", $page->ID);
 	$slides = get_field("slides", $page->ID);
+
+	$options = [
+		"container" => "#".$id,
+		"items" => 1,
+		"slideBy" => "page",
+		"autoplay" => true,
+		"mode" => "gallery",
+		"controls" => false,
+		"autoplayTimeout" => $timeout,
+		"speed" => $speed
+	];
 ?>
   <header>
-    <ul>
-      <li><?php echo $bannerSize; ?></li>
-      <li><?php echo $timeout; ?></li>
-      <li><?php echo $speed; ?></li>
-      <li><?php echo $slides; ?></li>
-    </ul>
+		<div class="banner" style="max-height: <?php echo $bannerSize; ?>px">
+			<div class="natoli-slider" id="<?php echo $id; ?>" data-options='<?php echo JSON_ENCODE($options); ?>'>
+				<?php foreach($slides as $slide) { ?>
+					<div><figure><img src="<?php echo $slide["url"]; ?>" alt="<?php echo $slide["alt"]; ?>"></figure></div>
+				<?php } ?>
+			</div>
+		</div>
   </header>
 <?php
 }
