@@ -45,6 +45,7 @@
 <?php wp_head(); ?>
 </head>
 <body>
+  <a class="skip-content" href="#main">Skip to main content</a>
   <header class="main-header">
     <div>
       <div class="main-header__logo">
@@ -80,4 +81,4 @@
       </div>
     </div>
   </header>
-  <main class="main">
+  <main class="main" id="main">
