@@ -53,6 +53,7 @@ function add_scripts_and_styles() {
     '',
     wp_get_theme()->get('Version')
   );
+
   wp_enqueue_script( 'main_script',
     get_stylesheet_directory_uri() . '/assets/js/site.js',
     array('jquery'),

@@ -27,5 +27,8 @@
     "gulp-uglify": "^3.0.0",
     "npm": "^6.11.3",
     "pump": "^1.0.2"
+  },
+  "dependencies": {
+    "tiny-slider": "^2.9.3"
   }
 }

@@ -1,5 +1,166 @@
 @import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=b2b43cae-aa11-422c-a406-e9d744716213");
 
+.tns-outer {
+  padding: 0 !important;
+}
+
+.tns-outer [hidden] {
+  display: none !important;
+}
+
+.tns-outer [aria-controls],
+.tns-outer [data-action] {
+  cursor: pointer;
+}
+
+.tns-slider {
+  -webkit-transition: all 0s;
+  transition: all 0s;
+}
+
+.tns-slider>.tns-item {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.tns-horizontal.tns-subpixel {
+  white-space: nowrap;
+}
+
+.tns-horizontal.tns-subpixel>.tns-item {
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+}
+
+.tns-horizontal.tns-no-subpixel:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.tns-horizontal.tns-no-subpixel>.tns-item {
+  float: left;
+}
+
+.tns-horizontal.tns-carousel.tns-no-subpixel>.tns-item {
+  margin-right: -100%;
+}
+
+.tns-no-calc {
+  position: relative;
+  left: 0;
+}
+
+.tns-gallery {
+  position: relative;
+  left: 0;
+  min-height: 1px;
+}
+
+.tns-gallery>.tns-item {
+  position: absolute;
+  left: -100%;
+  -webkit-transition: transform 0s, opacity 0s;
+  -webkit-transition: opacity 0s, -webkit-transform 0s;
+  transition: opacity 0s, -webkit-transform 0s;
+  transition: transform 0s, opacity 0s;
+  transition: transform 0s, opacity 0s, -webkit-transform 0s;
+}
+
+.tns-gallery>.tns-slide-active {
+  position: relative;
+  left: auto !important;
+}
+
+.tns-gallery>.tns-moving {
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.tns-autowidth {
+  display: inline-block;
+}
+
+.tns-lazy-img {
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  opacity: 0.6;
+}
+
+.tns-lazy-img.tns-complete {
+  opacity: 1;
+}
+
+.tns-ah {
+  -webkit-transition: height 0s;
+  transition: height 0s;
+}
+
+.tns-ovh {
+  overflow: hidden;
+}
+
+.tns-visually-hidden {
+  position: absolute;
+  left: -10000em;
+}
+
+.tns-transparent {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tns-fadeIn {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  z-index: 0;
+}
+
+.tns-normal,
+.tns-fadeOut {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  z-index: -1;
+}
+
+.tns-vpfix {
+  white-space: nowrap;
+}
+
+.tns-vpfix>div,
+.tns-vpfix>li {
+  display: inline-block;
+}
+
+.tns-t-subp2 {
+  margin: 0 auto;
+  width: 19.375rem;
+  position: relative;
+  height: 0.625rem;
+  overflow: hidden;
+}
+
+.tns-t-ct {
+  width: 2333.33333%;
+  width: calc(100% * 70 / 3);
+  position: absolute;
+  right: 0;
+}
+
+.tns-t-ct:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.tns-t-ct>div {
+  width: 1.42857%;
+  width: calc(100% / 70);
+  height: 0.625rem;
+  float: left;
+}
+
 @font-face {
   font-family: "Trade Gothic";
   src: url("../fonts/d2e623ca-efc6-4557-ae55-ebb786065dcf.woff2") format("woff2"),url("../fonts/f51d24dd-8256-43c6-ba1a-6aeae9d3f262.woff") format("woff");
@@ -82,6 +243,7 @@ a svg {
   background: #fff;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 .main-header>div {
@@ -301,6 +463,27 @@ a svg {
   max-width: 1300px;
   padding: 0 1.25rem;
   margin: auto;
+}
+
+.banner {
+  overflow: hidden;
+}
+
+.banner button {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.banner .natoli-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 @media screen and (min-width: 768px) {
