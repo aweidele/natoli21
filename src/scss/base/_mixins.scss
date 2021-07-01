@@ -53,7 +53,7 @@
   clip: rect(0,0,0,0);
 }
 
-@mixin contsW {
+@mixin constW {
   width: 100%;
   max-width: $maxW;
   padding: 0 $gutterSm;

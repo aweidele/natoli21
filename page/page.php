@@ -5,5 +5,10 @@
  * @package WordPress
  * @subpackage Natoli
  */
-include( TEMPLATEPATH."/page/banner.php" );
+include( TEMPLATEPATH."/page/components/banner.php" );
 ?>
+<div class="page__wrapper">
+  <div class="page__left">
+    <?php include( TEMPLATEPATH."/page/components/tagline.php" ); ?>
+  </div>
+</div>

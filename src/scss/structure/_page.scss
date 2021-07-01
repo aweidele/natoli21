@@ -1,0 +1,14 @@
+.page {
+  &__wrapper {
+    @include constW;
+  }
+
+  &__tagline {
+    h2 {
+      color: $primary;
+      font-family: $titleFF;
+      font-weight: normal;
+      font-size: 20px;
+    }
+  }
+}

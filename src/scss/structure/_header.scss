@@ -4,7 +4,7 @@
   top: 0;
   z-index: 1000;
   > div {
-    @include contsW;
+    @include constW;
     display: flex;
   }
 

@@ -34,7 +34,7 @@ foreach($allPages as $index => $page) {
 		$selectedId = $pageId;
 	}
 ?>
-<section id="page-<?php echo $page->post_name; ?>" data-url="<?= get_permalink($currentId) ?>">
+<section id="page-<?php echo $page->post_name; ?>" data-url="<?= get_permalink($currentId) ?>" class="page">
   <?php
     include( TEMPLATEPATH."/page/" . $slug );
   ?>
