@@ -11,4 +11,7 @@ include( TEMPLATEPATH."/page/components/banner.php" );
   <div class="page__left">
     <?php include( TEMPLATEPATH."/page/components/tagline.php" ); ?>
   </div>
+  <div class="page__middle">
+    <?php include( TEMPLATEPATH."/page/components/copy.php" ); ?>
+  </div>
 </div>

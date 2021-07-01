@@ -487,17 +487,18 @@ a svg {
   margin: auto;
 }
 
-.page__wrapper {
-  width: 100%;
-  max-width: 1300px;
-  padding: 0 1.25rem;
-}
-
-.page__tagline h2 {
+h2,
+.h2 {
   color: #DB0000;
   font-family: "Trade Gothic Extended",sans-serif;
   font-weight: normal;
   font-size: 1.25rem;
+}
+
+.page__wrapper {
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 1.25rem;
 }
 
 .banner {
