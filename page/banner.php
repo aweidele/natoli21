@@ -26,10 +26,10 @@ if( $type == "slideshow" )
 		"items" => 1,
 		"slideBy" => "page",
 		"autoplay" => true,
-		"mouseDrag" => true,
 		"mode" => "gallery",
 		"controls" => false,
-		"animateDelay" => 3000
+		"autoplayTimeout" => $timeout,
+		"speed" => $speed
 	];
 ?>
   <header>
@@ -40,8 +40,6 @@ if( $type == "slideshow" )
 				<?php } ?>
 			</div>
 		</div>
-
-		<!-- <pre><?php //print_r($slides); ?></pre> -->
   </header>
 <?php
 }
