@@ -11,7 +11,7 @@
   }
 }
 
-@mixin desktopXL {
+@mixin desktopXl {
   @media screen and (min-width: $maxW) {
     @content;
   }
@@ -29,7 +29,7 @@
   }
 }
 
-@mixin desktopXLMax {
+@mixin desktopXlMax {
   @media screen and (max-width: $maxW - .1) {
     @content;
   }
@@ -58,7 +58,7 @@
   max-width: $maxW;
   padding: 0 $gutterSm;
 
-  @include desktopXL {
+  @include desktopXl {
     padding: 0 0 0 $gutter;
   }
 }
