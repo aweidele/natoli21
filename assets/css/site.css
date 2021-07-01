@@ -243,6 +243,7 @@ a svg {
   background: #fff;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 .main-header>div {
@@ -462,6 +463,27 @@ a svg {
   max-width: 1300px;
   padding: 0 1.25rem;
   margin: auto;
+}
+
+.banner {
+  overflow: hidden;
+}
+
+.banner button {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.banner .natoli-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 @media screen and (min-width: 768px) {
