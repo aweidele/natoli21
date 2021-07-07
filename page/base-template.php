@@ -39,7 +39,10 @@ foreach($allPages as $index => $page) {
     include( TEMPLATEPATH."/page/" . $slug );
   ?>
 </section>
+
 <?php
 }
 get_footer();
 ?>
+
+<div id="feedback">fb</div>

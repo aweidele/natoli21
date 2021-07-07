@@ -55,3 +55,15 @@ a {
     transform: translate(-50%, 0);
   }
 }
+
+#feedback {
+  position: fixed;
+  right: 10px;
+  bottom: 40px;
+  background: $black;
+  color: $white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-family: $copyFF;
+  z-index: 99999999;
+}
