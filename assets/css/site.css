@@ -272,6 +272,7 @@ a svg {
   font-size: 0.75rem;
   font-family: "Univers",sans-serif;
   z-index: 99999999;
+  display: none;
 }
 
 .main-header {
