@@ -24,6 +24,7 @@
             $alt = natoli_get_alt( $featuredId );
             $types = wp_get_post_terms( $post->ID, "project_type");
 			      $locations = wp_get_post_terms( $post->ID, "location");
+            $noDetail = get_field("no_detail");
 
             $details = [];
             foreach($locations as $location) {
@@ -33,12 +34,14 @@
               $details[] = '<a href="'.get_term_link($type).'">'.$type->name.'</a>';
             }
            ?>
-           <div class="project-card" id="<?php echo $post->post_name; ?>">
-             <a href="<?php echo get_permalink(); ?>" tabindex="-1">
-               <div class="project-card__image">
+           <div class="project-card<?php if($noDetail) { echo " nodetail"; } ?>" id="<?php echo $post->post_name; ?>">
+             <?php if(!$noDetail) { ?>
+             <div class="project-card__image">
+               <a href="<?php echo get_permalink(); ?>" tabindex="-1">
                  <img alt="<?= $alt ?>" src="<?= $imageUrl[0] ?>" />
-               </div>
-             </a>
+               </a>
+             </div>
+            <?php } ?>
              <div class="project-card__content">
                 <h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
                 <div>

@@ -649,11 +649,24 @@ p {
   background: #F0F0F0;
 }
 
-.project-card__image {
-  position: relative;
+.project-card.nodetail {
+  display: none;
 }
 
-.project-card__image:after {
+.project-card__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 0;
+}
+
+.project-card__image a {
+  position: relative;
+  display: block;
+}
+
+.project-card__image a:after {
   position: absolute;
   top: 0;
   left: 0;
@@ -681,16 +694,8 @@ p {
   transition: all .25s;
 }
 
-.project-card__image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 0;
-}
-
-.project-card>a:hover .project-card__image:after,
-.project-card>a:focus .project-card__image:after {
+.project-card__image a:hover:after,
+.project-card__image a:focus:after {
   opacity: 1;
 }
 
