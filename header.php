@@ -44,7 +44,8 @@
   	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php wp_head(); ?>
 </head>
-<body>
+<body data-page-name="<?php echo $post->post_name; ?>">
+  <a class="skip-content" href="#main">Skip to main content</a>
   <header class="main-header">
     <div>
       <div class="main-header__logo">
@@ -80,4 +81,3 @@
       </div>
     </div>
   </header>
-  <main class="main">

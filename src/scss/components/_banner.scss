@@ -1,13 +1,17 @@
 .banner {
   overflow: hidden;
-  button {
-    @include srOnly;
-  }
+
   .natoli-slider {
     img {
       width: 100%;
       height: auto;
       display: block;
     }
+  }
+}
+
+.tns-outer {
+  button {
+    @include srOnly;
   }
 }

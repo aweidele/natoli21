@@ -1,0 +1,95 @@
+.page {
+  &__wrapper {
+    @include constW;
+  }
+
+  &__row {
+    padding: $gutterSm 0;
+
+    @include tablet {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .col {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__tagline {
+
+  }
+
+  &__left {
+    width: 100%;
+
+    @include desktopXl {
+      width: 16%;
+      flex-basis: 16%;
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+  }
+
+  &__middle {
+
+    @include tablet {
+      flex-grow: 1;
+      width: min-content;
+      padding-right: $gutterSm;
+    }
+
+    @include desktopXl {
+      padding-left: $gutterLg;
+    }
+  }
+
+  &__right {
+    @include tablet {
+      width: 28.5%;
+      flex-basis: 28.5%;
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+  }
+
+  &__copy {
+    ul,ol {
+      margin-bottom: 1em;
+    }
+    li {
+      padding-left: (30 / 16) * 1em;
+      position: relative;
+    }
+    ul {
+      li {
+        &:before {
+          width: 5px;
+          height: 5px;
+          position: absolute;
+          top: 6px;
+          left: 12px;
+          background: $black;
+          border-radius: 50%;
+          content: "";
+        }
+      }
+    }
+
+    ol {
+      counter-reset: olist;
+      li {
+        &:before {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: (30 / 16) * 1em;
+          padding-right: 5px;
+          counter-increment: olist;
+          content: counter(olist) ".";
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}

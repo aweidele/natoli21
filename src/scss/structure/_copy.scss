@@ -1,0 +1,24 @@
+h1, .h1 {
+
+}
+
+h2, .h2 {
+  color: $primary;
+  font-family: $titleFF;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+h3, .h3 {
+  color: $primary;
+  font-family: $titleFF;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.3em;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
