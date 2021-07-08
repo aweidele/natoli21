@@ -55,7 +55,8 @@ function add_scripts_and_styles() {
   );
 
   wp_enqueue_script( 'main_script',
-    get_stylesheet_directory_uri() . '/assets/js/site.js',
+    // get_stylesheet_directory_uri() . '/assets/js/site.js',
+    get_stylesheet_directory_uri() . '/assets/js/scripts.js',
     array('jquery'),
     wp_get_theme()->get('Version'),
     true

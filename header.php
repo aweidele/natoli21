@@ -81,4 +81,3 @@
       </div>
     </div>
   </header>
-  <main class="main" id="main">
