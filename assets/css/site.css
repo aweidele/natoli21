@@ -584,6 +584,150 @@ p {
           box-sizing: border-box;
 }
 
+.projects {
+  padding: 3.125rem 0;
+}
+
+.projects__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 1.25rem;
+}
+
+.projects__filters {
+  width: 15.6875rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 251px;
+          flex: 0 0 251px;
+  padding: 0 2.8125rem 0 0;
+}
+
+.projects__main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.projects__view a {
+  color: #000;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Trade Gothic Extended",sans-serif;
+  font-size: 0.875rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 1.25rem;
+}
+
+.projects__view a:hover,
+.projects__view a:focus,
+.projects__view a .active {
+  color: #DB0000;
+}
+
+.projects__view a:hover svg,
+.projects__view a:focus svg,
+.projects__view a .active svg {
+  fill: #DB0000;
+}
+
+.projects__view svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  margin-right: 0.3125rem;
+  fill: #999;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.projects__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: (auto)[50];
+      grid-template-rows: repeat(50, auto);
+  grid-gap: 10px;
+}
+
+.project-card {
+  background: #F0F0F0;
+}
+
+.project-card__image {
+  position: relative;
+}
+
+.project-card__image:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(219,0,0,0.8);
+  color: #fff;
+  font-size: 0.875rem;
+  font-family: "Trade Gothic Extended",sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  content: "View Project";
+  z-index: 1;
+  opacity: 0;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.project-card__image img {
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+.project-card>a:hover .project-card__image:after,
+.project-card>a:focus .project-card__image:after {
+  opacity: 1;
+}
+
+.project-card__content {
+  padding: 0.5rem 1.25rem;
+}
+
+.project-card__content>div {
+  font-size: 0.875rem;
+}
+
+.project-card__content a {
+  color: #000;
+  text-decoration: none;
+}
+
+.project-card__content a:hover,
+.project-card__content a:focus {
+  color: #DB0000;
+}
+
+.project-card h2 {
+  font-size: 0.875rem;
+  line-height: 1.3em;
+  margin-bottom: .2em;
+}
+
 .banner {
   overflow: hidden;
 }
@@ -836,6 +980,10 @@ p {
 
   .page__middle {
     padding-left: 3.125rem;
+  }
+
+  .projects__wrap {
+    padding: 0 0 0 1.875rem;
   }
 
   .bio__main {
