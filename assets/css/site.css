@@ -280,6 +280,7 @@ a svg {
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 4.25rem;
 }
 
 .main-header>div {
@@ -603,6 +604,13 @@ p {
   padding: 0 2.8125rem 0 0;
 }
 
+.projects__filters>div {
+  position: sticky;
+  max-height: calc(100vh - 33px);
+  top: 9.5625rem;
+  overflow: auto;
+}
+
 .projects__main {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -664,6 +672,7 @@ p {
 .project-card__image a {
   position: relative;
   display: block;
+  z-index: 0;
 }
 
 .project-card__image a:after {
@@ -797,6 +806,10 @@ p {
     display: none;
   }
 
+  .main-header {
+    height: 6.75rem;
+  }
+
   .main-header__logo {
     width: 12.875rem;
     -webkit-box-flex: 0;
@@ -919,8 +932,8 @@ p {
     display: grid;
     -ms-grid-columns: (auto)[2];
         grid-template-columns: repeat(2, auto);
-    -ms-grid-rows: (auto)[50];
-        grid-template-rows: repeat(50, auto);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
     grid-gap: 10px;
     padding-right: 0.625rem;
     max-width: 2605px;

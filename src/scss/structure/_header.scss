@@ -3,6 +3,12 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: $headerHMin;
+
+  @include tablet {
+    height: $headerH;
+  }
+
   > div {
     @include constW;
     display: flex;

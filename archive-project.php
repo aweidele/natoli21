@@ -10,7 +10,9 @@
    <div class="projects">
      <div class="projects__wrap">
        <div class="projects__filters">
-         Filters Here
+         <div>
+           Filters Here
+         </div>
        </div>
        <div class="projects__main">
          <div class="projects__view">
@@ -34,14 +36,13 @@
               $details[] = '<a href="'.get_term_link($type).'">'.$type->name.'</a>';
             }
            ?>
-           <div class="project-card<?php if($noDetail) { echo " nodetail"; } ?>" id="<?php echo $post->post_name; ?>">
-             <?php if(!$noDetail) { ?>
+           <?php if(!$noDetail) { ?>
+           <div class="project-card" id="<?php echo $post->post_name; ?>">
              <div class="project-card__image">
                <a href="<?php echo get_permalink(); ?>" tabindex="-1">
                  <img alt="<?= $alt ?>" src="<?= $imageUrl[0] ?>" />
                </a>
              </div>
-            <?php } ?>
              <div class="project-card__content">
                 <h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
                 <div>
@@ -49,6 +50,7 @@
                 </div>
              </div>
            </div>
+           <?php } ?>
            <?php endwhile; ?>
          </div>
        </div>
