@@ -32,6 +32,11 @@
     windowResize();
   });
 
+  $('.projects__filters-toggle').on('click',function(e) {
+    e.preventDefault();
+    $(this).parent().toggleClass('open');
+  });
+
   function windowScroll() {
     var s = $(window).scrollTop();
 

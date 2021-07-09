@@ -658,7 +658,16 @@ p {
 }
 
 .projects__filters {
-  padding: 0 1.25rem 1.875rem 1.25rem;
+  padding: 0 1.25rem 1.875rem 2.8125rem;
+}
+
+.projects__filters>div {
+  display: none;
+  padding-top: 1.875rem;
+}
+
+.projects__filters.open>div {
+  display: block;
 }
 
 .projects__filters li {
@@ -707,6 +716,41 @@ p {
 
 .projects__filters ul {
   margin-bottom: 2em;
+}
+
+.projects__filters-toggle {
+  position: relative;
+  background: transparent;
+  font-family: "Trade Gothic Extended",sans-serif;
+  color: #DB0000;
+  cursor: pointer;
+}
+
+.projects__filters-toggle:before,
+.projects__filters-toggle:after {
+  position: absolute;
+  left: -0.625rem;
+  top: 0.25rem;
+  width: 0.125rem;
+  height: 0.625rem;
+  content: "";
+  background: #DB0000;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.projects__filters-toggle:after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.open .projects__filters-toggle:before {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.open .projects__filters-toggle:after {
+  opacity: 0;
 }
 
 .project-card {
@@ -1016,6 +1060,7 @@ p {
   }
 
   .projects__filters>div {
+    display: block;
     position: sticky;
     max-height: calc(100vh - 33px);
     top: 11.5rem;

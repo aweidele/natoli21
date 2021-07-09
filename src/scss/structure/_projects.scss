@@ -85,7 +85,16 @@
   }
 
   &__filters {
-    padding: 0 $gutterSm $gutter $gutterSm;
+    padding: 0 $gutterSm $gutter $gutterSm + 25;
+
+    > div {
+      display: none;
+      padding-top: $gutter;
+    }
+
+    &.open > div {
+      display: block;
+    }
 
     @include tablet {
       width: 251px;
@@ -93,6 +102,7 @@
       padding: 31px 35px 0 0;
 
       > div {
+        display: block;
         position: sticky;
         max-height: calc(100vh - #{$headerH - 45 - 30});
         top: $headerH + 45 + 31;
@@ -146,6 +156,37 @@
   }
 
   &__filters-toggle {
+    position: relative;
+    background: transparent;
+    font-family: $titleFF;
+    color: $primary;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: -10px;
+      top: 4px;
+      width: 2px;
+      height: 10px;
+      content: "";
+      background: $primary;
+      transition: all .25s;
+    }
+
+    &:after {
+      transform: rotate(90deg);
+    }
+
+    .open & {
+      &:before {
+        transform: rotate(90deg);
+      }
+      &:after {
+        opacity: 0;
+      }
+    }
+
     @include tablet {
       display: none;
     }
