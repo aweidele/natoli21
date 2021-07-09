@@ -536,7 +536,7 @@ h3,
   color: #DB0000;
   font-family: "Trade Gothic Extended",sans-serif;
   font-weight: normal;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1.3em;
@@ -607,19 +607,7 @@ p {
 }
 
 .projects {
-  padding: 3.125rem 0;
-}
-
-.projects__wrap {
-  padding: 0 1.25rem;
-}
-
-.projects__filters {
-  width: 15.6875rem;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 251px;
-          flex: 0 0 251px;
-  padding: 1.9375rem 2.8125rem 0 0;
+  padding: 1.875rem 0;
 }
 
 .projects__main {
@@ -645,6 +633,7 @@ p {
   text-decoration: none;
   text-transform: uppercase;
   margin-right: 1.25rem;
+  letter-spacing: .07143em;
 }
 
 .projects__view a:hover,
@@ -666,6 +655,58 @@ p {
   fill: #999;
   -webkit-transition: all .25s;
   transition: all .25s;
+}
+
+.projects__filters {
+  padding: 0 1.25rem 1.875rem 1.25rem;
+}
+
+.projects__filters li {
+  padding: .125em 0;
+}
+
+.projects__filters a {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.projects__filters a:hover,
+.projects__filters a:focus {
+  color: #DB0000;
+}
+
+.projects__filters a.selected {
+  color: #DB0000;
+}
+
+.projects__filters a.selected:before {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+  top: 0.3125rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 3.5px 0 3.5px 7px;
+  border-color: transparent transparent transparent #DB0000;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.projects__filters a.selected:hover,
+.projects__filters a.selected:focus {
+  color: #000;
+}
+
+.projects__filters a.selected:hover:before,
+.projects__filters a.selected:focus:before {
+  border-color: transparent transparent transparent #000;
+}
+
+.projects__filters ul {
+  margin-bottom: 2em;
 }
 
 .project-card {
@@ -943,17 +984,15 @@ p {
         flex-shrink: 1;
   }
 
+  .projects {
+    padding: 3.125rem 0;
+  }
+
   .projects__wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-
-  .projects__filters>div {
-    position: sticky;
-    max-height: calc(100vh - 33px);
-    top: 9.5625rem;
-    overflow: auto;
+    padding: 0 1.25rem;
   }
 
   .projects__grid {
@@ -966,6 +1005,26 @@ p {
     grid-gap: 10px;
     padding-right: 0.625rem;
     max-width: 2605px;
+  }
+
+  .projects__filters {
+    width: 15.6875rem;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 251px;
+            flex: 0 0 251px;
+    padding: 1.9375rem 2.1875rem 0 0;
+  }
+
+  .projects__filters>div {
+    position: sticky;
+    max-height: calc(100vh - 33px);
+    top: 11.5rem;
+    overflow: auto;
+    padding-left: 3.125rem;
+  }
+
+  .projects__filters-toggle {
+    display: none;
   }
 
   .project-card {

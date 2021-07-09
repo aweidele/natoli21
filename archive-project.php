@@ -5,13 +5,29 @@
  */
 
  get_header();
+ $project_type = get_terms('project_type');
+ $scope = get_terms('scope');
  ?>
  <main class="main" id="main">
    <div class="projects">
      <div class="projects__wrap">
        <div class="projects__filters">
+         <button class="projects__filters-toggle">Filter Projects</button>
          <div>
-           Filters Here
+           <h3>Filter by Type</h3>
+           <ul>
+           <?php foreach($project_type as $term) { ?>
+             <li><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></li>
+           <?php } ?>
+            </ul>
+           <h3>Filter by Scope</h3>
+           <ul>
+           <?php foreach($scope as $term) { ?>
+             <li><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></li>
+           <?php } ?>
+           </ul>
+
+           <div><a href="<?= get_post_type_archive_link( "project" ) ?>" class="<?= is_post_type_archive("project") ? 'selected' : '' ?>">View All Projects</a></div>
          </div>
        </div>
        <div class="projects__main">
