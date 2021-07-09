@@ -425,9 +425,11 @@ a svg {
   right: 0;
   bottom: 0;
   display: block;
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #000;
   cursor: pointer;
+  -webkit-transition: all .25s;
+  transition: all .25s;
 }
 
 .main-header__toggle span,
@@ -438,7 +440,7 @@ a svg {
   position: absolute;
   left: 0.625rem;
   top: 1.125rem;
-  background: #fff;
+  background: #000;
   -webkit-transition: all .25s;
   transition: all .25s;
   content: "";
@@ -452,6 +454,25 @@ a svg {
 .main-header__toggle:after {
   -webkit-transform: translateY(8px);
           transform: translateY(8px);
+}
+
+.open .main-header__toggle,
+.main-header__toggle:hover,
+.main-header__toggle:focus {
+  background: #000;
+  color: #fff;
+}
+
+.open .main-header__toggle span,
+.open .main-header__toggle:before,
+.open .main-header__toggle:after,
+.main-header__toggle:hover span,
+.main-header__toggle:hover:before,
+.main-header__toggle:hover:after,
+.main-header__toggle:focus span,
+.main-header__toggle:focus:before,
+.main-header__toggle:focus:after {
+  background: #fff;
 }
 
 .open .main-header__toggle span {
@@ -590,9 +611,6 @@ p {
 }
 
 .projects__wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   padding: 0 1.25rem;
 }
 
@@ -601,20 +619,17 @@ p {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 251px;
           flex: 0 0 251px;
-  padding: 0 2.8125rem 0 0;
-}
-
-.projects__filters>div {
-  position: sticky;
-  max-height: calc(100vh - 33px);
-  top: 9.5625rem;
-  overflow: auto;
+  padding: 1.9375rem 2.8125rem 0 0;
 }
 
 .projects__main {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.projects__view {
+  margin-bottom: 0.625rem;
 }
 
 .projects__view a {
@@ -655,6 +670,7 @@ p {
 
 .project-card {
   background: #F0F0F0;
+  margin-bottom: 0.625rem;
 }
 
 .project-card.nodetail {
@@ -927,6 +943,19 @@ p {
         flex-shrink: 1;
   }
 
+  .projects__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .projects__filters>div {
+    position: sticky;
+    max-height: calc(100vh - 33px);
+    top: 9.5625rem;
+    overflow: auto;
+  }
+
   .projects__grid {
     display: -ms-grid;
     display: grid;
@@ -937,6 +966,10 @@ p {
     grid-gap: 10px;
     padding-right: 0.625rem;
     max-width: 2605px;
+  }
+
+  .project-card {
+    margin: 0;
   }
 
   .bio {
@@ -1101,5 +1134,9 @@ p {
   .secondary-menu a:focus {
     background: #F0F0F0;
     color: #000;
+  }
+
+  .projects__view {
+    display: none;
   }
 }
