@@ -36,6 +36,12 @@
            <button data-view="grid"><?php icon("grid"); ?>Grid</button>
            <button data-view="list"><?php icon("list"); ?>List</button>
          </div>
+         <div class="projects__cards-sort">
+           <div><button class="selected asc" data-sort="name" data-order="asc">Project Name</button></div>
+           <div><button data-sort="location">Location</button></div>
+           <div><button data-sort="type">Type</button></div>
+           <div><button data-sort="scope">Scope</button></div>
+         </div>
          <div class="projects__cards">
            <?php while(have_posts()): the_post();
             $featuredId = get_post_thumbnail_id( $post->ID );
@@ -46,13 +52,6 @@
             $scopes = wp_get_post_terms( $post->ID, "scope");
             $noDetail = get_field("no_detail");
 
-            $details = [];
-            foreach($locations as $location) {
-              $details['locations'][] = '<a href="'.get_term_link($location).'">'.$location->name.'</a>';
-            }
-            foreach($types as $type) {
-              $details['types'][] = '<a href="'.get_term_link($type).'">'.$type->name.'</a>';
-            }
            ?>
            <?php if(!$noDetail) { ?>
            <div class="project-card" id="<?php echo $post->post_name; ?>">

@@ -1,3 +1,6 @@
+$colw: 200px;
+$colp: 10px 20px;
+
 .projects {
   padding: $gutter 0;
   @include tablet {
@@ -92,6 +95,79 @@
     .list-view & {
       display: flex;
       flex-direction: column;
+    }
+  }
+
+  &__cards-sort {
+    .grid-view & {
+      display: none;
+    }
+
+    .list-view & {
+      display: flex;
+    }
+
+    > div {
+      &:first-child {
+        flex: 1 1 auto;
+      }
+
+      + div {
+        flex: 0 0 $colw;
+        margin-left: 10px;
+      }
+    }
+
+    button {
+      width: 100%;
+      position: relative;
+      padding: $colp;
+      background: $gray-10;
+      font-family: $titleFF;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+      text-align: left;
+      transition: all .25s;
+
+      &.selected,
+      &:hover,
+      &:focus {
+        color: $primary;
+      }
+
+      &.asc,
+      &.desc {
+        &:before {
+        content: "";
+          position: absolute;
+          top: 14px;
+          right: 20px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 7px 5px 0 5px;
+          border-color: $primary transparent transparent transparent;
+          transition: all .25s;
+        }
+      }
+
+      &.selected {
+        @include hover {
+          color: $black;
+          &.asc,
+          &.desc {
+            &:before {
+              border-color: $black transparent transparent transparent;
+            }
+          }
+        }
+      }
+
+      &.desc:before {
+        transform: rotate(180deg);
+      }
     }
   }
 
@@ -314,7 +390,6 @@
 
   // List View
   .list-view & {
-    padding: 10px 0;
 
     ~ .project-card {
       border-top: 1px solid $black;
@@ -329,10 +404,13 @@
 
       h2 {
         flex: 1 1 auto;
+        padding: $colp;
       }
 
       > div {
-        flex: 0 0 200px;
+        flex: 0 0 $colw;
+        padding: $colp;
+        margin-left: 10px;
       }
     }
 

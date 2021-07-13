@@ -678,6 +678,82 @@ p {
           flex-direction: column;
 }
 
+.grid-view .projects__cards-sort {
+  display: none;
+}
+
+.list-view .projects__cards-sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.projects__cards-sort>div:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.projects__cards-sort>div+div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  margin-left: 0.625rem;
+}
+
+.projects__cards-sort button {
+  width: 100%;
+  position: relative;
+  padding: 0.625rem 1.25rem;
+  background: #F0F0F0;
+  font-family: "Trade Gothic Extended",sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  text-align: left;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.projects__cards-sort button.selected,
+.projects__cards-sort button:hover,
+.projects__cards-sort button:focus {
+  color: #DB0000;
+}
+
+.projects__cards-sort button.asc:before,
+.projects__cards-sort button.desc:before {
+  content: "";
+  position: absolute;
+  top: 0.875rem;
+  right: 1.25rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 5px 0 5px;
+  border-color: #DB0000 transparent transparent transparent;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.projects__cards-sort button.selected:hover,
+.projects__cards-sort button.selected:focus {
+  color: #000;
+}
+
+.projects__cards-sort button.selected:hover.asc:before,
+.projects__cards-sort button.selected:hover.desc:before,
+.projects__cards-sort button.selected:focus.asc:before,
+.projects__cards-sort button.selected:focus.desc:before {
+  border-color: #000 transparent transparent transparent;
+}
+
+.projects__cards-sort button.desc:before {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 .projects__filters {
   padding: 0 1.25rem 1.875rem 2.8125rem;
 }
@@ -880,10 +956,6 @@ p {
   color: #000;
 }
 
-.list-view .project-card {
-  padding: 0.625rem 0;
-}
-
 .list-view .project-card ~ .project-card {
   border-top: 1px solid #000;
 }
@@ -902,12 +974,15 @@ p {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  padding: 0.625rem 1.25rem;
 }
 
 .list-view .project-card__content>div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 200px;
           flex: 0 0 200px;
+  padding: 0.625rem 1.25rem;
+  margin-left: 0.625rem;
 }
 
 .list-view .project-card h2 {
