@@ -9,10 +9,9 @@
  $project_type = get_terms('project_type');
  $scope = get_terms('scope');
  ?>
- <div><?php echo $projectView; ?></div>
  <main class="main" id="main">
    <div class="projects">
-     <div class="projects__wrap<?php if ($projectView == 'list') { echo " list-view"; } ?>">
+     <div class="projects__wrap<?php if ($projectView == 'list') { echo " list-view"; } else { echo " grid-view"; } ?>">
        <div class="projects__filters">
          <button class="projects__filters-toggle">Filter Projects</button>
          <div>
@@ -34,24 +33,25 @@
        </div>
        <div class="projects__main">
          <div class="projects__view">
-           <a href="." data-view="grid"><?php icon("grid"); ?>Grid</a>
-           <a href="." data-view="list"><?php icon("list"); ?>List</a>
+           <button data-view="grid"><?php icon("grid"); ?>Grid</button>
+           <button data-view="list"><?php icon("list"); ?>List</button>
          </div>
-         <div class="projects__grid">
+         <div class="projects__cards">
            <?php while(have_posts()): the_post();
             $featuredId = get_post_thumbnail_id( $post->ID );
             $imageUrl = wp_get_attachment_image_src( $featuredId, "thumbnail" );
             $alt = natoli_get_alt( $featuredId );
             $types = wp_get_post_terms( $post->ID, "project_type");
 			      $locations = wp_get_post_terms( $post->ID, "location");
+            $scopes = wp_get_post_terms( $post->ID, "scope");
             $noDetail = get_field("no_detail");
 
             $details = [];
             foreach($locations as $location) {
-              $details[] = '<a href="'.get_term_link($location).'">'.$location->name.'</a>';
+              $details['locations'][] = '<a href="'.get_term_link($location).'">'.$location->name.'</a>';
             }
             foreach($types as $type) {
-              $details[] = '<a href="'.get_term_link($type).'">'.$type->name.'</a>';
+              $details['types'][] = '<a href="'.get_term_link($type).'">'.$type->name.'</a>';
             }
            ?>
            <?php if(!$noDetail) { ?>
@@ -63,8 +63,26 @@
              </div>
              <div class="project-card__content">
                 <h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <div>
-                  <?php echo implode($details, " | "); ?>
+                <div class="project-card__locations">
+                  <ul>
+                    <?php foreach($locations as $location) { ?>
+                    <li><a href="<?php echo get_term_link($location); ?>"><?php echo $location->name; ?></a></li>
+                    <?php } ?>
+                  </ul>
+                </div>
+                <div class="project-card__types">
+                  <ul>
+                    <?php foreach($types as $type) { ?>
+                    <li><a href="<?php echo get_term_link($type); ?>"><?php echo $type->name; ?></a></li>
+                    <?php } ?>
+                  </ul>
+                </div>
+                <div class="project-card__scope">
+                  <ul>
+                    <?php foreach($scopes as $scope) { ?>
+                    <li><a href="<?php echo get_term_link($scope); ?>"><?php echo $scope->name; ?></a></li>
+                    <?php } ?>
+                  </ul>
                 </div>
              </div>
            </div>

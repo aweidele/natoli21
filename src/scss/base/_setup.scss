@@ -3,6 +3,7 @@
   padding: 0;
   border: 0;
   outline: none;
+  background: transparent;
   box-sizing: border-box;
 }
 
@@ -54,6 +55,10 @@ a {
   @include hover {
     transform: translate(-50%, 0);
   }
+}
+
+button {
+  cursor: pointer;
 }
 
 #feedback {
