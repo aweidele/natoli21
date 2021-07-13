@@ -5,12 +5,14 @@
  */
 
  get_header();
+ $projectView = array_key_exists('projectView', $_COOKIE) ? $_COOKIE['projectView'] : 'grid';
  $project_type = get_terms('project_type');
  $scope = get_terms('scope');
  ?>
+ <div><?php echo $projectView; ?></div>
  <main class="main" id="main">
    <div class="projects">
-     <div class="projects__wrap">
+     <div class="projects__wrap<?php if ($projectView == 'list') { echo " list-view"; } ?>">
        <div class="projects__filters">
          <button class="projects__filters-toggle">Filter Projects</button>
          <div>
@@ -32,8 +34,8 @@
        </div>
        <div class="projects__main">
          <div class="projects__view">
-           <a href="#"><?php icon("grid"); ?>Grid</a>
-           <a href="#"><?php icon("list"); ?>List</a>
+           <a href="." data-view="grid"><?php icon("grid"); ?>Grid</a>
+           <a href="." data-view="list"><?php icon("list"); ?>List</a>
          </div>
          <div class="projects__grid">
            <?php while(have_posts()): the_post();

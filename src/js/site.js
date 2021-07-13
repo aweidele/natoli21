@@ -37,6 +37,12 @@
     $(this).parent().toggleClass('open');
   });
 
+  $('.projects__view a').on('click', function(e) {
+    var view = $(this).data('view');
+    var d = new Date();
+    document.cookie = 'projectView= '+view;
+  });
+
   function windowScroll() {
     var s = $(window).scrollTop();
 
