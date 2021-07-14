@@ -271,13 +271,14 @@ button {
   position: fixed;
   right: 0.625rem;
   bottom: 2.5rem;
-  background: #000;
+  background: rgba(0,0,0,0.8);
   color: #fff;
   padding: 0.3125rem 0.625rem;
   font-size: 0.75rem;
   font-family: "Univers",sans-serif;
   z-index: 99999999;
-  display: none;
+  max-height: calc(100vh - 50px);
+  overflow: auto;
 }
 
 .main-header {
@@ -678,6 +679,19 @@ p {
           flex-direction: column;
 }
 
+.list-view .projects__cards.desc {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.projects__cards-sort {
+  position: sticky;
+  top: 6.6875rem;
+  background-color: #fff;
+}
+
 .grid-view .projects__cards-sort {
   display: none;
 }
@@ -716,14 +730,7 @@ p {
   transition: all .25s;
 }
 
-.projects__cards-sort button.selected,
-.projects__cards-sort button:hover,
-.projects__cards-sort button:focus {
-  color: #DB0000;
-}
-
-.projects__cards-sort button.asc:before,
-.projects__cards-sort button.desc:before {
+.projects__cards-sort button:before {
   content: "";
   position: absolute;
   top: 0.875rem;
@@ -732,9 +739,25 @@ p {
   height: 0;
   border-style: solid;
   border-width: 7px 5px 0 5px;
-  border-color: #DB0000 transparent transparent transparent;
+  border-color: #000 transparent transparent transparent;
   -webkit-transition: all .25s;
   transition: all .25s;
+  opacity: 0;
+}
+
+.projects__cards-sort button:hover,
+.projects__cards-sort button:focus {
+  color: #DB0000;
+}
+
+.projects__cards-sort button:hover:before,
+.projects__cards-sort button:focus:before {
+  opacity: .25;
+}
+
+.projects__cards-sort button.selected:before {
+  border-color: #DB0000 transparent transparent transparent;
+  opacity: 1;
 }
 
 .projects__cards-sort button.selected:hover,
@@ -742,11 +765,10 @@ p {
   color: #000;
 }
 
-.projects__cards-sort button.selected:hover.asc:before,
-.projects__cards-sort button.selected:hover.desc:before,
-.projects__cards-sort button.selected:focus.asc:before,
-.projects__cards-sort button.selected:focus.desc:before {
+.projects__cards-sort button.selected:hover:before,
+.projects__cards-sort button.selected:focus:before {
   border-color: #000 transparent transparent transparent;
+  opacity: 1;
 }
 
 .projects__cards-sort button.desc:before {

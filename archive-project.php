@@ -37,7 +37,7 @@
            <button data-view="list"><?php icon("list"); ?>List</button>
          </div>
          <div class="projects__cards-sort">
-           <div><button class="selected asc" data-sort="name" data-order="asc">Project Name</button></div>
+           <div><button class="selected asc" data-sort="name">Project Name</button></div>
            <div><button data-sort="location">Location</button></div>
            <div><button data-sort="type">Type</button></div>
            <div><button data-sort="scope">Scope</button></div>

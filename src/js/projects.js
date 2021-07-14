@@ -18,8 +18,64 @@
     }
   });
 
-  var string1 = "Eager";
-  var string2 = "Eagle";
+  $('.projects__cards-sort button').on('click', function() {
+    var i = $(this).parent().index() + 1;
 
-  alert(string1 > string2);
+    if($(this).data('order')) {
+      var currentOrder = $(this).data('order');
+      var newOrder = currentOrder == 'asc' ? 'desc' : 'asc';
+    } else {
+      var newOrder = 'asc';
+    }
+
+    $('.projects__cards-sort button').removeClass('selected asc desc');
+    if(newOrder == 'desc') {
+      $('.projects__cards').addClass('desc');
+    } else {
+      $('.projects__cards').removeClass('desc');
+    }
+
+
+    $(this).data('order',newOrder);
+    $(this).addClass('selected ' + newOrder);
+    sortProjectList(i);
+  });
+
+  function sortProjectList(col) {
+    var fb = "";
+    var sortText = [],
+        sortElements = [];
+
+    var animals = ['Elephant','monkey','dog','cat'];
+    animals.splice(1,0,'Chicken','giraffe');
+
+    $('.projects__cards .project-card').each(function() {
+      var content = $('.project-card__content', this),
+          text = getProjectContent(content,col),
+          sorting = true,
+          i=0,
+          p=0;
+
+      while(sorting) {
+        sorting = i <= sortText.length && text > sortText[i];
+        p=i;
+        i++;
+      }
+      sortText.splice(p,0,text);
+      sortElements.splice(p,0,$(this));
+    });
+
+    for(i=0;i<sortElements.length;i++) {
+      sortElements[i].css({'order':i});
+    }
+  }
+
+  function getProjectContent(content,col) {
+    if( col == 1 ) {
+      var sortText = $('h2 a', content).text();
+    } else {
+      var sortText = $(':nth-child('+col+') li:first-child a', content).text();
+    }
+    return sortText;
+  }
 })(jQuery);

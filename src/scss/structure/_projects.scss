@@ -95,10 +95,18 @@ $colp: 10px 20px;
     .list-view & {
       display: flex;
       flex-direction: column;
+
+      &.desc {
+        flex-direction: column-reverse;
+      }
     }
   }
 
   &__cards-sort {
+    position: sticky;
+    top: $headerH - 1;
+    background-color: $white;
+
     .grid-view & {
       display: none;
     }
@@ -131,16 +139,8 @@ $colp: 10px 20px;
       text-align: left;
       transition: all .25s;
 
-      &.selected,
-      &:hover,
-      &:focus {
-        color: $primary;
-      }
-
-      &.asc,
-      &.desc {
         &:before {
-        content: "";
+          content: "";
           position: absolute;
           top: 14px;
           right: 20px;
@@ -148,27 +148,41 @@ $colp: 10px 20px;
           height: 0;
           border-style: solid;
           border-width: 7px 5px 0 5px;
-          border-color: $primary transparent transparent transparent;
+          border-color: $black transparent transparent transparent;
           transition: all .25s;
+          opacity: 0;
         }
-      }
 
-      &.selected {
-        @include hover {
-          color: $black;
-          &.asc,
-          &.desc {
+        &:hover,
+        &:focus {
+          color: $primary;
+          &:before {
+            opacity: .25;
+          }
+        }
+
+        &.selected {
+          &:before {
+            border-color: $primary transparent transparent transparent;
+            opacity: 1;
+          }
+
+          @include hover {
+            color: $black;
+
             &:before {
               border-color: $black transparent transparent transparent;
+              opacity: 1;
             }
           }
         }
-      }
 
-      &.desc:before {
-        transform: rotate(180deg);
+        &.desc {
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
       }
-    }
   }
 
   &__filters {
