@@ -3,6 +3,12 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: $headerHMin;
+
+  @include tablet {
+    height: $headerH;
+  }
+
   > div {
     @include constW;
     display: flex;
@@ -166,9 +172,10 @@
     right: 0;
     bottom: 0;
     display: block;
-    background: $black;
-    color: $white;
+    background: $white;
+    color: $black;
     cursor: pointer;
+    transition: all .25s;
 
     span,
     &:before,
@@ -178,7 +185,7 @@
       position: absolute;
       left: 10px;
       top: 18px;
-      background: $white;
+      background: $black;
       transition: all .25s;
       content: "";
     }
@@ -189,6 +196,19 @@
 
     &:after {
       transform: translateY(8px);
+    }
+
+    .open &,
+    &:hover,
+    &:focus {
+      background: $black;
+      color: $white;
+
+      span,
+      &:before,
+      &:after {
+        background: $white;
+      }
     }
 
     .open & {

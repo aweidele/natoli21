@@ -3,6 +3,7 @@
   padding: 0;
   border: 0;
   outline: none;
+  background: transparent;
   box-sizing: border-box;
 }
 
@@ -56,15 +57,21 @@ a {
   }
 }
 
+button {
+  cursor: pointer;
+}
+
 #feedback {
   position: fixed;
   right: 10px;
   bottom: 40px;
-  background: $black;
+  background: rgba($black,.8);
   color: $white;
   padding: 5px 10px;
   font-size: 12px;
   font-family: $copyFF;
   z-index: 99999999;
-  display: none;
+  max-height: calc(100vh - 50px);
+  overflow: auto;
+  // display: none;
 }

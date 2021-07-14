@@ -1,0 +1,463 @@
+$colw: 200px;
+$colp: 10px 20px;
+
+.projects {
+  padding: $gutter 0;
+  @include tablet {
+    padding: 50px 0;
+  }
+
+  &__wrap {
+
+    @include tablet {
+      display: flex;
+      padding: 0 $gutterSm;
+    }
+
+    @include desktopXl {
+      padding: 0 0 0 $gutter;
+    }
+
+    &.list-view {
+      @include constW;
+    }
+  }
+
+  &__main {
+    flex-grow: 1;
+  }
+
+  &__view {
+    @include tabletMax {
+      display: none;
+    }
+
+    margin-bottom: 10px;
+
+    button {
+      color: $black;
+      display: inline-flex;
+      align-items: center;
+      font-family: $titleFF;
+      font-size: 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-right: $gutterSm;
+      letter-spacing: (1 / 14) * 1em;
+
+      &:hover,
+      &:focus,
+      .active {
+        color: $primary;
+
+        svg {
+          fill: $primary;
+        }
+      }
+    }
+
+    svg {
+      width: 17px;
+      height: 17px;
+      margin-right: 5px;
+      fill: $gray-30;
+      transition: all .25s;
+    }
+  }
+
+  &__cards {
+    .grid-view & {
+      @include tablet {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        padding-right: 10px;
+        max-width: 2605px;
+      }
+
+      @for $i from 3 through 7 {
+        @media screen and (min-width: (($i - 1) * 360px) + 270)  {
+          grid-template-columns: repeat($i,1fr);
+
+          .project-card {
+            @for $x from 1 through $i {
+              &:nth-child(#{$i}n + #{$x}) {
+                // grid-column: $x;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    .list-view & {
+      display: flex;
+      flex-direction: column;
+
+      &.desc {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  &__cards-sort {
+    position: sticky;
+    top: $headerH - 1;
+    background-color: $white;
+    z-index: 1;
+
+    .grid-view & {
+      display: none;
+    }
+
+    .list-view & {
+      display: flex;
+    }
+
+    > div {
+      &:first-child {
+        flex: 1 1 auto;
+      }
+
+      + div {
+        flex: 0 0 $colw;
+        margin-left: 10px;
+      }
+    }
+
+    button {
+      width: 100%;
+      position: relative;
+      padding: $colp;
+      background: $gray-10;
+      font-family: $titleFF;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+      text-align: left;
+      transition: all .25s;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 14px;
+          right: 20px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 7px 5px 0 5px;
+          border-color: $black transparent transparent transparent;
+          transition: all .25s;
+          opacity: 0;
+        }
+
+        &:hover,
+        &:focus {
+          color: $primary;
+          &:before {
+            opacity: .25;
+          }
+        }
+
+        &.selected {
+          &:before {
+            border-color: $primary transparent transparent transparent;
+            opacity: 1;
+          }
+
+          @include hover {
+            color: $black;
+
+            &:before {
+              border-color: $black transparent transparent transparent;
+              opacity: 1;
+            }
+          }
+        }
+
+        &.desc {
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+      }
+  }
+
+  &__filters {
+    padding: 0 $gutterSm $gutter $gutterSm + 25;
+
+    > div {
+      display: none;
+      padding: $gutter 0 0 0;
+    }
+
+    &.open > div {
+      display: block;
+    }
+
+    @include tablet {
+      width: 251px;
+      flex: 0 0 251px;
+      padding: 31px 35px 0 0;
+
+      > div {
+        display: block;
+        position: sticky;
+        max-height: calc(100vh - #{$headerH - 45 - 30});
+        top: $headerH + 45 + 36;
+        overflow: auto;
+        padding: 0 0 0 $gutterLg;
+      }
+    }
+
+    li {
+      padding: .125em 0;
+    }
+
+    a {
+      color: $black;
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+
+      @include hover {
+        color: $primary;
+      }
+
+      &.selected {
+        color: $primary;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: -12px;
+          top: 5px;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 3.5px 0 3.5px 7px;
+          border-color: transparent transparent transparent $primary;
+          transition: all .25s;
+        }
+
+        @include hover {
+          color: $black;
+          &:before {
+            border-color: transparent transparent transparent $black;
+          }
+        }
+      }
+    }
+
+    ul {
+      margin-bottom: 2em;
+    }
+  }
+
+  &__filters-toggle {
+    position: relative;
+    background: transparent;
+    font-family: $titleFF;
+    color: $primary;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: -10px;
+      top: 4px;
+      width: 2px;
+      height: 10px;
+      content: "";
+      background: $primary;
+      transition: all .25s;
+    }
+
+    &:after {
+      transform: rotate(90deg);
+    }
+
+    .open & {
+      &:before {
+        transform: rotate(90deg);
+      }
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.project-card {
+  a {
+    transition: color .25s;
+    text-decoration: none;
+  }
+
+  // Grid View
+  .grid-view & {
+    background: $gray-10;
+    margin-bottom: 10px;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    &.nodetail {
+      display: none;
+    }
+
+    &__image {
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 0;
+      }
+
+      a {
+        position: relative;
+        display: block;
+        z-index: 0;
+
+        &:after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba($primary, .8);
+          color: $white;
+          font-size: 14px;
+          font-family: $titleFF;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          content: "View Project";
+          z-index: 1;
+          opacity: 0;
+          transition: all .25s;
+        }
+
+        @include hover {
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &__content {
+      padding: 8px 20px;
+
+      > div,
+      ul,
+      li {
+        font-size: 14px;
+        display: inline;
+      }
+
+      > div ~ div,
+      li ~ li {
+        &:before {
+          content: " | ";
+        }
+      }
+
+      .project-card__scope {
+        display: none;
+      }
+
+      a {
+        color: $black;
+
+        @include hover {
+          color: $primary;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 14px;
+      line-height: 1.3em;
+      margin-bottom: .2em;
+
+      a {
+        color: $primary;
+
+        @include hover {
+          color: $black;
+        }
+      }
+    }
+
+    &.no-detail {
+      display: none;
+    }
+  }
+
+  // List View
+  .list-view & {
+    position: relative;
+    z-index: 0;
+    border-top: 1px solid $black;
+    margin-top: -1px;
+
+    &__image {
+      display: none;
+    }
+
+    &__content {
+      display: flex;
+
+      h2 {
+        flex: 1 1 auto;
+        padding: $colp;
+      }
+
+      > div {
+        flex: 0 0 $colw;
+        padding: $colp;
+        margin-left: 10px;
+      }
+    }
+
+    h2 {
+      font-size: 16px;
+      font-family: $copyFF;
+    }
+
+    a {
+      color: $black;
+
+      @include hover {
+        color: $primary;
+      }
+    }
+
+    &.signature {
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 20px 20px 0 0;
+        border-color: $primary transparent transparent transparent;
+      }
+    }
+  }
+}
