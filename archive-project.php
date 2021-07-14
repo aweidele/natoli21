@@ -4,10 +4,16 @@
  * @subpackage Natoli
  */
 
- get_header();
- $projectView = array_key_exists('projectView', $_COOKIE) ? $_COOKIE['projectView'] : 'grid';
- $project_type = get_terms('project_type');
- $scope = get_terms('scope');
+  get_header();
+  $projectView = array_key_exists('projectView', $_COOKIE) ? $_COOKIE['projectView'] : 'grid';
+  $project_type = get_terms('project_type');
+  $scope = get_terms('scope');
+  $hiddenTypes = get_field("hidden_types", "options");
+
+  if(!$hiddenTypes)
+  {
+  	$hiddenTypes = array();
+  }
  ?>
  <main class="main" id="main">
    <div class="projects">
@@ -51,10 +57,11 @@
 			      $locations = wp_get_post_terms( $post->ID, "location");
             $scopes = wp_get_post_terms( $post->ID, "scope");
             $noDetail = get_field("no_detail");
+            $signature = get_field("signature");
 
            ?>
-           <?php if(!$noDetail) { ?>
-           <div class="project-card" id="<?php echo $post->post_name; ?>">
+
+           <div class="project-card<?php if($noDetail) { echo " no-detail"; } if($signature) { echo " signature"; } ?>" id="<?php echo $post->post_name; ?>">
              <div class="project-card__image">
                <a href="<?php echo get_permalink(); ?>" tabindex="-1">
                  <img alt="<?= $alt ?>" src="<?= $imageUrl[0] ?>" />
@@ -71,21 +78,26 @@
                 </div>
                 <div class="project-card__types">
                   <ul>
-                    <?php foreach($types as $type) { ?>
+                    <?php foreach($types as $type) {
+                      if( !in_array($type->term_id, $hiddenTypes) ) { ?>
                     <li><a href="<?php echo get_term_link($type); ?>"><?php echo $type->name; ?></a></li>
-                    <?php } ?>
+                    <?php
+                      }
+                    } ?>
                   </ul>
                 </div>
                 <div class="project-card__scope">
                   <ul>
-                    <?php foreach($scopes as $scope) { ?>
+                    <?php foreach($scopes as $scope) {
+                      if( !in_array($scope->term_id, $hiddenTypes) ) { ?>
                     <li><a href="<?php echo get_term_link($scope); ?>"><?php echo $scope->name; ?></a></li>
-                    <?php } ?>
+                    <?php
+                      }
+                    } ?>
                   </ul>
                 </div>
              </div>
            </div>
-           <?php } ?>
            <?php endwhile; ?>
          </div>
        </div>
