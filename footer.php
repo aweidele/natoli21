@@ -10,7 +10,6 @@
       <?= do_shortcode($copyright); ?>
     </div>
   </footer>
-  <div id="feedback">?</div>
 <?php wp_footer(); ?>
 </body>
 </html>
