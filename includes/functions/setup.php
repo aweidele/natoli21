@@ -54,6 +54,15 @@ function add_scripts_and_styles() {
     wp_get_theme()->get('Version')
   );
 
+	$ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
+	if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false)) {
+		wp_enqueue_style( 'ie_style',
+	    get_stylesheet_directory_uri() . '/assets/css/ie.css',
+	    '',
+	    wp_get_theme()->get('Version')
+	  );
+	}
+
   wp_enqueue_script( 'main_script',
     // get_stylesheet_directory_uri() . '/assets/js/site.js',
     get_stylesheet_directory_uri() . '/assets/js/scripts.js',
