@@ -55,7 +55,7 @@ var jsQueue = [
 
 gulp.task('sass', function(){
   return gulp
-    .src('src/scss/site.scss')
+    .src('src/scss/*.scss')
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(gcmq())
     .pipe(autoprefixer(autoprefixerOptions))

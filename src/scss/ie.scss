@@ -1,0 +1,70 @@
+@import 'base/variables';
+@import 'base/mixins';
+
+$totalItems: 150;
+$maxCols: 7;
+
+.grid-view {
+  .projects {
+    &__cards {
+      @include tablet {
+        grid-template-rows: repeat(#{$totalItems / 2},auto);
+      }
+
+      @for $i from 3 through $maxCols {
+        @media screen and (min-width: (($i - 1) * 360px) + 270)  {
+          grid-template-rows: repeat(ceil($totalItems / $i),auto);
+        }
+      }
+    }
+  }
+
+  .project-card {
+    @include tablet {
+      grid-row: 1;
+
+      &:nth-child(2n+1) {
+        grid-column: 1;
+      }
+      &:nth-child(2n+2) {
+        grid-column: 2;
+      }
+
+      $row: 2;
+      @for $x from 1 through $totalItems {
+        @if $x % 2 == 0 {
+          &:nth-child(#{$x}) ~ .project-card {
+            grid-row: $row;
+            $row: $row + 1;
+          }
+        }
+      }
+    }
+    @for $i from 3 through $maxCols {
+
+        $max: 999999px;
+      @if $i < $maxCols {
+      $max: ($i * 360px) + 269;
+      }
+      @media screen and (min-width: (($i - 1) * 360px) + 270) and (max-width: $max) {
+
+        @for $x from 1 through $i {
+          &:nth-child(#{$i}n+#{$x}) {
+            grid-column: $x;
+          }
+        }
+
+        $row: 2;
+        @for $x from 1 through $totalItems {
+          @if $x % $i == 0 {
+            &:nth-child(#{$x}) ~ .project-card {
+              grid-row: $row;
+              $row: $row + 1;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
