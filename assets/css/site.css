@@ -1154,13 +1154,21 @@ p {
 }
 
 .news {
-  padding: 1.875rem 0;
+  padding-bottom: 1.875rem;
 }
 
 .news__wrap {
   width: 100%;
   max-width: 1300px;
   padding: 0 1.25rem;
+}
+
+.news__filters {
+  padding: 1.875rem 0 0.3125rem 0;
+  background: #fff;
+  position: sticky;
+  top: 4.25rem;
+  z-index: 100;
 }
 
 .news__filters ul {
@@ -1209,10 +1217,82 @@ p {
   color: #fff;
 }
 
+.news__list {
+  padding-top: 1.25rem;
+}
+
+.news__item {
+  position: relative;
+  padding: 1.25rem 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin: -0.0625rem 0;
+  z-index: 0;
+}
+
+.news__item h2 {
+  font-size: 1.125rem;
+  margin: .22222em 0;
+}
+
+.news__item h2 a {
+  color: #DB0000;
+  text-decoration: none;
+}
+
+.news__item h2 a:hover,
+.news__item h2 a:focus {
+  color: #000;
+}
+
+.news__item.signature:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent #DB0000 transparent transparent;
+}
+
+.news__tax {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 -0.125rem;
+}
+
+.news__tax a {
+  color: #747474;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0 0.125rem;
+}
+
+.news__tax a:hover,
+.news__tax a:focus {
+  color: #DB0000;
+}
+
+.news__tags span ~ span:before {
+  content: " | ";
+}
+
 .news__main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  padding-top: 1.875rem;
+}
+
+.news__article {
+  position: sticky;
+  top: 14.875rem;
+  max-height: calc(100vh - 288px);
+  overflow: auto;
+  border: 0.0625rem solid #000;
 }
 
 .banner {
@@ -1479,7 +1559,7 @@ p {
   }
 
   .news {
-    padding: 3.125rem 0;
+    padding-bottom: 3.125rem;
   }
 
   .news__wrap {
@@ -1488,7 +1568,7 @@ p {
     display: flex;
   }
 
-  .news__list {
+  .news__left {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 50.8%;
             flex: 0 0 50.8%;
@@ -1496,10 +1576,15 @@ p {
   }
 
   .news__filters {
-    position: sticky;
-    top: 9.875rem;
-    background: #fff;
-    padding-bottom: 0.3125rem;
+    padding: 3.125rem 0 0.3125rem 0;
+    top: 6.75rem;
+  }
+
+  .news__main {
+    padding-top: 8.125rem;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
   }
 
   .bio {
@@ -1551,8 +1636,8 @@ p {
     padding-right: 1.25rem;
   }
 
-  .news__list {
-    padding: 0 4.6875rem 0 6.875rem;
+  .news__left {
+    padding: 0 4.6875rem 0 5.9375rem;
   }
 }
 
