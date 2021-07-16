@@ -38,7 +38,7 @@
          </div>
        </div>
        <div class="projects__main">
-         <div class="projects__view">
+         <div class="projects__view mobile-hide">
            <button data-view="grid"><?php icon("grid"); ?>Grid</button>
            <button data-view="list"><?php icon("list"); ?>List</button>
          </div>

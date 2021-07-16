@@ -538,14 +538,20 @@ h2,
 }
 
 h3,
-.h3 {
+.h3,
+h4,
+.h4 {
   color: #DB0000;
   font-family: "Trade Gothic Extended",sans-serif;
   font-weight: normal;
   font-size: 0.8125rem;
-  text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1.3em;
+}
+
+h3,
+.h3 {
+  text-transform: uppercase;
 }
 
 p {
@@ -1041,6 +1047,112 @@ p {
   border-color: #DB0000 transparent transparent transparent;
 }
 
+.project-detail {
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 1.25rem;
+}
+
+.project-detail>div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.project-detail__right {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 39.8%;
+          flex: 0 0 39.8%;
+}
+
+.project-detail__gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.625rem;
+}
+
+.project-detail__gallery img:last-child {
+  margin-bottom: 0;
+}
+
+.project-detail a {
+  color: #DB0000;
+  text-decoration: none;
+}
+
+.project-detail a:hover,
+.project-detail a:focus {
+  color: #000;
+}
+
+.project-detail .location,
+.project-detail section {
+  margin-bottom: 1.25rem;
+}
+
+.project-detail .location a,
+.project-detail section a {
+  color: #000;
+  text-decoration: none;
+}
+
+.project-detail .location a:hover,
+.project-detail .location a:focus,
+.project-detail section a:hover,
+.project-detail section a:focus {
+  color: #DB0000;
+}
+
+.project-detail__slideshow .natoli-slider {
+  margin-bottom: 0.625rem;
+}
+
+.project-detail__slideshow img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-detail__slideshow-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 -0.3125rem;
+}
+
+.project-detail__slideshow-nav button {
+  padding: 0 0.3125rem;
+  margin-bottom: 0.625rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 14.28%;
+          flex: 0 0 14.28%;
+}
+
+.project-detail__navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.project-detail__navigation a {
+  color: #000;
+}
+
+.project-detail__navigation a:hover,
+.project-detail__navigation a:focus {
+  color: #DB0000;
+}
+
 .banner {
   overflow: hidden;
 }
@@ -1284,6 +1396,26 @@ p {
     margin: 0;
   }
 
+  .project-detail>div {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding-top: 3.125rem;
+  }
+
+  .project-detail__left {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60.2%;
+            flex: 0 0 60.2%;
+    padding: 0 1.25rem 0 0;
+  }
+
+  .project-detail__right>div {
+    position: sticky;
+    top: 9.875rem;
+  }
+
   .bio {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1324,6 +1456,14 @@ p {
   .main-menu {
     margin-bottom: 0;
   }
+
+  .project-detail__left {
+    padding: 0 1.25rem 0 6.875rem;
+  }
+
+  .project-detail__right {
+    padding-right: 1.25rem;
+  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -1359,6 +1499,10 @@ p {
   }
 
   .projects__wrap.list-view {
+    padding: 0 0 0 1.875rem;
+  }
+
+  .project-detail {
     padding: 0 0 0 1.875rem;
   }
 
@@ -1452,7 +1596,11 @@ p {
     color: #000;
   }
 
-  .projects__view {
-    display: none;
+  .project-detail__slideshow .natoli-slider {
+    margin-bottom: 0;
+  }
+
+  .project-detail__slideshow .natoli-slider>div {
+    margin-bottom: 0.625rem;
   }
 }
