@@ -1144,6 +1144,15 @@ p {
           justify-content: space-between;
 }
 
+.project-detail__navigation a {
+  color: #000;
+}
+
+.project-detail__navigation a:hover,
+.project-detail__navigation a:focus {
+  color: #DB0000;
+}
+
 .banner {
   overflow: hidden;
 }
@@ -1587,7 +1596,11 @@ p {
     color: #000;
   }
 
-  .projects__view {
-    display: none;
+  .project-detail__slideshow .natoli-slider {
+    margin-bottom: 0;
+  }
+
+  .project-detail__slideshow .natoli-slider>div {
+    margin-bottom: 0.625rem;
   }
 }

@@ -3362,16 +3362,27 @@ return tns;
 })(jQuery);
 
 (function($) {
-  $('.natoli-slider').each(function() {
-    var thisID = '#'+$(this).prop("id");
-    var options = $(this).data('options');
-    var slider = tns(options);
+  var slidersInit = false;
+  initSliders();
 
-    var sliderNav = $(this).parents('.tns-outer').siblings('.natoli-slider-nav');
-    $('button', sliderNav).on('click', function() {
-      var i = $(this).index();
-      slider.goTo(i);
-      slider.pause();
+  function initSliders() {
+    var w = $(window).width();
+    $('.natoli-slider').each(function() {
+      var thisSlider = $(this);
+
+      if( !thisSlider.hasClass('desktop-only') || (thisSlider.hasClass('desktop-only') && w >= 768) ) {
+        var thisID = '#'+thisSlider.prop("id");
+        var options = thisSlider.data('options');
+        var slider = tns(options);
+
+        var sliderNav = thisSlider.parents('.tns-outer').siblings('.natoli-slider-nav');
+        $('button', sliderNav).on('click', function() {
+          var i = $(this).index();
+          slider.goTo(i);
+          slider.pause();
+        });
+      }
+
     });
-  });
+  }
 })(jQuery);

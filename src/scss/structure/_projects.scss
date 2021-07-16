@@ -28,10 +28,6 @@ $colp: 10px 20px;
   }
 
   &__view {
-    @include tabletMax {
-      display: none;
-    }
-
     margin-bottom: 10px;
 
     button {
@@ -538,6 +534,14 @@ $colp: 10px 20px;
   &__slideshow {
     .natoli-slider {
       margin-bottom: 10px;
+
+      @include tabletMax {
+        margin-bottom: 0;
+
+        > div {
+          margin-bottom: 10px;
+        }
+      }
     }
     img {
       display: block;
@@ -561,5 +565,13 @@ $colp: 10px 20px;
   &__navigation {
     display: flex;
     justify-content: space-between;
+
+    a {
+      color: $black;
+
+      @include hover {
+        color: $primary;
+      }
+    }
   }
 }

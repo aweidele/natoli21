@@ -194,7 +194,7 @@ function natoli_render_links($field, $label, $checkNoDetail = false)
                 <div><img alt="<?= $slide["alt"] ?>" src="<?= $slide["sizes"]["project"] ?>"></div>
               <?php } ?>
             </div>
-            <div class="natoli-slider-nav project-detail__slideshow-nav">
+            <div class="natoli-slider-nav project-detail__slideshow-nav mobile-hide">
               <?php foreach($slideshow as $slide) { ?>
               <button><img alt="<?= $slide["alt"] ?>" src="<?= $slide["sizes"]["project_thumb"] ?>"/></button>
               <?php } ?>
@@ -202,7 +202,7 @@ function natoli_render_links($field, $label, $checkNoDetail = false)
           </div>
         <?php } ?>
         <?php if($gallery) { ?>
-        <div class="project-detail__gallery">
+        <div class="project-detail__gallery mobile-hide">
         <?php foreach($gallery as $image) { ?>
           <img alt="<?= $image["alt"] ?>" src="<?= $image["sizes"]["project"] ?>" />
         <?php } ?>
