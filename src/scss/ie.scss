@@ -2,6 +2,7 @@
 @import 'base/mixins';
 
 $totalItems: 150;
+$maxCols: 7;
 
 .grid-view {
   .projects {
@@ -10,7 +11,7 @@ $totalItems: 150;
         grid-template-rows: repeat(#{$totalItems / 2},auto);
       }
 
-      @for $i from 3 through 7 {
+      @for $i from 3 through $maxCols {
         @media screen and (min-width: (($i - 1) * 360px) + 270)  {
           grid-template-rows: repeat(ceil($totalItems / $i),auto);
         }
@@ -39,10 +40,10 @@ $totalItems: 150;
         }
       }
     }
-    @for $i from 3 through 7 {
+    @for $i from 3 through $maxCols {
 
         $max: 999999px;
-      @if $i < 7 {
+      @if $i < $maxCols {
       $max: ($i * 360px) + 269;
       }
       @media screen and (min-width: (($i - 1) * 360px) + 270) and (max-width: $max) {
