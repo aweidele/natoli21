@@ -3206,6 +3206,7 @@ var tns = function(options) {
 
 return tns;
 })();
+
 (function($) {
   $('.projects__filters-toggle').on('click',function(e) {
     e.preventDefault();

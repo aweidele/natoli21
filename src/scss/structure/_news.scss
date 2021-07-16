@@ -1,0 +1,92 @@
+.news {
+  padding: $gutter 0;
+  @include tablet {
+    padding: 50px 0;
+  }
+
+  &__wrap {
+    @include constW;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  // News Left
+  &__list {
+    @include tablet {
+      flex: 0 0 50.8%;
+      padding: 0 20px 0 0;
+    }
+
+    @include desktop {
+      padding: 0 75px 0 110px;
+    }
+  }
+
+  &__filters {
+    @include tablet{
+      position: sticky;
+      top: $headerH + 50;
+      background: $white;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 -2px;
+    }
+
+    li {
+      flex-grow: 1;
+      margin: 0 2px;
+    }
+
+    @include tablet {
+      @include desktopMax {
+        ul {
+          flex-wrap: wrap;
+          margin: -2px 0 0 0;
+        }
+
+        li {
+          flex: 0 0 calc(50% - 2px);
+          margin: 2px 0;
+        }
+      }
+    }
+
+    a {
+      font-family: $titleFF;
+      background: $gray-10;
+      font-size: 11px;
+      font-weight: normal;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      padding: 10px 20px;
+      color: $black;
+
+      @include hover {
+        color: $primary;
+      }
+
+      &.selected {
+        background: $primary;
+        color: $white;
+
+        @include hover {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  // News Right
+  &__main {
+    flex: 1 0 auto;
+  }
+}

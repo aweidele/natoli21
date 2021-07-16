@@ -1153,6 +1153,68 @@ p {
   color: #DB0000;
 }
 
+.news {
+  padding: 1.875rem 0;
+}
+
+.news__wrap {
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 1.25rem;
+}
+
+.news__filters ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 -0.125rem;
+}
+
+.news__filters li {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 0 0.125rem;
+}
+
+.news__filters a {
+  font-family: "Trade Gothic Extended",sans-serif;
+  background: #F0F0F0;
+  font-size: 0.6875rem;
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  padding: 0.625rem 1.25rem;
+  color: #000;
+}
+
+.news__filters a:hover,
+.news__filters a:focus {
+  color: #DB0000;
+}
+
+.news__filters a.selected {
+  background: #DB0000;
+  color: #fff;
+}
+
+.news__filters a.selected:hover,
+.news__filters a.selected:focus {
+  color: #fff;
+}
+
+.news__main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
 .banner {
   overflow: hidden;
 }
@@ -1416,6 +1478,30 @@ p {
     top: 9.875rem;
   }
 
+  .news {
+    padding: 3.125rem 0;
+  }
+
+  .news__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .news__list {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50.8%;
+            flex: 0 0 50.8%;
+    padding: 0 1.25rem 0 0;
+  }
+
+  .news__filters {
+    position: sticky;
+    top: 9.875rem;
+    background: #fff;
+    padding-bottom: 0.3125rem;
+  }
+
   .bio {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1464,6 +1550,10 @@ p {
   .project-detail__right {
     padding-right: 1.25rem;
   }
+
+  .news__list {
+    padding: 0 4.6875rem 0 6.875rem;
+  }
 }
 
 @media screen and (min-width: 1300px) {
@@ -1503,6 +1593,10 @@ p {
   }
 
   .project-detail {
+    padding: 0 0 0 1.875rem;
+  }
+
+  .news__wrap {
     padding: 0 0 0 1.875rem;
   }
 
@@ -1602,5 +1696,20 @@ p {
 
   .project-detail__slideshow .natoli-slider>div {
     margin-bottom: 0.625rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1119.9px) {
+  .news__filters ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: -0.125rem 0 0 0;
+  }
+
+  .news__filters li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 2px);
+            flex: 0 0 calc(50% - 2px);
+    margin: 0.125rem 0;
   }
 }
