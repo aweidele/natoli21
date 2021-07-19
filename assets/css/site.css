@@ -574,12 +574,20 @@ button {
   margin: auto;
 }
 
+h1,
+.h1 {
+  margin: .2em 0;
+}
+
 h2,
 .h2 {
   color: #DB0000;
   font-family: "Trade Gothic Extended",sans-serif;
   font-weight: normal;
   font-size: 1.25rem;
+  margin: .4em 0;
+  line-height: 1.3em;
+  letter-spacing: .05em;
 }
 
 h3,
@@ -590,8 +598,9 @@ h4,
   font-family: "Trade Gothic Extended",sans-serif;
   font-weight: normal;
   font-size: 0.8125rem;
-  letter-spacing: 1px;
+  letter-spacing: .07692em;
   line-height: 1.3em;
+  margin: .4em 0;
 }
 
 h3,
@@ -1324,8 +1333,10 @@ p {
   color: #DB0000;
 }
 
-.news__tags span ~ span:before {
+.news__tags span ~ span:before,
+.news__tags a ~ span:before {
   content: " | ";
+  color: #000;
 }
 
 .news__main {
@@ -1337,7 +1348,19 @@ p {
   top: 14.875rem;
   max-height: calc(100vh - 288px);
   overflow: auto;
-  border: 0.0625rem solid #000;
+}
+
+.news__article .news__tags {
+  margin-bottom: 1em;
+}
+
+.news__article a {
+  color: #000;
+}
+
+.news__article a:hover,
+.news__article a:focus {
+  color: #DB0000;
 }
 
 .banner {
@@ -1628,8 +1651,8 @@ p {
   .news__main {
     padding-top: 8.125rem;
     -webkit-box-flex: 1;
-        -ms-flex: 1 0 auto;
-            flex: 1 0 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
   }
 
   .bio {

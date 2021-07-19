@@ -146,9 +146,11 @@
   }
 
   &__tags {
-    span ~ span {
+    span ~ span,
+    a ~ span {
       &:before {
         content: " | ";
+        color: $black;
       }
     }
   }
@@ -159,7 +161,7 @@
 
     @include tablet {
       padding-top: $gutterLg + 80;
-      flex: 1 0 auto;
+      flex: 1 1 auto;
     }
   }
 
@@ -168,6 +170,17 @@
     top: $headerH + $gutterLg + 80;
     max-height: calc(100vh - #{$headerH + $gutterLg + 130});
     overflow: auto;
-    border: 1px solid $black;
+
+    .news__tags {
+      margin-bottom: 1em;
+    }
+
+    a {
+      color: $black;
+
+      @include hover {
+        color: $primary;
+      }
+    }
   }
 }
