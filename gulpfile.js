@@ -75,6 +75,7 @@ gulp.task('compress', function() {
 gulp.task('icons', function() {
   gulp.src('src/icons/**/*.svg')
   .pipe(rename(function(path) {
+    path.basename = "icon-" + path.basename;
     path.extname = ".svg.php";
   }))
   .pipe(gulp.dest('includes/icons/'));

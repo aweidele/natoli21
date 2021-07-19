@@ -4,6 +4,11 @@
  * @subpackage natoli
  */
 
+ if( isset($_REQUEST['ajax']) ) {
+   the_post();
+   get_template_part('news/single', 'news-single');
+ } else {
+
  get_header();
 
  if( !isset($categoryId) )
@@ -13,6 +18,10 @@
  setcookie("news_category",$categoryId,0,"/");
 
  $terms = get_terms("news_category");
+ $news = new WP_Query([
+   "post_type"=>"news",
+   "posts_per_page"=>-1
+ ]);
  ?>
 <main class="main" id="main">
   <div class="news">
@@ -35,8 +44,8 @@
         </nav>
         <div class="news__list">
           <?php
-          while(have_posts()) {
-            the_post();
+          while($news->have_posts()) {
+            $news->the_post();
             $publication = get_field("publication_name");
 				    $terms = wp_get_post_terms( $post->ID, "news_category" );
             $signature = get_field("signature");
@@ -60,18 +69,16 @@
       </div>
       <div id="news-main" class="news__main">
         <?php
-          $news = new WP_Query([
-            "post_type"=>"news",
-            "posts_per_page"=>1
-          ]);
-          if( $news->have_posts() ) : while( $news->have_posts() ) : $news->the_post();
+          if( have_posts() ) : while( have_posts() ) : the_post();
           get_template_part('news/single', 'news-single');
           endwhile;
           endif;
-          icon('loading');
+          icon('search');
         ?>
       </div>
     </div>
   </div>
 </main>
-<?php get_footer(); ?>
+<?php
+  get_footer();
+    }

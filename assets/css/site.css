@@ -1341,6 +1341,12 @@ p {
 
 .news__main {
   padding-top: 1.875rem;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+.news__main.loading {
+  opacity: 0;
 }
 
 .news__article {

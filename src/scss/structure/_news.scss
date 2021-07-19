@@ -158,6 +158,11 @@
   // News Right
   &__main {
     padding-top: $gutter;
+    transition: all .25s;
+
+    &.loading {
+      opacity: 0;
+    }
 
     @include tablet {
       padding-top: $gutterLg + 80;
