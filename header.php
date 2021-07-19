@@ -10,7 +10,7 @@
 	$logoImageId = get_field("logo", "options");
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="en-US">
 <head>
   <title><?php
   	/*
@@ -45,8 +45,8 @@
 <?php wp_head(); ?>
 </head>
 <body data-page-name="<?php echo $post->post_name; ?>">
-  <a class="skip-content" href="#main">Skip to main content</a>
   <header class="main-header">
+    <a class="skip-content" href="#main">Skip to main content</a>
     <div>
       <div class="main-header__logo">
         <h1>
@@ -63,10 +63,12 @@
         <div class="main-header__top-bar">
           <div class="main-header__tagline"><?= $tagline ?></div>
           <form method="get" id="searchform" class="main-header__search" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+            <label for="s" class="sr-only">Search</label>
 						<?php
 						$search = esc_attr( get_search_query() );
 						?>
 						<input type="text" name="s" value="<?= $search ?>" id="s" placeholder="Search"/>
+            <button><span>Submit</span><?php icon('search'); ?></button>
 					</form>
           <?php if($facebookUrl) { ?><a href="<?= $facebookUrl ?>" class="facebook"><?php icon('facebook'); ?><span class="sr-only">Facebook</span></a><?php } ?>
           <?php if($twitterUrl) { ?><a href="<?= $twitterUrl ?>" class="twitter"><?php icon('twitter'); ?><span class="sr-only">Twitter</span></a><?php } ?>

@@ -72,24 +72,18 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('assets/js'));
 });
 
-gulp.task('images', function() {
-    return gulp.src('src/images/**/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('docroot/images'));
-});
-
-gulp.task('server', function() {
-  gulp.src('docroot')	// <-- your app folder
-    .pipe(server({
-      livereload: true,
-      open: true,
-      port: 1234	// set a port to avoid conflicts with other local apps
-    }));
+gulp.task('icons', function() {
+  gulp.src('src/icons/**/*.svg')
+  .pipe(rename(function(path) {
+    path.extname = ".svg.php";
+  }))
+  .pipe(gulp.dest('includes/icons/'));
 });
 
 gulp.task('watch', function(){
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['compress']);
+  gulp.watch('src/icons/**/*.svg', ['icons']);
 });
 
 gulp.task('default', ['sass', 'compress', 'watch']);
