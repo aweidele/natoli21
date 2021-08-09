@@ -3221,14 +3221,18 @@ return tns;
         },
         method: 'POST'
       }).done(function( data ) {
-        main.html(data);
+        $('.news__main-container', main).html(data);
+        if (history.pushState) {
+          window.history.pushState("object or string", "Title", h);
+        } else {
+          document.location.href = h;
+        }
         setTimeout(function() {
           main.removeClass('loading');
         },400);
       });
     },400);
-
-  })
+  });
 })(jQuery);
 
 (function($) {

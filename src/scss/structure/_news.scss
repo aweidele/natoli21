@@ -158,10 +158,27 @@
   // News Right
   &__main {
     padding-top: $gutter;
-    transition: all .25s;
+    position: relative;
+
+    article {
+
+    }
+
+    .icon-loading {
+      position: absolute;
+      z-index: 0;
+      width: 60px;
+      height: 30px;
+      top: 200px;
+      left: calc(50% - 30px);
+      transition: all .25s;
+      opacity: 0;
+    }
 
     &.loading {
-      opacity: 0;
+      .icon-loading {
+        opacity: 1;
+      }
     }
 
     @include tablet {
@@ -170,12 +187,19 @@
     }
   }
 
-  &__article {
+  &__main-container {
     position: sticky;
     top: $headerH + $gutterLg + 80;
     max-height: calc(100vh - #{$headerH + $gutterLg + 130});
     overflow: auto;
+    z-index: 1;
+    transition: all .25s;
+    .loading & {
+      opacity: 0;
+    }
+  }
 
+  &__article {
     .news__tags {
       margin-bottom: 1em;
     }

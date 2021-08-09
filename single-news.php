@@ -68,13 +68,15 @@
         </div>
       </div>
       <div id="news-main" class="news__main">
+        <div class="news__main-container">
         <?php
           if( have_posts() ) : while( have_posts() ) : the_post();
           get_template_part('news/single', 'news-single');
           endwhile;
           endif;
-          icon('search');
         ?>
+        </div>
+        <?php icon('loading'); ?>
       </div>
     </div>
   </div>

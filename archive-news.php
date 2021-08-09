@@ -59,6 +59,7 @@
         </div>
       </div>
       <div id="news-main" class="news__main">
+        <div class="news__main-container">
         <?php
           $news = new WP_Query([
             "post_type"=>"news",
@@ -68,8 +69,9 @@
           get_template_part('news/single', 'news-single');
           endwhile;
           endif;
-          icon('loading');
         ?>
+        </div>
+        <?php icon('loading'); ?>
       </div>
     </div>
   </div>
