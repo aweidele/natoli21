@@ -1451,6 +1451,9 @@ p {
   z-index: 10;
   padding: 1.25rem;
   font-family: "Univers",sans-serif;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(33%, rgba(0,0,0,0.3)), to(rgba(0,0,0,0)));
+  background: linear-gradient(0deg, rgba(0,0,0,0.3) 33%, rgba(0,0,0,0) 100%);
+  text-shadow: 1px 1px rgba(0,0,0,0.3);
 }
 
 .front-page__slide-caption a {
@@ -1924,7 +1927,7 @@ p {
   }
 
   .front-page__slide-caption {
-    padding: 0 1.25rem 2.8125rem 1.875rem;
+    padding: 1.25rem 1.25rem 2.8125rem 1.875rem;
   }
 
   .bio__main {

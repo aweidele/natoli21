@@ -73,6 +73,8 @@
     z-index: 10;
     padding: $gutterSm;
     font-family: $copyFF;
+    background: linear-gradient(0deg,rgba($black,.3) 33%, rgba($black,0) 100%);
+    text-shadow: 1px 1px rgba($black,.3);
 
     a {
       color: $white;
@@ -80,7 +82,7 @@
     }
 
     @include desktopXl {
-      padding: 0 $gutterSm 45px $gutter;
+      padding: $gutterSm $gutterSm 45px $gutter;
     }
   }
 }
