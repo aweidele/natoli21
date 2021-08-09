@@ -17,6 +17,10 @@
       height: calc(100vh - #{$headerH + 30});
       flex-direction: row;
       align-items: stretch;
+
+      .customize-support & {
+        height: calc(100vh - #{$headerH + 62});
+      }
     }
 
     .tns-outer,
