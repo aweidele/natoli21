@@ -40,6 +40,7 @@ $leftOptions = [
 
 					$landscapeFocalX = get_sub_field("landscape_focal_x");
 					$landscapeFocalY = get_sub_field("landscape_focal_y");
+          $project = get_sub_field("project");
       ?>
         <div class="front-page__slide">
           <?php if( $imageLandscape ) { ?>
@@ -48,9 +49,14 @@ $leftOptions = [
           <?php } else { ?>
           <img alt="<?= $image["alt"] ?>" src="<?=$image["url"]?>">
           <?php } ?>
+          <?php if( $project ) { ?>
           <div class="front-page__slide-caption">
-            HellOo!
+            <a href="<?= get_permalink($project->ID) ?>" class="go-to-project">
+							<div class="project-title"><?= $project->post_title ?></div>
+							Go to Project &gt;
+						</a>
           </div>
+          <?php } ?>
         </div>
       <?php
         }

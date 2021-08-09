@@ -1431,10 +1431,31 @@ p {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+  position: relative;
+  z-index: 0;
 }
 
 .front-page__slider img.portrait {
   display: none;
+}
+
+.front-page__slider {
+  position: relative;
+}
+
+.front-page__slide-caption {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  padding: 1.25rem;
+  font-family: "Univers",sans-serif;
+}
+
+.front-page__slide-caption a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .banner {
@@ -1900,6 +1921,10 @@ p {
 
   .news__wrap {
     padding: 0 0 0 1.875rem;
+  }
+
+  .front-page__slide-caption {
+    padding: 0 1.25rem 2.8125rem 1.875rem;
   }
 
   .bio__main {
