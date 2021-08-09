@@ -1387,6 +1387,50 @@ p {
   color: #DB0000;
 }
 
+.front-page__container {
+  height: calc(100vh - 6.125rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.front-page__container>div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  overflow: hidden;
+}
+
+.front-page__container-left {
+  background: #FAA;
+}
+
+.front-page__container-right {
+  background: #AAF;
+}
+
+.front-page__slider,
+.front-page__slider>div {
+  width: 100%;
+  height: 100%;
+}
+
+.front-page__slider img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.front-page__slider img.portrait {
+  display: none;
+}
+
 .banner {
   overflow: hidden;
 }
@@ -1786,6 +1830,25 @@ p {
 
   .news__left {
     padding: 0 4.6875rem 0 5.9375rem;
+  }
+
+  .front-page__container {
+    height: calc(100vh - 8.625rem);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+
+  .front-page__slider img.portrait {
+    display: block;
+  }
+
+  .front-page__slider img.landsape {
+    display: none;
   }
 }
 

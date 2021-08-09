@@ -1,0 +1,55 @@
+.front-page {
+  &__container {
+    height: calc(100vh - #{$headerHMin + 30});
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      flex: 0 0 50%;
+      overflow: hidden;
+    }
+
+    &-left {
+      background: #FAA;
+    }
+
+    &-right {
+      background: #AAF;
+    }
+
+    @include desktop {
+      height: calc(100vh - #{$headerH + 30});
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  &__slider {
+    &,
+    > div {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+
+      &.portrait {
+        display: none;
+      }
+
+      @include desktop {
+        &.portrait {
+          display: block;
+        }
+
+        &.landsape {
+          display: none;
+        }
+      }
+    }
+  }
+}
