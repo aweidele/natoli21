@@ -1,0 +1,122 @@
+.front-page {
+  &__container {
+    height: calc(100vh - #{$headerHMin + 30});
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      flex: 0 0 50%;
+      overflow: hidden;
+    }
+
+    &-right {
+      position: relative;
+    }
+
+    @include desktop {
+      height: calc(100vh - #{$headerH + 30});
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .tns-outer,
+    .tns-inner {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tns-nav {
+      display: none;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    &,
+    > div {
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      position: relative;
+      z-index: 0;
+
+      &.portrait {
+        display: none;
+      }
+
+      @include desktop {
+        &.portrait {
+          display: block;
+        }
+
+        &.landsape {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__slide-caption {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    padding: $gutterSm;
+    font-family: $copyFF;
+    background: linear-gradient(0deg,rgba($black,.3) 33%, rgba($black,0) 100%);
+    text-shadow: 1px 1px rgba($black,.3);
+
+    a {
+      color: $white;
+      text-decoration: none;
+
+      @include hover {
+        color: rgba($white,.7);
+      }
+    }
+
+    @include desktopXl {
+      padding: $gutterSm $gutterSm 45px $gutter;
+    }
+  }
+}
+
+.tagline-slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($black,.3);
+}
+
+.tagline {
+  text-align: center;
+  text-shadow: 1px 1px rgba($black,.3);
+  &__copy {
+    color: $white;
+    font-size: 16px;
+    font-family: $titleFF;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+
+    @include desktop {
+      font-size: 48px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
