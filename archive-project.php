@@ -63,12 +63,12 @@
 
            <div class="project-card<?php if($noDetail) { echo " no-detail"; } if($signature) { echo " signature"; } ?>" id="<?php echo $post->post_name; ?>">
              <div class="project-card__image">
-               <a href="<?php echo get_permalink(); ?>" tabindex="-1">
+               <a href="<?php echo get_permalink(); ?>" tabindex="-1" aria-labelledby="project_<?php echo $post->post_name; ?>">
                  <img alt="<?= $alt ?>" src="<?= $imageUrl[0] ?>" />
                </a>
              </div>
              <div class="project-card__content">
-                <h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+                <h2 id="project_<?php echo $post->post_name; ?>"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
                 <div class="project-card__locations">
                   <ul>
                     <?php foreach($locations as $location) { ?>

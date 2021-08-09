@@ -1,0 +1,29 @@
+@keyframes loading {
+  0% {
+    transform: scaleY(1);
+  }
+
+  33% {
+    transform: scaleY(1.75);
+  }
+
+  66% {
+    transform: scaleY(1);
+  }
+}
+.icon-loading {
+  rect {
+    animation: loading 1s infinite;
+    transform-origin: center;
+  }
+
+  .rect-2 {
+    animation-delay: .25s;
+  }
+  .rect-3 {
+    animation-delay: .5s;
+  }
+  .rect-4 {
+    animation-delay: .75s;
+  }
+}

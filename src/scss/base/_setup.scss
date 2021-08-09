@@ -48,12 +48,13 @@ a {
   transform: translate(-50%, -100%);
   z-index: 9999;
   background: $gray-10;
-  color: $black;
+  color: $primary;
   padding: 10px 20px;
   display: inline-block;
   transition: all .25s;
   @include hover {
     transform: translate(-50%, 0);
+    color: $black;
   }
 }
 

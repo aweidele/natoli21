@@ -1,0 +1,1 @@
+<svg class="icon-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 15"><rect class="rect-1" width="12" height="15"/><rect x="16" class="rect-2" width="12" height="15"/><rect x="32" class="rect-3" width="12" height="15"/><rect x="48" class="rect-4" width="12" height="15"/></svg>
