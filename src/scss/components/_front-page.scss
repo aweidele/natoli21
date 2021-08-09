@@ -9,10 +9,6 @@
       overflow: hidden;
     }
 
-    &-left {
-      background: #FAA;
-    }
-
     &-right {
       background: #AAF;
     }
@@ -21,6 +17,16 @@
       height: calc(100vh - #{$headerH + 30});
       flex-direction: row;
       align-items: stretch;
+    }
+
+    .tns-outer,
+    .tns-inner {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tns-nav {
+      display: none;
     }
   }
 

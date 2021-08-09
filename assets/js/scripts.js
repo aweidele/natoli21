@@ -3207,6 +3207,15 @@ var tns = function(options) {
 return tns;
 })();
 (function($) {
+  $('.front-page__slider').each(function() {
+    var thisSlider = $(this);
+    var options = thisSlider.data('options');
+    console.log(options);
+    var slider = tns(options);
+  });
+})(jQuery);
+
+(function($) {
   $('.news__list h2 a').on('click', function(e) {
     e.preventDefault();
     var h = $(this).prop('href');
