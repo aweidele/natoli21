@@ -212,8 +212,7 @@
 }
 
 body {
-  width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: "Univers",sans-serif;
   color: #000;
 }
@@ -1431,9 +1430,9 @@ p {
 }
 
 .front-page__container>div {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
   overflow: hidden;
 }
 
