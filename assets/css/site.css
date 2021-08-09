@@ -212,6 +212,7 @@
 }
 
 body {
+  width: 100vw;
   overflow-x: hidden;
   font-family: "Univers",sans-serif;
   color: #000;
