@@ -1387,6 +1387,37 @@ p {
   color: #DB0000;
 }
 
+.btn {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.3125rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.btn.btn-primary {
+  border: 0.0625rem solid #000;
+  text-transform: uppercase;
+  font-family: "Trade Gothic Extended",sans-serif;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  color: #fff;
+  background-color: #000;
+}
+
+.btn.btn-primary.btn-reverse {
+  border-color: white;
+  color: #fff;
+}
+
+.btn.btn-primary.btn-reverse:hover,
+.btn.btn-primary.btn-reverse:focus {
+  color: #000;
+  background-color: #fff;
+}
+
 .front-page__container {
   height: calc(100vh - 6.125rem);
   display: -webkit-box;
@@ -1406,7 +1437,7 @@ p {
 }
 
 .front-page__container-right {
-  background: #AAF;
+  position: relative;
 }
 
 .front-page__container .tns-outer,
@@ -1417,6 +1448,10 @@ p {
 
 .front-page__container .tns-nav {
   display: none;
+}
+
+.front-page__slider {
+  position: relative;
 }
 
 .front-page__slider,
@@ -1439,10 +1474,6 @@ p {
   display: none;
 }
 
-.front-page__slider {
-  position: relative;
-}
-
 .front-page__slide-caption {
   width: 100%;
   position: absolute;
@@ -1459,6 +1490,47 @@ p {
 .front-page__slide-caption a {
   color: #fff;
   text-decoration: none;
+}
+
+.front-page__slide-caption a:hover,
+.front-page__slide-caption a:focus {
+  color: rgba(255,255,255,0.7);
+}
+
+.tagline-slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(0,0,0,0.3);
+}
+
+.tagline {
+  text-align: center;
+  text-shadow: 1px 1px rgba(0,0,0,0.3);
+}
+
+.tagline__copy {
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Trade Gothic Extended",sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+.tagline__copy p {
+  margin: 0;
 }
 
 .banner {
@@ -1809,6 +1881,10 @@ p {
             flex: 1 1 auto;
   }
 
+  .btn {
+    padding: 1.25rem;
+  }
+
   .bio {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1879,6 +1955,10 @@ p {
 
   .front-page__slider img.landsape {
     display: none;
+  }
+
+  .tagline__copy {
+    font-size: 3rem;
   }
 }
 

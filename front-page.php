@@ -22,8 +22,30 @@ $leftOptions = [
   "autoplay" => true,
   "mode" => "gallery",
   "controls" => false,
-  "autoplayTimeout" => 10000,
-  "speed" => 1000
+  "autoplayTimeout" => $leftTimeout,
+  "speed" => $leftSpeed
+];
+
+$rightOptions = [
+  "container" => "#right-slider",
+  "items" => 1,
+  "slideBy" => "page",
+  "autoplay" => true,
+  "mode" => "gallery",
+  "controls" => false,
+  "autoplayTimeout" => $rightTimeout,
+  "speed" => $rightSpeed
+];
+
+$taglineOptions = [
+  "container" => "#tagline-slider",
+  "items" => 1,
+  "slideBy" => "page",
+  "autoplay" => true,
+  "mode" => "gallery",
+  "controls" => false,
+  "autoplayTimeout" => $taglineTimeout,
+  "speed" => $taglineSpeed
 ];
 ?>
 <main class="front-page">
@@ -64,7 +86,47 @@ $leftOptions = [
       </div>
     </div>
     <div class="front-page__container-right">
-      Hello.
+      <!-- RIGHT SLIDER -->
+      <div class="front-page__slider right-slider" id="right-slider" data-options='<?php echo JSON_ENCODE($rightOptions); ?>'>
+        <?php
+          while( has_sub_field("right_slides", "options") ) {
+            $image = get_sub_field("image");
+  					$overlay = get_sub_field("overlay");
+  					$imageLandscape = get_sub_field("image_landscape");
+  					$focalX = get_sub_field("focal_x");
+  					$focalY = get_sub_field("focal_y");
+        ?>
+        <div class="front-page__slide">
+          <?php if( $imageLandscape ) { ?>
+          <img alt="<?= $image["alt"] ?>" src="<?=$image["url"]?>" class="portrait">
+          <img alt="<?= $imageLandscape["alt"] ?>" src="<?=$imageLandscape["url"]?>" class="landsape">
+          <?php } else { ?>
+          <img alt="<?= $image["alt"] ?>" src="<?=$image["url"]?>">
+          <?php } ?>
+        </div>
+        <?php } ?>
+      </div>
+      <div class="tagline-slider">
+        <div class="tagline-slider__inner">
+          <div class="front-page__slider" id="tagline-slider" data-options='<?php echo JSON_ENCODE($taglineOptions); ?>'>
+            <?php
+    					while( has_sub_field("taglines", "options") ) {
+                $tagline = get_sub_field("tagline");
+    						$link = get_sub_field("link");
+    						$linkObject = get_sub_field("link_object");
+            ?>
+            <div class="tagline">
+              <div class="tagline__copy">
+                <?php echo $tagline; ?>
+              </div>
+    					<a href="<?php echo $linkObject ?>" class="btn btn-primary btn-reverse">
+    						<?php echo $link ?>
+    					</a>
+            </div>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
