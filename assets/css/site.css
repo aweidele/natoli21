@@ -1949,6 +1949,10 @@ p {
             align-items: stretch;
   }
 
+  .customize-support .front-page__container {
+    height: calc(100vh - 10.625rem);
+  }
+
   .front-page__slider img.portrait {
     display: block;
   }

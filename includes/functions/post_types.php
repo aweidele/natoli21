@@ -4,7 +4,7 @@
  * @subpackage natoli
  */
 add_action("init", "natoli_load_post_types");
- 
+
 function natoli_build_labels( $singular, $plural )
 {
 	return array(
@@ -26,7 +26,7 @@ function natoli_build_labels( $singular, $plural )
         'choose_from_most_used'         => "Choose from most used $plural"
     );
 }
- 
+
 function natoli_load_post_types() {
 	natoli_load_biography();
 	natoli_load_news();
@@ -34,7 +34,7 @@ function natoli_load_post_types() {
 }
 
 function natoli_load_biography(){
-	
+
 	$biography_args = array(
         'label'                         => 'Biography',
         'labels'                        => natoli_build_labels('Biography', 'Biographies'),
@@ -65,7 +65,7 @@ function natoli_load_news(){
     );
 
     register_taxonomy( 'news_category', 'news', $news_category_args );
-    
+
     $news_args = array(
         'label'                         => 'News',
         'labels'                        => natoli_build_labels('News', 'News'),
@@ -79,7 +79,7 @@ function natoli_load_news(){
         'show_in_nav_menus'				=> false
     );
 
-	register_post_type( 'news', $news_args );	
+	register_post_type( 'news', $news_args );
 }
 
 function natoli_load_project(){
@@ -89,13 +89,13 @@ function natoli_load_project(){
         'public'                        => true,
         'hierarchical'                  => true,
         'show_ui'                       => true,
-        'show_in_nav_menus'             => false,
+        'show_in_nav_menus'             => true,
         'query_var'                     => false,
         'show_admin_column'				=> true,
     );
 
     register_taxonomy( 'project_type', 'project', $project_type_args );
-    
+
     $project_phase_args = array(
         'label'                         => 'Phase',
         'labels'                        => natoli_build_labels('Phase', 'Phases'),
@@ -108,7 +108,7 @@ function natoli_load_project(){
     );
 
     register_taxonomy( 'phase', 'project', $project_phase_args );
-    
+
     $project_scope_args = array(
         'label'                         => 'Scope',
         'labels'                        => natoli_build_labels('Scope', 'Scopes'),
@@ -121,7 +121,7 @@ function natoli_load_project(){
     );
 
     register_taxonomy( 'scope', 'project', $project_scope_args );
-    
+
     $project_location_args = array(
         'label'                         => 'Location',
         'labels'                        => natoli_build_labels('Location', 'Locations'),
@@ -134,7 +134,7 @@ function natoli_load_project(){
     );
 
     register_taxonomy( 'location', 'project', $project_location_args );
-     
+
     $project_tag_args = array(
         'label'                         => 'Tag',
         'labels'                        => natoli_build_labels('Tag', 'Tags'),
@@ -147,7 +147,7 @@ function natoli_load_project(){
     );
 
     register_taxonomy( 'project_tag', 'project', $project_tag_args );
-    
+
     $project_args = array(
         'label'                         => 'Projects',
         'labels'                        => natoli_build_labels('Project', 'Projects'),
@@ -158,9 +158,9 @@ function natoli_load_project(){
         'rewrite'                       => array( 'slug' => 'projects', 'with_front' => true ),
         'has_archive'					=> true,
         'supports'						=> array( 'title', 'editor', 'thumbnail'),
-        'show_in_nav_menus'				=> false
+        'show_in_nav_menus'				=> true
     );
 
-	register_post_type( 'project', $project_args );	
+	register_post_type( 'project', $project_args );
 }
 ?>
