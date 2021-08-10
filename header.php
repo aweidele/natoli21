@@ -45,6 +45,7 @@
 <?php wp_head(); ?>
 </head>
 <body data-page-name="<?php echo $post->post_name; ?>">
+<div>
   <header class="main-header">
     <a class="skip-content" href="#main">Skip to main content</a>
     <div>

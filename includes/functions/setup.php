@@ -51,7 +51,7 @@ function add_scripts_and_styles() {
   wp_enqueue_style( 'main_style',
     get_stylesheet_directory_uri() . '/assets/css/site.css',
     '',
-    wp_get_theme()->get('Version')
+		rand(100,200) / 100
   );
 
 	$ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
