@@ -325,6 +325,7 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0;
 }
 
 .main-header__logo img {
@@ -562,9 +563,6 @@ button {
 }
 
 .main-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: #F0F0F0;
   font-size: 0.75rem;
@@ -1759,6 +1757,12 @@ p {
 
   .secondary-menu li ~ li {
     margin-left: 1.25rem;
+  }
+
+  .main-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
   }
 
   .page__row {
