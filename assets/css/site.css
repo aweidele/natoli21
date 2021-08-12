@@ -2180,6 +2180,21 @@ p {
   }
 }
 
+@media screen and (max-width: 1119.9px) {
+  .news__filters ul {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: -0.125rem 0 0 0;
+  }
+
+  .news__filters li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 2px);
+            flex: 0 0 calc(50% - 2px);
+    margin: 0.125rem 0;
+  }
+}
+
 @media screen and (max-width: 767.9px) {
   .mobile-hide {
     display: none;
@@ -2247,20 +2262,5 @@ p {
 
   .project-detail__slideshow .natoli-slider>div {
     margin-bottom: 0.625rem;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1119.9px) {
-  .news__filters ul {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    margin: -0.125rem 0 0 0;
-  }
-
-  .news__filters li {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 calc(50% - 2px);
-            flex: 0 0 calc(50% - 2px);
-    margin: 0.125rem 0;
   }
 }

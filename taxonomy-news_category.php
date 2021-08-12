@@ -5,7 +5,7 @@
  */
 
  get_header();
- $categoryId = "";
+ $categoryId = get_queried_object_id();
 
  $terms = get_terms("news_category");
  ?>
