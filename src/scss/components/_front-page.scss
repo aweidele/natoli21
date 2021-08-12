@@ -1,4 +1,10 @@
 .front-page {
+  padding: $headerHMin 0 0 0;
+
+  @include tablet {
+    padding: $headerH 0 0 0;
+  }
+
   &__container {
     height: calc(100vh - #{$headerHMin + 30});
     display: flex;

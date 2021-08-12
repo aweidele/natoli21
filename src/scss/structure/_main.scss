@@ -1,3 +1,7 @@
 .main {
-  padding-bottom: 30px + $gutter;
+  padding: $headerHMin 0 30px + $gutter 0;
+
+  @include tablet {
+    padding: $headerH 0 30px + $gutter 0;
+  }
 }
