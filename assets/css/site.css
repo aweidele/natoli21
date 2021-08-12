@@ -1580,13 +1580,18 @@ p {
   height: 100%;
 }
 
+.copy+.quotes {
+  margin-top: 1.875rem;
+}
+
 .page__wrapper .image {
-  max-width: 360px;
+  max-width: 330px;
   margin: auto;
+  padding: 0 0.9375rem;
 }
 
 .image img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -1771,6 +1776,7 @@ p {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    padding: 3.125rem 0;
   }
 
   .page__middle {
@@ -1998,6 +2004,11 @@ p {
             flex-grow: 0;
     -ms-flex-negative: 1;
         flex-shrink: 1;
+    padding-left: 3.125rem;
+  }
+
+  .page__left h2 {
+    font-size: 1.125rem;
   }
 
   .page__middle {

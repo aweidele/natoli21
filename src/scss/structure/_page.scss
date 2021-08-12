@@ -9,6 +9,7 @@
     @include tablet {
       display: flex;
       flex-wrap: wrap;
+      padding: $gutterLg 0;
     }
     .col {
       margin-bottom: 14px;
@@ -27,6 +28,11 @@
       flex-basis: 16%;
       flex-grow: 0;
       flex-shrink: 1;
+      padding-left: $gutterLg;
+
+      h2 {
+        font-size: 18px;
+      }
     }
   }
 
