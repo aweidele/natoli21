@@ -1,7 +1,22 @@
 .bio {
+  padding-bottom: $gutterLg;
+
   @include tablet {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  a {
+    color: $black;
+
+    @include hover {
+      color: $primary;
+    }
+  }
+
+  + .bio {
+    border-top: 1px solid $black;
+    padding-top: $gutterLg;
   }
 
   &__main {
@@ -9,10 +24,6 @@
       flex-grow: 1;
       width: min-content;
       padding-right: $gutterSm;
-    }
-
-    @include desktopXl {
-      padding-left: $gutterLg;
     }
   }
   &__right {

@@ -616,8 +616,65 @@ p {
   margin: 0 0 1em 0;
 }
 
+.copy ul,
+.copy ol {
+  margin-bottom: 1em;
+}
+
+.copy li {
+  position: relative;
+}
+
+.copy ul li {
+  padding-left: 1em;
+}
+
+.copy ul li:before {
+  content: "";
+  width: 0.375rem;
+  height: 0.375rem;
+  position: absolute;
+  top: calc(50% - 0.1875rem);
+  left: 0;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.copy ol {
+  counter-reset: olist;
+}
+
+.copy ol li {
+  padding-left: 1.7em;
+  counter-increment: olist;
+}
+
+.copy ol li:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: counter(olist) ".";
+  color: currentColor;
+}
+
+.copy p,
+.copy li {
+  line-height: 1.2em;
+}
+
+.copy p:last-child,
+.copy ul:last-child,
+.copy ol:last-child,
+.copy li:last-child {
+  margin-bottom: 0;
+}
+
 .main {
   padding-bottom: 3.75rem;
+}
+
+.page {
+  background: #fff;
 }
 
 .page__wrapper {
@@ -674,6 +731,10 @@ p {
   content: counter(olist) ".";
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.page:nth-child(2n) {
+  background: #F0F0F0;
 }
 
 .projects {
@@ -1584,7 +1645,7 @@ p {
   margin-top: 1.875rem;
 }
 
-.page__wrapper .image {
+.page__right .image {
   max-width: 330px;
   margin: auto;
   padding: 0 0.9375rem;
@@ -1594,6 +1655,24 @@ p {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+.bio {
+  padding-bottom: 3.125rem;
+}
+
+.bio a {
+  color: #000;
+}
+
+.bio a:hover,
+.bio a:focus {
+  color: #DB0000;
+}
+
+.bio+.bio {
+  border-top: 1px solid #000;
+  padding-top: 3.125rem;
 }
 
 .bio__right {
@@ -2033,10 +2112,6 @@ p {
 
   .front-page__slide-caption {
     padding: 1.25rem 1.25rem 2.8125rem 1.875rem;
-  }
-
-  .bio__main {
-    padding-left: 3.125rem;
   }
 }
 
