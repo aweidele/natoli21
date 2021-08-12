@@ -381,5 +381,11 @@
     &.current {
       color: $primary;
     }
+
+    &.current {
+      @include hover {
+        color: $white;
+      }
+    }
   }
 }

@@ -13,7 +13,7 @@
   <div class="news">
     <div class="news__wrap">
       <div class="news__left">
-        <nav class="news__filters">
+        <nav class="news__filters" aria-label="News Filters">
           <ul>
             <li><a href="<?= get_post_type_archive_link("news") ?>" class="<?= $categoryId == "" ? "selected" : ""?>">All</a>
             <?php
@@ -36,13 +36,13 @@
 				    $terms = wp_get_post_terms( $post->ID, "news_category" );
             $signature = get_field("signature");
           ?>
-          <article class="news__item<?php if( $signature ) { echo " signature"; } ?>">
+          <article id="<?php echo $post->post_name; ?>" class="news__item<?php if( $signature ) { echo " signature"; } ?>" aria-labelledby="news-title-<?php echo $post->ID; ?>">
             <div class="news__tax">
               <?php foreach($terms as $term) { ?>
               <a href="<?= get_term_link($term) ?>"><?= $term->name ?></a>
               <?php } ?>
             </div>
-            <h2><a href="<?= get_the_permalink() ?>"><?php the_title(); ?></a></h2>
+            <h2 id="news-title-<?php echo $post->ID; ?>"><a href="<?= get_the_permalink() ?>"><?php the_title(); ?></a></h2>
             <div class="news__tags">
               <span><?php the_time( get_option( 'date_format' ) ); ?></span>
               <?php if( $publication ) { ?>
