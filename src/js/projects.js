@@ -46,9 +46,6 @@
     var sortText = [],
         sortElements = [];
 
-    var animals = ['Elephant','monkey','dog','cat'];
-    animals.splice(1,0,'Chicken','giraffe');
-
     $('.projects__cards .project-card').each(function() {
       var content = $('.project-card__content', this),
           text = getProjectContent(content,col),
