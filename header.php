@@ -45,10 +45,10 @@
 <?php wp_head(); ?>
 </head>
 <body data-page-name="<?php echo $post->post_name; ?>">
-<div>
+<!-- <div> -->
   <header class="main-header">
     <a class="skip-content" href="#main">Skip to main content</a>
-    <div>
+    <div class="main-header__container">
       <div class="main-header__logo">
         <h1>
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -83,4 +83,23 @@
         </div>
       </div>
     </div>
+    <?php
+    $defaultPage = get_queried_object();
+    if( $defaultPage->post_parent ) {
+      $parentPage = true;
+      $allPages = get_pages( array(
+          'sort_column' => 'menu_order',
+          'parent' => $defaultPage->post_parent,
+        ));
+    ?>
+      <div class="jump-nav__container">
+        <nav class="jump-nav">
+          <ul>
+            <?php foreach($allPages as $page) { ?>
+            <li><a href="#page-<?php echo $page->post_name; ?>"><?php echo $page->post_title; ?></a></li>
+            <?php } ?>
+          </ul>
+        </nav>
+      </div>
+    <?php } ?>
   </header>

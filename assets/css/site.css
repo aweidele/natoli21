@@ -296,7 +296,7 @@ button {
   height: 4.25rem;
 }
 
-.main-header>div {
+.main-header__container {
   width: 100%;
   max-width: 1300px;
   padding: 0 1.25rem;
@@ -559,6 +559,39 @@ button {
 .main-menu a:focus,
 .secondary-menu a:hover,
 .secondary-menu a:focus {
+  color: #DB0000;
+}
+
+.jump-nav {
+  width: 100%;
+  max-width: 1300px;
+  padding-left: 16.9375rem;
+}
+
+.jump-nav__container {
+  background: rgba(116,116,116,0.9);
+}
+
+.jump-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.jump-nav li {
+  margin-right: 2.8125rem;
+}
+
+.jump-nav a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.3125rem 0;
+}
+
+.jump-nav a:hover,
+.jump-nav a:focus,
+.jump-nav a.current {
   color: #DB0000;
 }
 
@@ -2062,8 +2095,12 @@ p {
 }
 
 @media screen and (min-width: 1300px) {
-  .main-header>div {
+  .main-header__container {
     padding: 0 0 0 1.875rem;
+  }
+
+  .jump-nav {
+    padding-left: 17.5625rem;
   }
 
   .main-footer>div {
@@ -2198,6 +2235,10 @@ p {
   .secondary-menu a:focus {
     background: #F0F0F0;
     color: #000;
+  }
+
+  .jump-nav {
+    display: none;
   }
 
   .project-detail__slideshow .natoli-slider {
