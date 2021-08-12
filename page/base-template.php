@@ -53,5 +53,3 @@ foreach($allPages as $index => $page) {
 <?php
 get_footer();
 ?>
-
-<div id="feedback">fb</div>

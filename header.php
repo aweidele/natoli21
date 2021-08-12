@@ -78,8 +78,8 @@
           <span></span>
         </button>
         <div id="main-menu-bar" class="main-header__menu-bar">
-          <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu', 'depth' => 1 ) ); ?>
-      		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu' ) ); ?>
+          <?php wp_nav_menu( array( 'theme_location' => 'mainMenu', 'container' => 'nav', 'container_class' => 'main-menu', 'depth' => 1, 'container_aria_label' => 'Main Nav' ) ); ?>
+      		<?php wp_nav_menu( array( 'theme_location' => 'subMenu', 'container' => 'nav', 'container_class' => 'secondary-menu', 'container_aria_label' => 'Utility Nav' ) ); ?>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@
         ));
     ?>
       <div class="jump-nav__container">
-        <nav class="jump-nav">
+        <nav class="jump-nav" aria-label="Jump to section">
           <ul>
             <?php foreach($allPages as $page) { ?>
             <li><a href="#page-<?php echo $page->post_name; ?>"><?php echo $page->post_title; ?></a></li>

@@ -4,7 +4,7 @@ $publicationName = get_field("publication_name");
 $publicationUrl = get_field("publication_url");
 $relatedProjects = get_field("related_projects");
  ?>
-<article class="news__article">
+<article class="news__article" aria-label="Main Article: <?php the_title(); ?>">
   <?php
   if( $featuredId ) {
     $url = wp_get_attachment_image_src( $featuredId, "large" );
@@ -16,7 +16,7 @@ $relatedProjects = get_field("related_projects");
     <?php
   }
   ?>
-  <h1 class="h2"><?php the_title(); ?></h1>
+  <h1 class="h2" id="news-main-<?php echo $post->ID; ?>"><?php the_title(); ?></h1>
   <div class="news__tags">
     <span><?php the_time( get_option( 'date_format' ) ); ?></span>
     <?php
