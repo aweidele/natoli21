@@ -13,34 +13,40 @@ if(!$bannerSize)
 {
 	$bannerSize = 400;
 }
-
-if( $type == "slideshow" )
-{
-	$delay = get_field("initial_delay", $page->ID);
-	$timeout = get_field("slide_delay", $page->ID);
-	$speed = get_field("transition_speed", $page->ID);
-	$slides = get_field("slides", $page->ID);
-
-	$options = [
-		"container" => "#".$id,
-		"items" => 1,
-		"slideBy" => "page",
-		"autoplay" => true,
-		"mode" => "gallery",
-		"controls" => false,
-		"autoplayTimeout" => $timeout,
-		"speed" => $speed
-	];
 ?>
-  <header>
-		<div class="banner" style="max-height: <?php echo $bannerSize; ?>px">
-			<div class="natoli-slider" id="<?php echo $id; ?>" data-options='<?php echo JSON_ENCODE($options); ?>'>
-				<?php foreach($slides as $slide) { ?>
-					<div><figure><img src="<?php echo $slide["url"]; ?>" alt="<?php echo $slide["alt"]; ?>"></figure></div>
-				<?php } ?>
-			</div>
+<header>
+	<div class="banner" style="max-height: <?php echo $bannerSize; ?>px">
+		<?php
+		if( $type == "slideshow" )
+		{
+			$delay = get_field("initial_delay", $page->ID);
+			$timeout = get_field("slide_delay", $page->ID);
+			$speed = get_field("transition_speed", $page->ID);
+			$slides = get_field("slides", $page->ID);
+
+			$options = [
+				"container" => "#".$id,
+				"items" => 1,
+				"slideBy" => "page",
+				"autoplay" => true,
+				"mode" => "gallery",
+				"controls" => false,
+				"autoplayTimeout" => $timeout,
+				"speed" => $speed
+			];
+		?>
+		<div class="natoli-slider" id="<?php echo $id; ?>" data-options='<?php echo JSON_ENCODE($options); ?>'>
+			<?php foreach($slides as $slide) { ?>
+				<div><figure><img src="<?php echo $slide["url"]; ?>" alt="<?php echo $slide["alt"]; ?>"></figure></div>
+			<?php } ?>
 		</div>
-  </header>
-<?php
-}
-?>
+		<?php
+		} else if( $type == "banner_image" ) {
+			$image = get_field("banner_image", $page->ID);
+		?>
+		<img alt="<?php echo $image["alt"]; ?>" src="<?php echo $image["url"]; ?>">
+		<?php
+		}
+		?>
+	</div>
+</header>

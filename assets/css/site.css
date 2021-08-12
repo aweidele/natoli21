@@ -702,6 +702,15 @@ p {
   margin-bottom: 0;
 }
 
+.copy a {
+  color: #000;
+}
+
+.copy a:hover,
+.copy a:focus {
+  color: #DB0000;
+}
+
 .main {
   padding-bottom: 3.75rem;
 }
@@ -726,44 +735,6 @@ p {
 
 .page__left {
   width: 100%;
-}
-
-.page__copy ul,
-.page__copy ol {
-  margin-bottom: 1em;
-}
-
-.page__copy li {
-  padding-left: 1.875em;
-  position: relative;
-}
-
-.page__copy ul li:before {
-  width: 0.3125rem;
-  height: 0.3125rem;
-  position: absolute;
-  top: 0.375rem;
-  left: 0.75rem;
-  background: #000;
-  border-radius: 50%;
-  content: "";
-}
-
-.page__copy ol {
-  counter-reset: olist;
-}
-
-.page__copy ol li:before {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1.875em;
-  padding-right: 0.3125rem;
-  counter-increment: olist;
-  content: counter(olist) ".";
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
 .page:nth-child(2n) {
@@ -1635,7 +1606,7 @@ p {
   overflow: hidden;
 }
 
-.banner .natoli-slider img {
+.banner img {
   width: 100%;
   height: auto;
   display: block;
@@ -1678,16 +1649,11 @@ p {
   margin-top: 1.875rem;
 }
 
-.page__right .image {
-  max-width: 330px;
-  margin: auto;
-  padding: 0 0.9375rem;
-}
-
 .image img {
   max-width: 100%;
   height: auto;
   display: block;
+  margin: auto;
 }
 
 .bio {

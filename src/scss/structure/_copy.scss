@@ -86,4 +86,12 @@ p {
       margin-bottom: 0;
     }
   }
+
+  a {
+    color: $black;
+
+    @include hover {
+      color: $primary;
+    }
+  }
 }
