@@ -1,4 +1,10 @@
 .page {
+  min-height: calc(100vh - #{$headerHMin + 30});
+
+  @include tablet {
+    min-height: calc(100vh - #{$headerH + 30});
+  }
+
   &__wrapper {
     @include constW;
   }

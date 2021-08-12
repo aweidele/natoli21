@@ -716,6 +716,7 @@ p {
 }
 
 .page {
+  min-height: calc(100vh - 98px);
   background: #fff;
 }
 
@@ -1846,6 +1847,10 @@ p {
     position: fixed;
     left: 0;
     bottom: 0;
+  }
+
+  .page {
+    min-height: calc(100vh - 138px);
   }
 
   .page__row {
