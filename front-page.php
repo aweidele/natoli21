@@ -48,7 +48,7 @@ $taglineOptions = [
   "speed" => $taglineSpeed
 ];
 ?>
-<main class="front-page">
+<main class="front-page" id="main">
   <div class="front-page__container">
     <div class="front-page__container-left">
       <!-- LEFT SLIDER -->
