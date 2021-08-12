@@ -20,6 +20,13 @@
       var scrollTo = currentPage.offset().top - headerHeight;
       window.scrollTo( 0, scrollTo );
     });
+
+    $('.jump-nav a').on('click',function(e) {
+      e.preventDefault();
+      var h = $($(this).attr('href'));
+      var o = h.offset().top - $('.main-header').height();
+      $("html, body").animate({ scrollTop: o }, 1000);
+    });
   }
 
 

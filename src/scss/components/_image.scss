@@ -1,11 +1,13 @@
 .image {
-  .page__wrapper & {
-    max-width: 360px;
-    margin: auto;
+  .page__right & {
+    // max-width: 330px;
+    // margin: auto;
+    // padding: 0 15px;
   }
   img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
+    margin: auto;
   }
 }

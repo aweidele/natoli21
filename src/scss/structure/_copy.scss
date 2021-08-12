@@ -30,3 +30,68 @@ h3, .h3 {
 p {
   margin: 0 0 1em 0;
 }
+
+.copy {
+  ul,
+  ol {
+    margin-bottom: 1em;
+  }
+
+  li {
+    position: relative;
+  }
+
+  ul {
+    li {
+      padding-left: 1em;
+      &:before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        top: calc(50% - 3px);
+        left: 0;
+        background: currentColor;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: olist;
+
+    li {
+      padding-left: 1.7em;
+      counter-increment: olist;
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: counter(olist) ".";
+        color: currentColor;
+      }
+    }
+  }
+
+  p,
+  li {
+    line-height: 1.2em;
+  }
+
+  p,
+  ul,
+  ol,
+  li {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $black;
+
+    @include hover {
+      color: $primary;
+    }
+  }
+}

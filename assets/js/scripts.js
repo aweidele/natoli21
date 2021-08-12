@@ -3292,9 +3292,6 @@ return tns;
     var sortText = [],
         sortElements = [];
 
-    var animals = ['Elephant','monkey','dog','cat'];
-    animals.splice(1,0,'Chicken','giraffe');
-
     $('.projects__cards .project-card').each(function() {
       var content = $('.project-card__content', this),
           text = getProjectContent(content,col),
@@ -3347,6 +3344,13 @@ return tns;
       windowScroll();
       var scrollTo = currentPage.offset().top - headerHeight;
       window.scrollTo( 0, scrollTo );
+    });
+
+    $('.jump-nav a').on('click',function(e) {
+      e.preventDefault();
+      var h = $($(this).attr('href'));
+      var o = h.offset().top - $('.main-header').height();
+      $("html, body").animate({ scrollTop: o }, 1000);
     });
   }
 

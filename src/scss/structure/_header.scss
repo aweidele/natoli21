@@ -9,7 +9,7 @@
     height: $headerH;
   }
 
-  > div {
+  &__container {
     @include constW;
     display: flex;
   }
@@ -340,6 +340,45 @@
       ~ li {
         margin-left: 20px;
       }
+    }
+  }
+}
+
+.jump-nav {
+  &__container {
+    background: rgba($gray-40,.9);
+  }
+
+  width: 100%;
+  max-width: 1300px;
+  padding-left: 206 + 20 + 45px;
+
+  @include desktopXl {
+  padding-left: 206 + 30 + 45px;
+  }
+
+  @include tabletMax {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    margin-right: 45px;
+  }
+
+  a {
+    display: inline-block;
+    color: $white;
+    text-decoration: none;
+    padding: 5px 0;
+
+    &:hover,
+    &:focus,
+    &.current {
+      color: $primary;
     }
   }
 }

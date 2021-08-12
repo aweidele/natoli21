@@ -10,7 +10,7 @@
       <?= do_shortcode($copyright); ?>
     </div>
   </footer>
-</div>
+<!-- </div> -->
 <?php wp_footer(); ?>
 </body>
 </html>
