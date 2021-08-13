@@ -10,6 +10,24 @@
     height: auto;
     display: block;
   }
+
+  &.-img {
+    position: relative;
+
+    img {
+      &:first-child {
+        opacity: 0;
+      }
+
+      &:last-child {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+      }
+    }
+  }
 }
 
 .tns-outer {

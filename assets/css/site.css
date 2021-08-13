@@ -1617,6 +1617,23 @@ p {
   display: block;
 }
 
+.banner.-img {
+  position: relative;
+}
+
+.banner.-img img:first-child {
+  opacity: 0;
+}
+
+.banner.-img img:last-child {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .tns-outer button {
   position: absolute;
   width: 0.0625rem;
