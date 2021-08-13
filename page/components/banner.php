@@ -15,7 +15,7 @@ if(!$bannerSize)
 }
 ?>
 <header>
-	<div class="banner" style="max-height: <?php echo $bannerSize; ?>px">
+	<div class="banner<?php if( $type == "banner_image" ) { echo " -img"; } ?>" style="max-height: <?php echo $bannerSize; ?>px">
 		<?php
 		if( $type == "slideshow" )
 		{
@@ -44,6 +44,7 @@ if(!$bannerSize)
 		} else if( $type == "banner_image" ) {
 			$image = get_field("banner_image", $page->ID);
 		?>
+		<img alt="<?php echo $image["alt"]; ?>" src="<?php echo $image["url"]; ?>">
 		<img alt="<?php echo $image["alt"]; ?>" src="<?php echo $image["url"]; ?>">
 		<?php
 		}
