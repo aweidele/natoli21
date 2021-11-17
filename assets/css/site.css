@@ -1297,10 +1297,19 @@ p {
   z-index: 100;
   width: 3.125rem;
   height: 100%;
-  background: rgba(255,255,255,0.5);
   -webkit-transition: all .25s;
   transition: all .25s;
   opacity: 0;
+}
+
+.project-detail .tns-controls button:after {
+  width: 3.125rem;
+  height: 3.125rem;
+  position: absolute;
+  top: calc(100% - 1.5625rem);
+  left: 0;
+  background: rgba(255,255,255,0.5);
+  content: "";
 }
 
 .project-detail .tns-controls button:hover {
