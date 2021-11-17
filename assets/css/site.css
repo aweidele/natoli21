@@ -1300,6 +1300,9 @@ p {
   -webkit-transition: all .25s;
   transition: all .25s;
   opacity: 0;
+  background-size: 30px 30px;
+  background-position: center;
+  text-indent: -999999px;
 }
 
 .project-detail .tns-controls button:after {
@@ -1318,10 +1321,12 @@ p {
 
 .project-detail .tns-controls button:first-child {
   left: 0;
+  background-image: url(../src/icons/arrow-right.svg);
 }
 
 .project-detail .tns-controls button:last-child {
   right: 0;
+  background-image: url(../src/icons/arrow-left.svg);
 }
 
 .news {

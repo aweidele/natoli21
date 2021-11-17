@@ -598,6 +598,9 @@ $colp: 10px 20px;
       height: 100%;
       transition: all .25s;
       opacity: 0;
+      background-size: 30px 30px;
+      background-position: center;
+      text-indent: -999999px;
 
       &:after {
         width: 50px;
@@ -615,10 +618,13 @@ $colp: 10px 20px;
 
       &:first-child {
         left: 0;
+        background-image: url(../src/icons/arrow-right.svg);
+
       }
 
       &:last-child {
         right: 0;
+        background-image: url(../src/icons/arrow-left.svg);
       }
     }
   }
