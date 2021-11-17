@@ -1298,6 +1298,23 @@ p {
   width: 3.125rem;
   height: 3.125rem;
   background: rgba(255,255,255,0.5);
+  -webkit-transform: translateY(-25px);
+          transform: translateY(-25px);
+  -webkit-transition: all .25s;
+  transition: all .25s;
+  opacity: 0;
+}
+
+.project-detail .tns-controls button:hover {
+  opacity: 1;
+}
+
+.project-detail .tns-controls button:first-child {
+  left: 0;
+}
+
+.project-detail .tns-controls button:last-child {
+  right: 0;
 }
 
 .news {

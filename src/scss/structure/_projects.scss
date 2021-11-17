@@ -596,7 +596,22 @@ $colp: 10px 20px;
       z-index: 100;
       width: 50px;
       height: 50px;
-      background: rgba($white,0.5)
+      background: rgba($white,0.5);
+      transform: translateY(-25px);
+      transition: all .25s;
+      opacity: 0;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:first-child {
+        left: 0;
+      }
+
+      &:last-child {
+        right: 0;
+      }
     }
   }
 }
