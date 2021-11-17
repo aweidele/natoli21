@@ -1335,7 +1335,7 @@ p {
 }
 
 .project-detail .tns-controls button:first-child:before {
-  background-image: url(../../src/icons/arrow-left.svg);
+  background-image: url(../icons/arrow-left.svg);
 }
 
 .project-detail .tns-controls button:last-child {
@@ -1343,7 +1343,7 @@ p {
 }
 
 .project-detail .tns-controls button:last-child:before {
-  background-image: url(../../src/icons/arrow-right.svg);
+  background-image: url(../icons/arrow-right.svg);
 }
 
 .news {
