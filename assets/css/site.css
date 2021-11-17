@@ -1293,13 +1293,11 @@ p {
 
 .project-detail .tns-controls button {
   position: absolute;
-  top: 50%;
+  top: 0;
   z-index: 100;
   width: 3.125rem;
-  height: 3.125rem;
+  height: 100%;
   background: rgba(255,255,255,0.5);
-  -webkit-transform: translateY(-25px);
-          transform: translateY(-25px);
   -webkit-transition: all .25s;
   transition: all .25s;
   opacity: 0;
