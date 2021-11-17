@@ -581,4 +581,22 @@ $colp: 10px 20px;
       }
     }
   }
+
+  .tns-outer {
+    position: relative;
+    > button {
+      @include srOnly;
+    }
+  }
+
+  .tns-controls {
+    button {
+      position: absolute;
+      top: 50%;
+      z-index: 100;
+      width: 50px;
+      height: 50px;
+      background: rgba($white,0.5)
+    }
+  }
 }

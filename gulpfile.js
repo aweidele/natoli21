@@ -88,7 +88,7 @@ gulp.task('icons', function() {
 // });
 
 gulp.task('watch', function(){
-  gulp.watch('src/sass/**/*.scss', gulp.series('sass'));
+  gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
   gulp.watch('src/js/**/*.js', gulp.series('compress'));
   gulp.watch('src/icons/**/*.svg', gulp.series('icons'));
 });

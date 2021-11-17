@@ -1276,6 +1276,30 @@ p {
   color: #DB0000;
 }
 
+.project-detail .tns-outer {
+  position: relative;
+}
+
+.project-detail .tns-outer>button {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.project-detail .tns-controls button {
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  width: 3.125rem;
+  height: 3.125rem;
+  background: rgba(255,255,255,0.5);
+}
+
 .news {
   padding-bottom: 1.875rem;
 }
@@ -1518,6 +1542,17 @@ p {
 .front-page__container .tns-inner {
   width: 100%;
   height: 100%;
+}
+
+.front-page__container .tns-outer button {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
 
 .front-page__container .tns-nav {

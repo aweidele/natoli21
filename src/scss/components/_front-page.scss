@@ -35,6 +35,12 @@
       height: 100%;
     }
 
+    .tns-outer {
+      button {
+        @include srOnly;
+      }
+    }
+
     .tns-nav {
       display: none;
     }
