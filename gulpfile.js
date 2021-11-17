@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('node-sass'));
 var autoprefixer = require('gulp-autoprefixer');
 var pxtorem = require('gulp-pxtorem');
 var concat = require('gulp-concat');
@@ -81,10 +81,17 @@ gulp.task('icons', function() {
   .pipe(gulp.dest('includes/icons/'));
 });
 
+// gulp.task('watch', function(){
+//   gulp.watch('src/scss/**/*.scss', ['sass']);
+//   gulp.watch('src/js/**/*.js', ['compress']);
+//   gulp.watch('src/icons/**/*.svg', ['icons']);
+// });
+
 gulp.task('watch', function(){
-  gulp.watch('src/scss/**/*.scss', ['sass']);
-  gulp.watch('src/js/**/*.js', ['compress']);
-  gulp.watch('src/icons/**/*.svg', ['icons']);
+  gulp.watch('src/sass/**/*.scss', gulp.series('sass'));
+  gulp.watch('src/js/**/*.js', gulp.series('compress'));
+  gulp.watch('src/icons/**/*.svg', gulp.series('icons'));
 });
 
-gulp.task('default', ['sass', 'compress', 'watch']);
+// gulp.task('default', ['sass', 'compress', 'watch']);
+gulp.task('default', gulp.series('sass', 'compress', 'watch'));
