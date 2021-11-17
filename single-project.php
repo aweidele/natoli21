@@ -182,7 +182,7 @@ function natoli_render_links($field, $label, $checkNoDetail = false)
           		"slideBy" => "page",
           		"autoplay" => true,
           		"mode" => "gallery",
-          		"controls" => false,
+          		"controls" => true,
           		"autoplayTimeout" => 3000,
               "navAsThumbnails" => true
           	];
