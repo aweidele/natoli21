@@ -1306,7 +1306,7 @@ p {
   width: 3.125rem;
   height: 3.125rem;
   position: absolute;
-  top: calc(100% - 1.5625rem);
+  top: calc(50% - 1.5625rem);
   left: 0;
   background: rgba(255,255,255,0.5);
   content: "";
