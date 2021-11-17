@@ -1634,17 +1634,6 @@ p {
      object-fit: cover;
 }
 
-.tns-outer button {
-  position: absolute;
-  width: 0.0625rem;
-  height: 0.0625rem;
-  padding: 0;
-  margin: -0.0625rem;
-  border: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-}
-
 .quotes__quote blockquote {
   color: #DB0000;
 }
