@@ -1323,7 +1323,7 @@ p {
 
 .project-detail .tns-controls button:before {
   z-index: 10;
-  opacity: .7;
+  opacity: .5;
 }
 
 .project-detail .tns-controls button:hover {
